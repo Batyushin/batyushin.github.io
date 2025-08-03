@@ -1,4 +1,4 @@
-/* Шрифты и сброс */
+/* Сброс и базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -9,17 +9,38 @@ body {
     font-family: 'Poppins', sans-serif;
     color: white;
     background: #000;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Градиент фон только для wrapper */
+/* Градиент фон для всей страницы */
 .wrapper-gradient {
-    background: linear-gradient(45deg, #000 60%, #8b0000, #ff0000);
+    background: linear-gradient(135deg, #1a1a1a 30%, #4b0000 60%, #ff2d2d 90%, #ff6666);
     min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* Центровка основного содержимого */
+/* Шапка */
+.header {
+    position: sticky;
+    top: env(safe-area-inset-top); /* Учитываем строку состояния */
+    width: 100%;
+    padding: 20px 0;
+    backdrop-filter: blur(25px) saturate(1.2);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(255, 45, 45, 0.15));
+    border-radius: 0 0 2rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Остальные стили остаются без изменений */
 .header-inner,
 .main,
 .branding,
@@ -31,21 +52,6 @@ body {
     text-align: center;
 }
 
-/* Стеклянная шапка с эффектом iOS 16 */
-.header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    padding: 20px 0;
-    backdrop-filter: blur(25px) saturate(1.2);
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(255, 45, 45, 0.15));
-    border-radius: 0 0 2rem 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-/* Название сайта */
 .site-name {
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
@@ -56,7 +62,6 @@ body {
     color: #fff;
 }
 
-/* Подзаголовок aka ReD */
 .site-subtitle {
     display: flex;
     align-items: center;
@@ -71,12 +76,10 @@ body {
     height: 20px;
 }
 
-/* Основной контент */
 .main {
     padding: 40px 20px;
 }
 
-/* Кнопки с жидким стеклянным эффектом */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -107,13 +110,13 @@ body {
     height: 20px;
 }
 
-/* Подвал с жидким стеклянным эффектом */
 .footer {
     background: linear-gradient(135deg, rgba(17, 17, 17, 0.4), rgba(0, 0, 0, 0.3));
     backdrop-filter: blur(20px) saturate(1.2);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #ccc;
     padding: 40px 20px;
+    padding-bottom: calc(40px + env(safe-area-inset-bottom));
 }
 
 .footer-columns {
