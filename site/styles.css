@@ -40,6 +40,14 @@ body {
     font-size: 1.8rem;
 }
 
+.aka-line {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem;
+}
+
 .poppins-text {
     font-family: 'Poppins', sans-serif;
     color: white;
