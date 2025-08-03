@@ -18,8 +18,12 @@ body {
 
 .header-wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .title {
@@ -52,11 +56,12 @@ body {
 
 /* Контент */
 .main-content {
-    flex: 1;
+    min-height: calc(100vh - 300px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
     text-align: center;
 }
 
@@ -146,7 +151,8 @@ body {
 
 .contact-buttons .button {
     justify-content: center;
-    width: 100%;
+    width: auto;
+    min-width: 200px;
 }
 
 .buttons-row {
