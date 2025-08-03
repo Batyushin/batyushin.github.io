@@ -178,6 +178,21 @@ body {
     margin-top: 10px;
 }
 
+.footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    color: #ccc;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.footer-copyright p {
+    margin: 0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
 .btn.small {
     padding: 8px 16px;
     font-size: 0.9rem;
