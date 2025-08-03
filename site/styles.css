@@ -43,17 +43,29 @@ body {
 
 .subtitle {
     font-size: 1.8rem;
-    color: red;
+    color: white;
     font-family: 'Saira Stencil One', cursive;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
+.subtitle .aka {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+}
+
+.subtitle .red {
+    color: red;
+    font-family: 'Saira Stencil One', cursive;
+    font-size: 1.8rem;
+}
+
 .red-icon {
     width: 35px;
     height: 35px;
-    margin-right: 4px;
+    margin-right: 3px;
 }
 
 .header-right .small-text {
