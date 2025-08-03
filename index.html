@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batyushin.ru</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="site/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site/styles.css">
 </head>
 <body>
 
 <!-- Шапка -->
 <header class="site-header">
-    <div class="title">BATYUSHIN<span>.ru</span></div>
+    <div class="title">
+        BATYUSHIN<span>.ru</span>
+    </div>
     <div class="title">
         <span class="poppins-text">aka</span>
-        <img src="site/img/red.webp" alt="icon" class="red_icon" />ReD
+        <img src="site/img/red.webp" alt="icon" class="red_icon">ReD
     </div>
 </header>
 
-<!-- Контент -->
+<!-- Основной контент -->
 <main class="main-content">
     <div class="content">
         <p>Здесь будет содержимое сайта.</p>
         <p>Добавь сюда свои проекты, статьи, заметки или галерею.</p>
     </div>
-
     <div class="buttons">
-        <a href="https://t.me/BlogReD" class="button button-large" target="_blank" rel="noopener noreferrer">
-            <img src="site/img/tg.svg" alt="tg" />Заметки Красного
+        <a href="https://t.me/BlogReD" class="button button-large" target="_blank" rel="noopener noreferrer" aria-label="Перейти на заметки Красного">
+            <img src="site/img/tg.svg" alt="tg">Заметки Красного
         </a>
-        <a href="https://vk.com/red.home" class="button button-large" target="_blank" rel="noopener noreferrer">
-            <img src="site/img/VK.png" alt="vk" />Заметки Красного
-        </a>
+    </div>
+    <div class="buttons">
+        <a href="https://vk.com/red.home" class="button button-large" target="_blank" rel="noopener noreferrer" aria-label="Перейти на заметки Красного">
+            <img src="site/img/VK.png">Заметки Красного</a>
     </div>
 </main>
 
@@ -69,17 +71,5 @@
     </div>
 </footer>
 
-<script>
-    document.getElementById('copyPhoneButton').addEventListener('click', function () {
-        const phoneNumber = "+79952882810";
-        const textarea = document.createElement('textarea');
-        textarea.value = phoneNumber;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        alert('Телефон скопирован: ' + phoneNumber);
-    });
-</script>
 </body>
 </html>
