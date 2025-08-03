@@ -31,7 +31,7 @@ body {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 5px;
+    gap: 2px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
@@ -42,7 +42,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1px;
+    gap: 0px;
 }
 
 .site-name {
