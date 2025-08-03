@@ -21,7 +21,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 10px;
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
