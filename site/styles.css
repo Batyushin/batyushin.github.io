@@ -17,7 +17,7 @@ body {
 
 /* Градиент фон для всей страницы */
 .wrapper-gradient {
-    background: linear-gradient(120deg, rgba(0, 0, 0, 0.9) 40%, rgba(139, 0, 0, 0.7) 70%, rgba(255, 45, 45, 0.8));
+    background: linear-gradient(300deg, rgba(255, 45, 45, 0.8) 40%, rgba(139, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.9));
     min-height: 100vh;
     height: 100%;
     display: flex;
