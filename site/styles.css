@@ -58,13 +58,13 @@ body {
 .nickname {
     color: red;
     font-family: 'Saira Stencil One', cursive;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .icon-red {
     width: 35px;
     height: 35px;
-    margin-right: 3px;
+    margin-right: 2px;
 }
 
 .header-note {
