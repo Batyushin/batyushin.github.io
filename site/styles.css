@@ -6,6 +6,24 @@ body {
 }
 
 /* Шапка */
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* выравнивание по левому краю */
+    gap: 4px;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
 .site-header {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
