@@ -1,228 +1,170 @@
-/* Шрифты и общий фон для шапки и основной части */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: none; /* фон для body уберём, чтобы не мешал */
-    color: white;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background-color: #111;
+  overflow-x: hidden;
 }
 
-/* Обёртка, которая включает шапку и основной контент, чтобы сделать общий градиент */
 .wrapper-gradient {
-    background: linear-gradient(45deg, #000 60%, #8b0000, #ff0000);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  background: linear-gradient(to bottom, #1e1e2f, #111);
+  min-height: 100vh;
 }
 
-/* Шапка */
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: rgba(0, 0, 0, 0.4); /* полупрозрачный фон */
-    backdrop-filter: blur(10px); /* делает мутность */
-    -webkit-backdrop-filter: blur(10px); /* для Safari */
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background-color: rgba(30, 30, 47, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0 0 2rem 2rem;
+  padding: 1.5rem 1rem;
 }
 
-/* Внутренний контейнер шапки */
 .header-inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    gap: 0;
-    row-gap: 4px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .branding {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0;
+  text-align: center;
 }
 
 .site-name {
-    font-size: 2.5rem;
-    line-height: 1;
-    color: red;
-    font-family: 'Saira Stencil One', cursive;
-    margin: 2px 0;
+  font-family: 'Saira Stencil One', cursive;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 }
 
 .domain {
-    color: white;
-    line-height: 1;
-    margin: 2px 0;
+  color: #ff0066;
 }
 
 .site-subtitle {
-    font-size: 1.5rem;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 2px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
 }
 
 .aka {
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    line-height: 1;
-    margin: 2px 0;
-}
-
-.nickname {
-    color: red;
-    font-family: 'Saira Stencil One', cursive;
-    font-size: 1.8rem;
-    line-height: 1;
-    margin: 2px 0;
+  margin-right: 0.3rem;
+  opacity: 0.7;
 }
 
 .icon-red {
-    width: 35px;
-    height: 35px;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: 0 0.3rem;
 }
 
-/* Основной контент */
+.nickname {
+  font-weight: bold;
+}
+
 .main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 20px;
-    text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .main-text p {
-    margin: 10px 0;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
 }
 
 .main-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 600px;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-/* Кнопки */
 .btn {
-    background-color: red;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn img {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
+  background-color: #ff0066;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #ff4d4d;
-    transform: scale(1.05);
+  background-color: #e6005c;
 }
 
-.btn:active {
-    transform: scale(0.95);
+.btn img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
-.btn.yellow {
-    background-color: yellow;
-    color: black;
-}
-
-.btn.yellow:hover {
-    background-color: #ffcc00;
-    box-shadow: 0 4px 8px rgba(255, 204, 0, 0.5);
-}
-
-.btn.small {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-}
-
-/* Подвал */
 .footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.3);
-    color: white;
+  background-color: #222;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
 }
 
 .footer-columns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
-.footer-column {
-    flex: 1 1 400px;
-    max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .footer-column h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-}
-
-.footer-buttons,
-.footer-buttons-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.footer-buttons-row {
-    flex-direction: row;
-    flex-wrap: wrap;
+  margin-top: 0;
 }
 
 .highlight {
-    color: red;
+  color: #ff0066;
+  font-weight: bold;
 }
 
-/* Адаптив */
-@media (max-width: 600px) {
-    .header-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+.footer-buttons, .footer-buttons-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
 
-    .branding {
-        align-items: center;
-        text-align: center;
-    }
+.btn.small {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
 
-    .header-note {
-        margin-top: 5px;
-    }
+.btn.yellow {
+  background-color: #ffc107;
+  color: #111;
+}
+
+.btn.yellow:hover {
+  background-color: #e0a800;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+  .main-buttons {
+    flex-direction: row;
+  }
+
+  .footer-columns {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-column {
+    flex: 1;
+  }
+
+  .main-text p {
+    font-size: 1.3rem;
+  }
 }
