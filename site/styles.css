@@ -186,83 +186,6 @@ body {
     gap: 10px;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    color: #ffffff;
-}
-
-/* Шапка */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #000;
-    color: #fff;
-}
-
-.title {
-    font-family: 'Saira Stencil One', cursive;
-    font-size: 24px;
-}
-
-.red_icon {
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
-    margin: 0 5px;
-}
-
-.poppins-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    margin-right: 5px;
-}
-
-/* Контент */
-.main-content {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 16px;
-    margin: 8px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.button img {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-}
-
-.button:hover {
-    background-color: #555;
-}
-
-.button-large {
-    font-size: 1.1em;
-}
-
-.yellow-button {
-    background-color: #f9c806;
-    color: #000;
-}
-
-.yellow-button:hover {
-    background-color: #e0b705;
-}
-
 /* Подвал */
 .site-footer {
     background-color: #000;
@@ -286,16 +209,4 @@ body {
     font-family: 'Saira Stencil One', cursive;
     font-size: 20px;
     margin-bottom: 16px;
-}
-
-.contact-buttons, .buttons-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-@media (max-width: 768px) {
-    .footer-columns {
-        flex-direction: column;
-    }
 }
