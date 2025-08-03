@@ -1,4 +1,8 @@
 /* Шрифты и общий фон для шапки и основной части */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -16,8 +20,8 @@ body {
 
 /* Шапка */
 .header {
-    background-color: rgba(0, 0, 0, 0.4); /* немного прозрачный, чтобы видеть градиент под ней */
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 12px 20px;
     box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
     position: sticky;
     top: 0;
@@ -31,7 +35,8 @@ body {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 2px;
+    gap: 0;
+    row-gap: 4px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
@@ -42,40 +47,46 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0px;
+    gap: 0;
 }
 
 .site-name {
     font-size: 2.5rem;
-    line-height: 1.1;
+    line-height: 1;
     color: red;
     font-family: 'Saira Stencil One', cursive;
+    margin: 2px 0;
 }
 
 .domain {
     color: white;
+    line-height: 1;
+    margin: 2px 0;
 }
 
 .site-subtitle {
-    font-size: 1.8rem;
-    line-height: 1.1;
+    font-size: 1.5rem;
+    line-height: 1;
     display: flex;
     align-items: center;
     gap: 6px;
+    margin: 2px 0;
 }
 
 .aka {
     color: white;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    line-height: 1.1;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 2px 0;
 }
 
 .nickname {
     color: red;
     font-family: 'Saira Stencil One', cursive;
-    font-size: 2.2rem;
-    line-height: 1.1;
+    font-size: 1.8rem;
+    line-height: 1;
+    margin: 2px 0;
 }
 
 .icon-red {
@@ -85,7 +96,7 @@ body {
 
 /* Основной контент */
 .main {
-    flex-grow: 1; /* чтобы занимать всю оставшуюся высоту */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
