@@ -138,7 +138,6 @@ body {
 .footer {
     background: linear-gradient(135deg, rgba(17, 17, 17, 0.5), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(25px) saturate(1.4);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
     color: #ccc;
     padding: 40px 20px;
     padding-bottom: calc(40px + env(safe-area-inset-bottom));
