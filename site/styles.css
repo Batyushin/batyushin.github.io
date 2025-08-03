@@ -13,9 +13,12 @@ body {
 
 /* Градиент фон только для wrapper */
 .wrapper-gradient {
-    background: linear-gradient(180deg, #2a0000, #000);
+    background: linear-gradient(45deg, #000 60%, #8b0000, #ff0000);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
 
 /* Центровка основного содержимого */
 .header-inner,
