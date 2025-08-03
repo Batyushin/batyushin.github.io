@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Batyushin.ru</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Saira+Stencil+One&display=swap" rel="stylesheet">
@@ -10,29 +10,21 @@
 </head>
 <body>
 
-<!-- Шапка -->
 <header class="site-header">
     <div class="header-wrapper">
-        <div class="header-left">
-            <div class="title-group">
-                <div class="title">BATYUSHIN<span>.ru</span></div>
-                <div class="subtitle">
-                    <span class="poppins-text">aka</span>
-                    <img src="site/img/red.webp" alt="icon" class="red_icon">ReD
-                </div>
+        <div class="title-group">
+            <div class="title">BATYUSHIN<span>.ru</span></div>
+            <div class="subtitle">
+                <span class="aka">aka</span>
+                <img src="site/img/red.webp" alt="icon" class="red_icon"> <span class="red-name">ReD</span>
             </div>
         </div>
-        <div class="header-right">
-            <div class="title right-title">
-                <span class="poppins-text"> Пока что пусто </span>
-            </div>
+        <div class="right-title">
+            <span>Пока что пусто</span>
         </div>
     </div>
 </header>
 
-
-
-<!-- Контент -->
 <main class="main-content">
     <div class="content">
         <p>Здесь будет содержимое странице.</p>
@@ -48,7 +40,6 @@
     </div>
 </main>
 
-<!-- Подвал -->
 <footer class="site-footer">
     <div class="footer-columns">
         <div class="footer-column">
@@ -76,15 +67,12 @@
 <script>
     document.getElementById('copyPhoneButton').addEventListener('click', function () {
         const phoneNumber = "+79896198442";
-
         const textarea = document.createElement('textarea');
         textarea.value = phoneNumber;
         document.body.appendChild(textarea);
-
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-
         alert('Телефон скопирован: ' + phoneNumber);
     });
 </script>
