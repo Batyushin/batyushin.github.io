@@ -17,7 +17,7 @@ body {
 
 /* Анимированный градиент фон для всей страницы */
 .wrapper-gradient {
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7) 70%, rgba(255, 0, 0, 0.8));
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7), rgba(255, 0, 0, 0.8));
     min-height: 100vh;
     height: 100%;
     display: flex;
@@ -40,31 +40,37 @@ body {
     }
 }
 
-/* Шапка с усиленным стеклянным эффектом */
+/* Шапка с шириной как у контента и закруглением всех углов */
 .header {
     position: sticky;
     top: env(safe-area-inset-top);
-    width: 100%;
-    padding: 20px 0;
-    backdrop-filter: blur(30px) saturate(1.4); /* Увеличенное размытие */
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(255, 45, 45, 0.2), rgba(255, 255, 255, 0.05)); /* Многослойный градиент */
-    border-radius: 0 0 2rem 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1); /* Добавлено свечение */
+    width: calc(100% - 40px); /* Соответствует ширине .main с учётом margin */
+    max-width: 1200px; /* Ограничение максимальной ширины, как у типичного контента */
+    margin: 0 auto; /* Центрирование */
+    padding: 20px;
+    backdrop-filter: blur(30px) saturate(1.4);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(255, 45, 45, 0.2), rgba(255, 255, 255, 0.05));
+    border-radius: 15px; /* Закругление всех четырёх углов */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Лёгкая граница для стеклянного эффекта */
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
     z-index: 1000;
 }
 
-/* Основной контент с лёгким стеклянным эффектом */
+/* Основной контент на всю высоту */
 .main {
+    flex: 1; /* Растягивает .main на всю доступную высоту */
     padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.05); /* Лёгкий стеклянный фон */
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px) saturate(1.2);
     border-radius: 15px;
-    margin: 0 20px;
+    margin: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирует контент по вертикали */
 }
 
-/* Остальные стили для центровки */
+/* Остальные стили */
 .header-inner,
 .branding,
 .main-text,
@@ -99,7 +105,6 @@ body {
     height: 20px;
 }
 
-/* Кнопки с усиленным стеклянным эффектом */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -110,18 +115,18 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255, 0.05)); /* Многослойный градиент */
-    backdrop-filter: blur(20px) saturate(1.4); /* Усиленное размытие */
+    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px) saturate(1.4);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15); /* Свечение и глубина */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15);
     color: #fff;
-    transition: all 0.4s ease-in-out; /* Более плавный переход */
+    transition: all 0.4s ease-in-out;
 }
 
 .btn:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 45, 45, 0.4));
     color: #ff2d2d;
-    transform: translateY(-3px); /* Лёгкий подъём при наведении */
+    transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -130,7 +135,6 @@ body {
     height: 20px;
 }
 
-/* Подвал с усиленным стеклянным эффектом */
 .footer {
     background: linear-gradient(135deg, rgba(17, 17, 17, 0.5), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(25px) saturate(1.4);
@@ -148,7 +152,7 @@ body {
 }
 
 .footer-column {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); /* Многослойный градиент */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(20px) saturate(1.4);
     border-radius: 15px;
     padding: 20px;
