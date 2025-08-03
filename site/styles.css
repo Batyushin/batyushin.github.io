@@ -182,7 +182,7 @@ body {
     text-align: center;
     margin-top: 20px;
     padding: 10px 0;
-    color: #ccc;
+    color: red;
     font-size: 0.85rem;
     opacity: 0.8;
     animation: fadeIn 1s ease-in-out;
