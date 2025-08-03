@@ -2,107 +2,81 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Batyushin.ru</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Saira+Stencil+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="site/styles.css" />
 </head>
 <body>
 
-<!-- Шапка -->
-<header class="header">
-    <div class="header-inner">
-        <div class="branding">
-            <div class="site-name">BATYUSHIN<span class="domain">.ru</span></div>
-            <div class="site-subtitle">
-                <span class="aka">aka</span>
-                <img src="site/img/red.webp" alt="icon" class="icon-red" />
-                <span class="nickname">ReD</span>
+<div class="wrapper-gradient">
+    <!-- Шапка -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="branding">
+                <div class="site-name">BATYUSHIN<span class="domain">.ru</span></div>
+                <div class="site-subtitle">
+                    <span class="aka">aka</span>
+                    <img src="site/img/red.webp" alt="icon" class="icon-red" />
+                    <span class="nickname">ReD</span>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- Основной контент -->
-<main class="main">
-    <div class="main-text">
-        <p>Здесь будет содержимое страницы.</p>
-        <p>Пока не знаю, что сюда добавить.</p>
-    </div>
-    <div class="main-buttons">
-        <a href="https://t.me/BlogReD" class="btn" target="_blank" rel="noopener noreferrer">
-            <img src="site/img/tg.svg" alt="Telegram" /> Заметки Красного
-        </a>
-        <a href="https://vk.com/red.home" class="btn" target="_blank" rel="noopener noreferrer">
-            <img src="site/img/VK.png" alt="VK" /> Заметки Красного
-        </a>
-    </div>
-</main>
+    <!-- Основной контент -->
+    <main class="main">
+        <div class="main-text">
+            <p>Здесь будет содержимое странице.</p>
+            <p>Пока не знаю что сюда добавить.</p>
+        </div>
+        <div class="main-buttons">
+            <a href="https://t.me/BlogReD" class="btn" target="_blank">
+                <img src="site/img/tg.svg" alt="tg">Заметки Красного
+            </a>
+            <a href="https://vk.com/red.home" class="btn" target="_blank">
+                <img src="site/img/VK.png" alt="vk">Заметки Красного
+            </a>
+        </div>
+    </main>
+</div>
 
 <!-- Подвал -->
 <footer class="footer">
     <div class="footer-columns">
-        <section class="footer-column" aria-labelledby="contacts-heading">
-            <h3 id="contacts-heading">Контакты</h3>
-            <p>Я <span class="highlight">Дмитрий Б.</span> 
-                (<img src="site/img/red.webp" alt="icon" width="13" height="13" /> 
-                <span class="highlight">ReD</span>)
-            </p>
+        <div class="footer-column">
+            <h3>Контакты</h3>
+            <p>Я <span class="highlight">Дмитрий Б.</span> (<img src="site/img/red.webp" alt="icon" width="13" height="13" /> <span class="highlight">ReD</span>)</p>
             <p>Связаться со мной можно любым удобным способом:</p>
             <div class="footer-buttons">
-                <a href="https://t.me/red_ik" class="btn small" target="_blank" rel="noopener noreferrer">
-                    <img src="site/img/tg.svg" alt="Telegram" /> @ReD_ik
-                </a>
-                <a href="tel:+79952882810" class="btn small">📞 +7 (995) 288-28-10</a>
-                <a href="mailto:red_ik@inbox.ru" class="btn small">📧 red_ik@inbox.ru</a>
+                <a href="https://t.me/red_ik" class="btn small" target="_blank"><img src="site/img/tg.svg" alt="Telegram" /> @ReD_ik</a>
+                <a href="tel:+79952882810" class="btn small" target="_blank">📞 +7 (995) 288-28-10</a>
+                <a href="mailto:red_ik@inbox.ru" class="btn small" target="_blank">📧 red_ik@inbox.ru</a>
             </div>
-        </section>
-        <section class="footer-column" aria-labelledby="support-heading">
-            <h3 id="support-heading">Поддержка</h3>
+        </div>
+        <div class="footer-column">
+            <h3>Поддержка</h3>
             <p>Вы можете перевести на <strong>+7 (995) 288-28-10</strong> или использовать кнопку:</p>
             <div class="footer-buttons-row">
-                <button class="btn small" id="copyPhoneButton" type="button">Скопировать телефон</button>
-                <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" class="btn yellow small" target="_blank" rel="noopener noreferrer">Поддержать</a>
+                <a href="javascript:void(0)" class="btn small" id="copyPhoneButton">Скопировать телефон</a>
+                <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" class="btn yellow small" target="_blank">Поддержать</a>
             </div>
             <p>Любая сумма от 1₽ важна. Спасибо!</p>
-        </section>
+        </div>
     </div>
 </footer>
 
 <script>
     document.getElementById('copyPhoneButton').addEventListener('click', function () {
         const phoneNumber = "+79952882810";
-        if (navigator.clipboard && window.isSecureContext) {
-            // Используем современный API
-            navigator.clipboard.writeText(phoneNumber).then(() => {
-                alert('Телефон скопирован: ' + phoneNumber);
-            }).catch(() => {
-                fallbackCopy(phoneNumber);
-            });
-        } else {
-            // Фоллбек для старых браузеров
-            fallbackCopy(phoneNumber);
-        }
-
-        function fallbackCopy(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';  // чтобы не прокручивалось
-            textarea.style.left = '-9999px';
-            document.body.appendChild(textarea);
-            textarea.focus();
-            textarea.select();
-
-            try {
-                const successful = document.execCommand('copy');
-                alert(successful ? 'Телефон скопирован: ' + text : 'Не удалось скопировать телефон');
-            } catch (err) {
-                alert('Ошибка при копировании телефона');
-            }
-
-            document.body.removeChild(textarea);
-        }
+        const textarea = document.createElement('textarea');
+        textarea.value = phoneNumber;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('Телефон скопирован: ' + phoneNumber);
     });
 </script>
 
