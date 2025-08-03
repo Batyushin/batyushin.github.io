@@ -1,14 +1,14 @@
-/* Шрифты и фон */
+/* Шрифты и общий фон для шапки и основной части */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    background: none; /* фон для body уберём, чтобы не мешал */
     color: white;
 }
 
-/* Обертка с градиентом для шапки и основного контента */
-.gradient-wrapper {
+/* Обёртка, которая включает шапку и основной контент, чтобы сделать общий градиент */
+.wrapper-gradient {
     background: linear-gradient(45deg, #000 60%, #8b0000, #ff0000);
-    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,9 +16,7 @@ body {
 
 /* Шапка */
 .header {
-    background-color: rgba(0, 0, 0, 0.4); /* полупрозрачный фон */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* для Safari */
+    background-color: rgba(0, 0, 0, 0.4); /* немного прозрачный, чтобы видеть градиент под ней */
     padding: 20px;
     box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
     position: sticky;
@@ -26,6 +24,7 @@ body {
     z-index: 100;
 }
 
+/* Внутренний контейнер шапки */
 .header-inner {
     display: flex;
     flex-wrap: wrap;
@@ -80,16 +79,15 @@ body {
     height: 35px;
 }
 
-/* Контент */
+/* Основной контент */
 .main {
-    min-height: calc(100vh - 340px);
+    flex-grow: 1; /* чтобы занимать всю оставшуюся высоту */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
     text-align: center;
-    flex-grow: 1;
 }
 
 .main-text p {
@@ -154,6 +152,7 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.3);
+    color: white;
 }
 
 .footer-columns {
@@ -194,7 +193,7 @@ body {
     color: red;
 }
 
-/* Медиазапрос для мобильных */
+/* Адаптив */
 @media (max-width: 600px) {
     .header-inner {
         flex-direction: column;
