@@ -15,6 +15,7 @@ body {
     top: 0;
     z-index: 100;
 }
+
 @media (max-width: 600px) {
     .header-inner {
         flex-direction: column;
@@ -31,6 +32,7 @@ body {
         margin-top: 5px;
     }
 }
+
 .header-inner {
     display: flex;
     flex-wrap: wrap;
