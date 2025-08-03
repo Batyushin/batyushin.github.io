@@ -27,17 +27,6 @@ body {
     padding: 0 5%;
 }
 
-@media (max-width: 600px) {
-    .header-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .header-note {
-        margin-top: 5px;
-    }
-}
-
 .branding {
     display: flex;
     flex-direction: column;
