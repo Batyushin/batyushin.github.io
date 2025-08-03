@@ -62,5 +62,21 @@
     </div>
 </footer>
 
+<script>
+    document.getElementById('copyPhoneButton').addEventListener('click', function () {
+        const phoneNumber = "+79896198442";
+
+        const textarea = document.createElement('textarea');
+        textarea.value = phoneNumber;
+        document.body.appendChild(textarea);
+
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        alert('Телефон скопирован: ' + phoneNumber);
+    });
+</script>
+
 </body>
 </html>
