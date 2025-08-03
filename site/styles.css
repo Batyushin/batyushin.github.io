@@ -24,9 +24,10 @@ body {
 }
 
 .title {
-    font-family: 'Saira Stencil One', cursive;
-    font-size: 3rem;
+    font-size: 400%;
+    text-align: center;
     color: red;
+    font-family: 'Saira Stencil One', cursive;
 }
 
 .title span {
