@@ -79,18 +79,10 @@ body {
 
 /* Копирайт */
 .footer-copyright {
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    padding: 10px;
-}
-
-/* Стиль для ReD */
-.highlight {
-    color: #ff2d2d;
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* Брендинг */
