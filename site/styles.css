@@ -98,13 +98,6 @@ body {
     justify-content: center;
 }
 
-/* Стили для кнопок в блоке контактов */
-/* Выравнивание кнопок по вертикали для устранения смещения */
-.footer-buttons {
-    display: flex;
-    align-items: center; /* Центрирование по вертикали */
-}
-
 /* Стили заголовка и брендинга */
 /* Общие стили для шапки, бренда, текста и кнопок с центрированием */
 .header-inner,
@@ -149,7 +142,7 @@ body {
     height: 20px;
 }
 
-.icon-red-small {
+.icon-small {
     width: 13px;
     height: 13px;
 }
