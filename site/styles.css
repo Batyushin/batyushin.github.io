@@ -216,6 +216,30 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Стиль для ReD */
+.highlight {
+    color: #ff2d2d;
+    font-weight: bold;
+}
+
+/* Адаптивность footer-copyright */
+@media (max-width: 1200px) {
+    .footer-copyright {
+        font-size: 0.9rem;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .footer-copyright p {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .header-inner,
