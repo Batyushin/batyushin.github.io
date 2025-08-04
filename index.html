@@ -80,13 +80,9 @@
 <script>
   document.getElementById('copyPhoneButton').addEventListener('click', function () {
     const phoneNumber = "+79952882810";
-    const textarea = document.createElement('textarea');
-    textarea.value = phoneNumber;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    alert('Телефон скопирован: ' + phoneNumber);
+    navigator.clipboard.writeText(phoneNumber)
+            .then(() => alert('Телефон скопирован: ' + phoneNumber))
+            .catch(err => console.error('Ошибка копирования:', err));
   });
 </script>
 </body>
