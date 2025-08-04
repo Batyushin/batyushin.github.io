@@ -119,7 +119,7 @@ body {
     display: inline;
 }
 
-/* Подзаголовок */
+/* Подзаголовок (обновлён для кликабельности) */
 .site-subtitle {
     display: flex;
     align-items: center;
@@ -133,6 +133,7 @@ body {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    text-decoration: none;
 }
 
 /* Иконки */
@@ -181,7 +182,7 @@ body {
     color: #ccc;
     transition: all 0.3s ease-in-out;
     backdrop-filter: blur(5px);
-    margin-bottom: 15px; /* Добавлен отступ после кнопок */
+    margin-bottom: 15px;
 }
 
 .btn:hover {
