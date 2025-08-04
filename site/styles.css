@@ -99,37 +99,7 @@ body {
 }
 
 /* Стили заголовка и брендинга */
-/* Общие стили для шапки, бренда и текста с центрированием */
-.header-inner,
-.branding {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.main-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.main-buttons {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center; /* Центрирование кнопок по горизонтали */
-}
-
-.small-buttons {
-    align-items: center;
-    text-align: center;
-    justify-content: center; /* Центрирование кнопок по горизонтали */
-}
-
-/* Стили для внутренней части шапки */
-/* Выравнивание влево с вертикальным центрированием на широких экранах */
+/* Общие стили для шапки и бренда с центрированием */
 .header-inner {
     display: flex;
     flex-direction: column;
@@ -138,8 +108,6 @@ body {
     text-align: left;
 }
 
-/* Стили брендинга */
-/* Выравнивание текста влево */
 .branding {
     display: flex;
     flex-direction: column;
@@ -147,22 +115,35 @@ body {
     text-align: left;
 }
 
-/* Название сайта */
+/* Обёртка для site-name и domain */
+.site-name-wrapper {
+    display: flex;
+    align-items: baseline; /* Выравнивание по базовой линии */
+    gap: 0; /* Убираем промежуток между элементами */
+}
+
+/* Название сайта и ссылка на корень */
 /* Стиль для заголовка сайта с уникальным шрифтом и цветом */
 .site-name {
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
     color: #ff2d2d;
+    text-decoration: none; /* Убираем подчёркивание */
+    display: inline; /* Сохраняем как строку */
 }
 
 /* Домен в названии сайта */
 /* Стиль для части домена с белым цветом */
 .domain {
+    font-family: 'Saira Stencil One', sans-serif;
+    font-size: 2.5rem;
     color: #fff;
+    text-decoration: none; /* Убираем подчёркивание */
+    display: inline; /* Сохраняем как строку */
 }
 
 /* Подзаголовок сайта */
-/* Стиль для подзаголовка с иконкой и отступами */
+/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно site-name */
 .site-subtitle {
     display: flex;
     align-items: center;
@@ -170,6 +151,10 @@ body {
     font-size: 1.2rem;
     margin-top: 5px;
     color: #ccc;
+    position: absolute;
+    left: 50%; /* Смещение влево на 50% от родителя */
+    transform: translateX(-50%); /* Сдвиг назад на половину своей ширины */
+    top: 100%; /* Расположение под site-name-wrapper */
 }
 
 /* Иконка в подзаголовке */
@@ -262,6 +247,16 @@ body {
     .branding {
         align-items: center;
         text-align: center;
+    }
+    .site-subtitle {
+        position: static;
+        transform: none;
+        width: auto;
+        margin: 0 auto;
+    }
+    .site-name-wrapper {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
