@@ -103,25 +103,25 @@ body {
 .header-inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* Смещение влево */
+    justify-content: center; /* Вертикальное центрирование */
+    text-align: left;
+    position: relative; /* Для позиционирования site-subtitle */
 }
 
 .branding {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* Смещение влево */
+    text-align: left;
+    position: relative;
 }
 
-/* Контейнер для центрирования относительно site-name */
-.branding-content {
+/* Обёртка для site-name и domain */
+.site-name-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: fit-content; /* Адаптируется под ширину site-name */
-    margin: 0 auto; /* Центрирование блока */
+    align-items: baseline; /* Выравнивание по базовой линии */
+    position: relative;
 }
 
 /* Название сайта */
@@ -130,25 +130,31 @@ body {
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
     color: #ff2d2d;
-    text-align: center; /* Убедимся, что текст внутри выровнен */
 }
 
 /* Домен в названии сайта */
 /* Стиль для части домена с белым цветом */
 .domain {
     color: #fff;
+    font-family: 'Saira Stencil One', sans-serif;
+    font-size: 2.5rem;
+    position: relative; /* Базовая точка для центрирования */
 }
 
 /* Подзаголовок сайта */
-/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно site-name */
+/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно domain */
 .site-subtitle {
     display: flex;
     align-items: center;
-    justify-content: center; /* Центрирование относительно ширины родителя */
     gap: 0.4rem;
     font-size: 1.2rem;
     margin-top: 5px;
     color: #ccc;
+    position: absolute;
+    left: 50%; /* Смещение влево на 50% от родителя */
+    transform: translateX(-50%); /* Сдвиг назад на половину своей ширины */
+    width: max-content; /* Адаптируется под содержимое */
+    top: 100%; /* Расположение под site-name-wrapper */
 }
 
 /* Иконка в подзаголовке */
@@ -242,8 +248,15 @@ body {
         align-items: center;
         text-align: center;
     }
-    .branding-content {
-        width: auto; /* Сброс ширины на мобильных */
+    .site-subtitle {
+        position: static; /* Сброс позиционирования */
+        transform: none; /* Сброс трансформации */
+        width: auto; /* Адаптация под содержимое */
+        margin: 0 auto; /* Центрирование */
+    }
+    .site-name-wrapper {
+        flex-direction: column; /* Стек в столбец на мобильных */
+        align-items: center;
     }
 }
 
