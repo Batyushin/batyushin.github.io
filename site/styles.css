@@ -181,6 +181,7 @@ body {
     color: #ccc;
     transition: all 0.3s ease-in-out;
     backdrop-filter: blur(5px);
+    margin-bottom: 15px; /* Добавлен отступ после кнопок */
 }
 
 .btn:hover {
