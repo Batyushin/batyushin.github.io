@@ -1,180 +1,76 @@
-* {
+/* Общий градиент */
+html, body {
     margin: 0;
     padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100%;
+}
+
+.wrapper-gradient {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7), rgba(255, 0, 0, 0.8));
-    background-size: 300% 300%;
-    animation: gradientFlow 10s ease-in-out infinite;
-}
-
-@keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
+/* Общий стеклянный стиль */
 .glass-block {
-    max-width: 1200px;
-    width: calc(100% - 40px);
-    margin: 20px auto;
-    padding: 20px;
     backdrop-filter: blur(30px) saturate(1.4);
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Шапка */
 .header {
+    width: 100%;
+    max-width: 1200px;
     position: sticky;
-    top: env(safe-area-inset-top);
-    z-index: 1000;
+    top: 0;
+    z-index: 10;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
+/* Контент */
 .main {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    text-align: center;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
+/* Подвал */
 .footer {
-    background: transparent;
-    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    width: 100%;
+    max-width: 1200px;
 }
 
-/* Футер — 2 колонки */
 .footer-columns {
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
     justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.footer-column {
-    flex: 1;
-    min-width: 280px;
+.footer-left,
+.footer-right {
+    flex: 1 1 48%;
 }
 
-.footer-column h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #ff2d2d;
-}
-
-.footer-column p {
-    margin-bottom: 10px;
-}
-
-.footer-buttons,
-.footer-buttons-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* Стеклянный copyright */
-.footer-copyright {
-    margin: 20px auto;
+/* Копирайт */
+.copyright {
+    width: 100%;
+    margin-top: 20px;
     text-align: center;
-    font-size: 0.9rem;
-    color: #ff2d2d;
-    opacity: 0.8;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-}
-
-/* Стили заголовка и брендинга */
-.header-inner,
-.branding,
-.main-text,
-.main-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.site-name {
-    font-family: 'Saira Stencil One', sans-serif;
-    font-size: 2.5rem;
-    color: #ff2d2d;
-}
-
-.domain {
-    color: #fff;
-}
-
-.site-subtitle {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 1.2rem;
-    margin-top: 5px;
+    font-size: 14px;
     color: #ccc;
-}
-
-.icon-red {
-    width: 20px;
-    height: 20px;
-}
-
-/* Кнопки */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 12px 20px;
-    margin: 10px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(20px) saturate(1.4);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15);
-    color: #fff;
-    transition: all 0.4s ease-in-out;
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 45, 45, 0.4));
-    color: #ff2d2d;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.btn img {
-    width: 20px;
-    height: 20px;
-}
-
-.btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    backdrop-filter: blur(15px) saturate(1.4);
-}
-
-.btn.yellow {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.05));
-    color: #000;
-}
-
-.btn.yellow:hover {
-    background: linear-gradient(135deg, rgba(255, 241, 118, 0.4), rgba(255, 193, 7, 0.4));
-    color: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.highlight {
-    color: #ff2d2d;
 }
