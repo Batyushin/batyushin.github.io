@@ -158,7 +158,6 @@ body {
 .btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center; /* Центрирование кнопок по горизонтали */
     gap: 0.6rem;
     padding: 12px 20px;
     margin: 10px;
@@ -193,6 +192,7 @@ body {
 /* Модификатор для маленьких кнопок */
 /* Уменьшенные размеры и отступы для компактных кнопок */
 .btn.small {
+    justify-content: center; /* Центрирование кнопок по горизонтали */
     padding: 8px 16px;
     font-size: 0.9rem;
     height: 40px; /* Фиксированная высота */
