@@ -117,6 +117,7 @@ body {
 }
 
 .small-buttons {
+    display: flex;
     justify-content: center; /* Центрирование кнопок по горизонтали */
 }
 
