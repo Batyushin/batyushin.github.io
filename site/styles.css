@@ -106,7 +106,6 @@ body {
     align-items: flex-start; /* Смещение влево */
     justify-content: center; /* Вертикальное центрирование */
     text-align: left;
-    position: relative; /* Для позиционирования site-subtitle */
 }
 
 .branding {
@@ -121,7 +120,6 @@ body {
 .site-name-wrapper {
     display: flex;
     align-items: baseline; /* Выравнивание по базовой линии */
-    position: relative;
 }
 
 /* Название сайта */
@@ -130,6 +128,7 @@ body {
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
     color: #ff2d2d;
+    display: inline-block; /* Для точного измерения ширины */
 }
 
 /* Домен в названии сайта */
@@ -138,11 +137,11 @@ body {
     color: #fff;
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
-    position: relative; /* Базовая точка для центрирования */
+    margin-left: 5px; /* Небольшой отступ от BATYUSHIN */
 }
 
 /* Подзаголовок сайта */
-/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно domain */
+/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно site-name */
 .site-subtitle {
     display: flex;
     align-items: center;
@@ -150,11 +149,11 @@ body {
     font-size: 1.2rem;
     margin-top: 5px;
     color: #ccc;
-    position: absolute;
+    width: fit-content; /* Адаптируется под содержимое */
+    margin-left: 0; /* Сброс смещения */
+    position: relative;
     left: 50%; /* Смещение влево на 50% от родителя */
-    transform: translateX(-50%); /* Сдвиг назад на половину своей ширины */
-    width: max-content; /* Адаптируется под содержимое */
-    top: 100%; /* Расположение под site-name-wrapper */
+    transform: translateX(calc(-50% + 0px)); /* Корректировка для центрирования относительно site-name */
 }
 
 /* Иконка в подзаголовке */
@@ -249,14 +248,17 @@ body {
         text-align: center;
     }
     .site-subtitle {
-        position: static; /* Сброс позиционирования */
-        transform: none; /* Сброс трансформации */
-        width: auto; /* Адаптация под содержимое */
-        margin: 0 auto; /* Центрирование */
+        position: static;
+        transform: none;
+        width: auto;
+        margin: 0 auto;
     }
     .site-name-wrapper {
-        flex-direction: column; /* Стек в столбец на мобильных */
+        flex-direction: column;
         align-items: center;
+    }
+    .domain {
+        margin-left: 0; /* Сброс отступа на мобильных */
     }
 }
 
