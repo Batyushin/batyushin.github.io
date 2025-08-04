@@ -50,7 +50,7 @@
     <div class="footer-columns">
       <div class="footer-column glass-block">
         <h3>Контакты</h3>
-        <p>Привет! Я <span class="highlight">Дмитрий Батюшин</span>, он же <img src="site/img/red.webp" alt="icon" width="13" height="13" /> <span class="highlight">ReD</span></p>
+        <p>Привет! Я <span class="highlight">Дмитрий Батюшин</span>, он же <img src="site/img/red.webp" alt="icon" /> <span class="highlight">ReD</span></p>
         <p>Готов ответить на любые вопросы или обсудить идеи по автоматизации! Пишите или звоните:</p>
         <div class="footer-buttons">
           <a href="https://t.me/red_ik" class="btn small" target="_blank"><img src="site/img/tg.svg" alt="Telegram" />@ReD_ik</a>
@@ -81,7 +81,7 @@
     textarea.value = phoneNumber;
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand('copy');
+    //document.execCommand('copy');
     document.body.removeChild(textarea);
     alert('Телефон скопирован: ' + phoneNumber);
   });
