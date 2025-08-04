@@ -98,15 +98,6 @@ body {
     justify-content: center;
 }
 
-/* Стили для кнопок в основном контенте */
-/* Горизонтальное расположение больших кнопок с адаптацией на узких экранах */
-.main-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
 /* Стили заголовка и брендинга */
 /* Общие стили для шапки, бренда, текста и кнопок с центрированием */
 .header-inner,
@@ -114,7 +105,6 @@ body {
 .main-text,
 .main-buttons {
     display: flex;
-    flex-direction: column;
     align-items: center;
     text-align: center;
 }
@@ -221,17 +211,4 @@ body {
 /* Стиль для выделенного текста с красным цветом */
 .highlight {
     color: #ff2d2d;
-}
-
-/* Адаптивность для кнопок в основном контенте */
-/* Переключение кнопок в столбец на узких экранах */
-@media (max-width: 768px) {
-    .main-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    .btn {
-        width: 100%; /* Полная ширина на мобильных */
-        margin: 10px 0; /* Вертикальные отступы */
-    }
 }
