@@ -170,8 +170,8 @@ body {
 }
 
 .btn.yellow:hover {
-    background: linear-gradient(135deg, rgba(255, 241, 118, 0.4), rgba(255, 193, 7, 0.4));
-    color: #000;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 193, 7, 0.3));
+    color: rgba(255, 193, 7, 0.5);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
