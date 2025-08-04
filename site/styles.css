@@ -151,10 +151,13 @@ body {
     font-size: 1.2rem;
     margin-top: 5px;
     color: #ccc;
-    position: absolute;
-    left: 50%; /* Смещение влево на 50% от родителя */
-    transform: translateX(-50%); /* Сдвиг назад на половину своей ширины */
-    top: 100%; /* Расположение под site-name-wrapper */
+    width: fit-content; /* Адаптируется под содержимое */
+    margin-left: 0; /* Сброс смещения */
+    text-align: center; /* Центрирование текста внутри */
+    /* Центрируем относительно ширины site-name */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Иконка в подзаголовке */
@@ -234,6 +237,16 @@ body {
 /* Стиль для выделенного текста с красным цветом */
 .highlight {
     color: #ff2d2d;
+}
+
+/* Кнопки в основном контенте */
+/* Центрирование кнопок */
+.main-buttons {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    text-align: center;
+    flex-wrap: wrap; /* Разрешаем перенос на маленьких экранах */
 }
 
 /* Адаптивность для шапки */
