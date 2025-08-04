@@ -18,7 +18,7 @@ body {
     height: auto;
     display: flex;
     flex-direction: column;
-    padding: 20px; /* Одинаковый отступ со всех сторон */
+    padding: 20px;
     animation: gradientFlow 10s ease-in-out infinite;
 }
 
@@ -62,7 +62,7 @@ body {
 /* Подвал */
 .footer {
     background: transparent;
-    padding: 20px; /* Одинаковый отступ, как в .wrapper-gradient */
+    padding: 20px;
 }
 
 /* Колонки подвала */
@@ -70,14 +70,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .footer-column {
     flex: 1;
-    width: calc((1200px - 20px) / 2); /* Суммарная ширина 1200px */
+    width: calc((1200px - 20px) / 2);
     min-width: 280px;
     max-width: 590px;
 }
@@ -107,7 +104,6 @@ body {
     font-size: 2.5rem;
     color: #ff2d2d;
 }
-
 
 .domain {
     color: #fff;
@@ -206,6 +202,6 @@ progress::-webkit-progress-value {
     }
 
     .glass-block {
-        width: calc(100% - 40px); /* Одинаковая ширина на мобильных */
+        width: calc(100% - 40px);
     }
 }
