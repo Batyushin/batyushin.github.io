@@ -99,14 +99,8 @@ body {
 }
 
 /* Стили заголовка и брендинга */
-/* Общие стили для шапки и бренда с центрированием */
-.header-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
+/* Общие стили для шапки, бренда и текста с центрированием */
+.header-inner,
 .branding {
     display: flex;
     flex-direction: column;
@@ -114,14 +108,43 @@ body {
     text-align: center;
 }
 
-/* Контейнер для центрирования относительно site-name */
-.branding-content {
+.main-text {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: fit-content; /* Адаптируется под ширину site-name */
-    margin: 0 auto; /* Центрирование блока */
+}
+
+.main-buttons {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
+}
+
+.small-buttons {
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
+}
+
+/* Стили для внутренней части шапки */
+/* Выравнивание влево с вертикальным центрированием на широких экранах */
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Смещение влево */
+    justify-content: center; /* Вертикальное центрирование */
+    text-align: left;
+}
+
+/* Стили брендинга */
+/* Выравнивание текста влево */
+.branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Смещение влево */
+    text-align: left;
 }
 
 /* Название сайта */
@@ -130,7 +153,6 @@ body {
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
     color: #ff2d2d;
-    text-align: center; /* Убедимся, что текст внутри выровнен */
 }
 
 /* Домен в названии сайта */
@@ -140,11 +162,11 @@ body {
 }
 
 /* Подзаголовок сайта */
-/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно site-name */
+/* Стиль для подзаголовка с иконкой и отступами */
 .site-subtitle {
     display: flex;
     align-items: center;
-    justify-content: center; /* Центрирование относительно ширины родителя */
+    text-align: left;
     gap: 0.4rem;
     font-size: 1.2rem;
     margin-top: 5px;
@@ -241,9 +263,6 @@ body {
     .branding {
         align-items: center;
         text-align: center;
-    }
-    .branding-content {
-        width: auto; /* Сброс ширины на мобильных */
     }
 }
 
