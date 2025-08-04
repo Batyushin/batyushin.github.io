@@ -84,9 +84,9 @@ body {
 
 /* Копирайт */
 .footer-copyright {
-    text-align: center;
+    text-align: left;
     font-size: 0.9rem;
-    color: #ff2d2d;
+    color: #ccc;
     opacity: 0.8;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
