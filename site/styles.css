@@ -1,3 +1,4 @@
+/* Сброс и базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +6,13 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #ccc;
     min-height: 100vh;
     overflow-x: hidden;
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7), rgba(255, 0, 0, 0.8));
-    background-size: 300% 300%;
     animation: gradientFlow 10s ease-in-out infinite;
 }
-
 
 @keyframes gradientFlow {
     0% { background-position: 0% 50%; }
@@ -21,6 +20,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+/* Базовый стиль для стеклянных блоков */
 .glass-block {
     max-width: 1200px;
     width: calc(100% - 40px);
@@ -33,12 +33,14 @@ body {
     box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
+/* Шапка */
 .header {
     position: sticky;
     top: env(safe-area-inset-top);
     z-index: 1000;
 }
 
+/* Основной контент */
 .main {
     flex: 1;
     display: flex;
@@ -46,12 +48,12 @@ body {
     justify-content: center;
 }
 
+/* Подвал */
 .footer {
     background: transparent;
     padding-bottom: calc(40px + env(safe-area-inset-bottom));
 }
 
-/* Футер — 2 колонки */
 .footer-columns {
     display: flex;
     flex-wrap: wrap;
@@ -82,12 +84,11 @@ body {
     margin-top: 10px;
 }
 
-/* Стеклянный copyright */
 .footer-copyright {
     margin: 20px auto;
     text-align: left;
     font-size: 0.9rem;
-    color: #ccc;
+    color: #ff2d2d;
     opacity: 0.8;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
@@ -138,44 +139,4 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(20px) saturate(1.4);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15);
-    color: #ccc;
-    transition: all 0.4s ease-in-out;
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 45, 45, 0.4));
-    color: #ff2d2d;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.btn img {
-    width: 20px;
-    height: 20px;
-}
-
-.btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    backdrop-filter: blur(15px) saturate(1.4);
-}
-
-.btn.yellow {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.05));
-    color: #000;
-}
-
-.btn.yellow:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 193, 7, 0.3));
-    color: rgba(255, 193, 7, 0.5);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.highlight {
-    color: #ff2d2d;
-}
+    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255,
