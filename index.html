@@ -81,7 +81,7 @@
     textarea.value = phoneNumber;
     document.body.appendChild(textarea);
     textarea.select();
-    //document.execCommand('copy');
+    document.execCommand('copy');
     document.body.removeChild(textarea);
     alert('Телефон скопирован: ' + phoneNumber);
   });
