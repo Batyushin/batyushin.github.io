@@ -10,7 +10,15 @@ body {
     color: #ccc;
     min-height: 100vh;
     overflow-x: hidden;
+    background: #000; /* Чёрный фон для всей страницы */
+}
+
+/* Контейнер с анимированным градиентом */
+.wrapper-gradient {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7), rgba(255, 0, 0, 0.8));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     animation: gradientFlow 10s ease-in-out infinite;
 }
 
@@ -31,6 +39,12 @@ body {
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Шапка */
@@ -51,6 +65,7 @@ body {
 /* Подвал */
 .footer {
     background: transparent;
+    padding: 40px 20px;
     padding-bottom: calc(40px + env(safe-area-inset-bottom));
 }
 
@@ -58,12 +73,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    justify-content: space-between;
+    justify-content: center; /* Центрирование колонок */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-column {
     flex: 1;
     min-width: 280px;
+    max-width: 400px; /* Ограничение ширины для колонок */
 }
 
 .footer-column h3 {
@@ -74,6 +92,7 @@ body {
 
 .footer-column p {
     margin-bottom: 10px;
+    line-height: 1.5;
 }
 
 .footer-buttons,
@@ -85,8 +104,7 @@ body {
 }
 
 .footer-copyright {
-    margin: 20px auto;
-    text-align: left;
+    text-align: center; /* Центрирование копирайта */
     font-size: 0.9rem;
     color: #ff2d2d;
     opacity: 0.8;
@@ -139,4 +157,68 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255,
+    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+    color: #ccc;
+    transition: all 0.4s ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 45, 45, 0.4));
+    color: #ff2d2d;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.btn.yellow {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.05));
+    color: #000;
+}
+
+.btn.yellow:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 193, 7, 0.3));
+    color: #ff2d2d;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.highlight {
+    color: #ff2d2d;
+}
+
+/* Прогресс-бар */
+progress {
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+progress::-webkit-progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background: #ff2d2d;
+    border-radius: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer-column {
+        min-width: 100%;
+    }
+}
