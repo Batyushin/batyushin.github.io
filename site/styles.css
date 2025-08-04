@@ -152,6 +152,11 @@ body {
     height: 13px;
 }
 
+
+.highlight {
+    color: #ff2d2d;
+}
+
 /* Текст основного блока */
 .main-text {
     display: flex;
