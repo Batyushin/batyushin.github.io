@@ -19,7 +19,6 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px; /* Одинаковый отступ со всех сторон */
-    background-position: 0% 50%; /* Начальное положение для анимации */
     animation: gradientFlow 10s ease-in-out infinite;
 }
 
@@ -71,21 +70,23 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    width: 100%; /* Занимает всю доступную ширину внутри .footer */
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-column {
     flex: 1;
-    width: calc(50% - 10px); /* Каждая колонка занимает половину минус половину gap */
+    width: calc((1200px - 20px) / 2); /* Суммарная ширина 1200px */
     min-width: 280px;
     max-width: 590px;
 }
 
 /* Копирайт */
 .footer-copyright {
-    text-align: center; /* Центрирование для единообразия */
+    text-align: left;
     font-size: 0.9rem;
-    color: #ff2d2d; /* Сохранение красного акцента */
+    color: #ccc;
     opacity: 0.8;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
