@@ -50,7 +50,9 @@ body {
 /* Шапка */
 /* Стиль для заголовочной части страницы с высоким z-index для перекрытия */
 .header {
-    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Основной контент */
@@ -91,11 +93,9 @@ body {
 /* Копирайт */
 /* Стиль для блока с авторскими правами, выравнивание текста влево */
 .footer-copyright {
-    text-align: left;
-    font-size: 0.9rem;
-    color: #ccc;
-    opacity: 0.8;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Стили заголовка и брендинга */
