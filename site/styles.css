@@ -1,10 +1,13 @@
 /* Сброс и базовые стили */
+/* Очистка стандартных отступов и настроек для всех элементов, чтобы избежать конфликтов */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Основные стили тела страницы */
+/* Установка шрифта, цвета текста и фона, а также предотвращение горизонтальной прокрутки */
 body {
     font-family: 'Poppins', sans-serif;
     color: #ccc;
@@ -13,6 +16,7 @@ body {
 }
 
 /* Контейнер с градиентом */
+/* Обёртка с градиентным фоном, задающая общий макет и отступы */
 .wrapper-gradient {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7), rgba(255, 0, 0, 0.8));
     height: auto;
@@ -22,6 +26,7 @@ body {
 }
 
 /* Базовый стиль для стеклянных блоков */
+/* Стиль для всех блоков с эффектом "стекло" (шапка, контент, подвал и т.д.) */
 .glass-block {
     max-width: 1200px;
     width: calc(100% - 40px);
@@ -35,17 +40,21 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
+/* Анимация появления блоков */
+/* Плавное появление блоков с эффектом подъёма */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* Шапка */
+/* Стиль для заголовочной части страницы с высоким z-index для перекрытия */
 .header {
     z-index: 1000;
 }
 
 /* Основной контент */
+/* Стиль для основной части страницы с вертикальным расположением элементов */
 .main {
     display: flex;
     flex-direction: column;
@@ -53,12 +62,14 @@ body {
 }
 
 /* Подвал */
+/* Стиль для нижней части страницы с прозрачным фоном и отступами */
 .footer {
     background: transparent;
     padding: 20px; /* Одинаковый отступ, как в .wrapper-gradient */
 }
 
 /* Колонки подвала */
+/* Контейнер для колонок "Контакты" и "Поддержка" с адаптивной раскладкой */
 .footer-columns {
     display: flex;
     flex-wrap: wrap;
@@ -68,6 +79,8 @@ body {
     margin: 0 auto;
 }
 
+/* Стиль для отдельных колонок подвала */
+/* Задаёт ширину и минимальные/максимальные размеры для колонок */
 .footer-column {
     flex: 1;
     width: calc((1200px - 20px) / 2); /* Суммарная ширина 1200px */
@@ -76,6 +89,7 @@ body {
 }
 
 /* Копирайт */
+/* Стиль для блока с авторскими правами, выравнивание текста влево */
 .footer-copyright {
     text-align: left;
     font-size: 0.9rem;
@@ -85,6 +99,7 @@ body {
 }
 
 /* Стили заголовка и брендинга */
+/* Общие стили для шапки, бренда, текста и кнопок с центрированием */
 .header-inner,
 .branding,
 .main-text,
@@ -95,17 +110,22 @@ body {
     text-align: center;
 }
 
+/* Название сайта */
+/* Стиль для заголовка сайта с уникальным шрифтом и цветом */
 .site-name {
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
     color: #ff2d2d;
 }
 
-
+/* Домен в названии сайта */
+/* Стиль для части домена с белым цветом */
 .domain {
     color: #fff;
 }
 
+/* Подзаголовок сайта */
+/* Стиль для подзаголовка с иконкой и отступами */
 .site-subtitle {
     display: flex;
     align-items: center;
@@ -115,12 +135,15 @@ body {
     color: #ccc;
 }
 
+/* Иконка в подзаголовке */
+/* Размеры иконки в шапке */
 .icon-red {
     width: 20px;
     height: 20px;
 }
 
 /* Кнопки */
+/* Базовый стиль для всех кнопок с градиентом и эффектом стекла */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -139,6 +162,8 @@ body {
     transition: all 0.4s ease-in-out;
 }
 
+/* Эффект наведения для кнопок */
+/* Изменение цвета и масштаба при наведении */
 .btn:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 45, 45, 0.4));
     color: #ff2d2d;
@@ -146,21 +171,29 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Изображения в кнопках */
+/* Размеры изображений внутри кнопок */
 .btn img {
     width: 20px;
     height: 20px;
 }
 
+/* Модификатор для маленьких кнопок */
+/* Уменьшенные размеры и отступы для компактных кнопок */
 .btn.small {
     padding: 8px 16px;
     font-size: 0.9rem;
 }
 
+/* Модификатор для жёлтых кнопок */
+/* Стиль для кнопок с жёлтым градиентом */
 .btn.yellow {
     background: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.05));
     color: #000;
 }
 
+/* Эффект наведения для жёлтых кнопок */
+/* Изменение стиля при наведении на жёлтые кнопки */
 .btn.yellow:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 193, 7, 0.3));
     color: #ff2d2d;
@@ -168,11 +201,14 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Выделение текста */
+/* Стиль для выделенного текста с красным цветом */
 .highlight {
     color: #ff2d2d;
 }
 
 /* Прогресс-бар */
+/* Стиль для полосы прогресса с закруглёнными углами */
 progress {
     width: 100%;
     height: 8px;
@@ -180,17 +216,20 @@ progress {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Стиль фона прогресс-бара для Webkit-браузеров */
 progress::-webkit-progress-bar {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 }
 
+/* Стиль заполненной части прогресс-бара для Webkit-браузеров */
 progress::-webkit-progress-value {
     background: #ff2d2d;
     border-radius: 10px;
 }
 
 /* Адаптивность */
+/* Настройки для экранов шириной до 768px */
 @media (max-width: 768px) {
     .footer-column {
         min-width: 100%;
