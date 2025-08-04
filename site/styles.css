@@ -70,14 +70,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    width: 100%; /* Занимает всю доступную ширину внутри .footer */
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-column {
     flex: 1;
-    width: calc(50% - 10px); /* Каждая колонка занимает половину минус половину gap (20px / 2 = 10px) */
+    width: calc((1200px - 20px) / 2); /* Суммарная ширина 1200px */
     min-width: 280px;
-    max-width: 590px; /* Ограничение для точной ширины */
+    max-width: 590px;
 }
 
 /* Копирайт */
@@ -203,6 +205,6 @@ progress::-webkit-progress-value {
     }
 
     .glass-block {
-        width: calc(100% - 40px);
+        width: calc(100% - 40px); /* Одинаковая ширина на мобильных */
     }
 }
