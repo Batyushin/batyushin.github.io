@@ -63,20 +63,88 @@ body {
     justify-content: center;
 }
 
+/* Подвал */
+/* Стиль для нижней части страницы с прозрачным фоном и отступами */
+.footer {
+    background: transparent;
+    padding: 20px; /* Одинаковый отступ, как в .wrapper-gradient */
+}
+
+/* Колонки подвала */
+/* Контейнер для колонок "Контакты" и "Поддержка" с адаптивной раскладкой */
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стиль для отдельных колонок подвала */
+/* Задаёт ширину и минимальные/максимальные размеры для колонок */
+.footer-column {
+    flex: 1;
+    width: calc((1200px - 20px) / 2); /* Суммарная ширина 1200px */
+    min-width: 280px;
+    max-width: 590px;
+}
+
+/* Копирайт */
+/* Стиль для блока с авторскими правами, выравнивание текста влево */
+.footer-copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* Стили заголовка и брендинга */
-/* Общие стили для шапки и бренда с центрированием */
-.header-inner {
+/* Общие стили для шапки, бренда и текста с центрированием */
+.header-inner,
+.branding {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.branding {
+.main-text {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.main-buttons {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
+}
+
+.small-buttons {
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
+}
+
+/* Стили для внутренней части шапки */
+/* Выравнивание влево с вертикальным центрированием на широких экранах */
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Смещение влево */
+    justify-content: center; /* Вертикальное центрирование */
+    text-align: left;
+}
+
+/* Стили брендинга */
+/* Выравнивание текста влево */
+.branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Смещение влево */
+    text-align: left;
 }
 
 /* Название сайта */
@@ -94,7 +162,7 @@ body {
 }
 
 /* Подзаголовок сайта */
-/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно site-name */
+/* Стиль для подзаголовка с иконкой и отступами */
 .site-subtitle {
     display: flex;
     align-items: center;
@@ -102,7 +170,6 @@ body {
     font-size: 1.2rem;
     margin-top: 5px;
     color: #ccc;
-    justify-content: center; /* Центрирование относительно родителя */
 }
 
 /* Иконка в подзаголовке */
@@ -110,4 +177,103 @@ body {
 .icon-red {
     width: 20px;
     height: 20px;
+}
+
+.icon-small {
+    width: 13px;
+    height: 13px;
+}
+
+/* Кнопки */
+/* Базовый стиль для всех кнопок с градиентом и эффектом стекла */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    background: linear-gradient(135deg, rgba(255, 45, 45, 0.5), rgba(255, 45, 45, 0.3), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Эффект наведения для кнопок */
+/* Изменение цвета и масштаба при наведении */
+.btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 45, 45, 0.4));
+    color: #ff2d2d;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Изображения в кнопках */
+/* Размеры изображений внутри кнопок */
+.btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Модификатор для маленьких кнопок */
+/* Уменьшенные размеры и отступы для компактных кнопок */
+.btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    height: 40px; /* Фиксированная высота */
+    line-height: 1; /* Корректировка высоты текста */
+}
+
+/* Модификатор для жёлтых кнопок */
+/* Стиль для кнопок с жёлтым градиентом */
+.btn.yellow {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 193, 7, 0.3), rgba(255, 255, 255, 0.05));
+    color: #000;
+}
+
+/* Эффект наведения для жёлтых кнопок */
+/* Изменение стиля при наведении на жёлтые кнопки */
+.btn.yellow:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 193, 7, 0.3));
+    color: #ff2d2d;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Выделение текста */
+/* Стиль для выделенного текста с красным цветом */
+.highlight {
+    color: #ff2d2d;
+}
+
+/* Адаптивность для шапки */
+/* Центрирование на мобильных устройствах */
+@media (max-width: 768px) {
+    .header-inner {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .branding {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* Адаптивность для кнопок */
+/* Переключение кнопок в столбец на узких экранах */
+@media (max-width: 768px) {
+    .main-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        width: 100%; /* Полная ширина на мобильных */
+        margin: 10px 0; /* Вертикальные отступы */
+    }
 }
