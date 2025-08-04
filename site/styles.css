@@ -99,7 +99,37 @@ body {
 }
 
 /* Стили заголовка и брендинга */
-/* Общие стили для шапки и бренда с центрированием */
+/* Общие стили для шапки, бренда и текста с центрированием */
+.header-inner,
+.branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.main-buttons {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
+}
+
+.small-buttons {
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
+}
+
+/* Стили для внутренней части шапки */
+/* Выравнивание влево с вертикальным центрированием на широких экранах */
 .header-inner {
     display: flex;
     flex-direction: column;
@@ -108,18 +138,13 @@ body {
     text-align: left;
 }
 
+/* Стили брендинга */
+/* Выравнивание текста влево */
 .branding {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Смещение влево */
     text-align: left;
-    position: relative;
-}
-
-/* Обёртка для site-name и domain */
-.site-name-wrapper {
-    display: flex;
-    align-items: baseline; /* Выравнивание по базовой линии */
 }
 
 /* Название сайта */
@@ -128,21 +153,16 @@ body {
     font-family: 'Saira Stencil One', sans-serif;
     font-size: 2.5rem;
     color: #ff2d2d;
-    text-decoration: none; /* Убираем подчёркивание */
 }
 
 /* Домен в названии сайта */
 /* Стиль для части домена с белым цветом */
 .domain {
-    font-family: 'Saira Stencil One', sans-serif;
-    font-size: 2.5rem;
     color: #fff;
-    text-decoration: none; /* Убираем подчёркивание */
-    margin-left: 5px; /* Небольшой отступ от BATYUSHIN */
 }
 
 /* Подзаголовок сайта */
-/* Стиль для подзаголовка с иконкой и отступами, центрированный относительно site-name */
+/* Стиль для подзаголовка с иконкой и отступами */
 .site-subtitle {
     display: flex;
     align-items: center;
@@ -150,13 +170,6 @@ body {
     font-size: 1.2rem;
     margin-top: 5px;
     color: #ccc;
-    width: fit-content; /* Адаптируется под содержимое */
-    position: relative;
-    left: 0; /* Сброс смещения */
-    transform: translateX(0); /* Сброс трансформации */
-    /* Центрируем относительно ширины site-name */
-    margin-left: calc(100% - 100%); /* Начальная точка */
-    text-align: center; /* Центрирование текста внутри */
 }
 
 /* Иконка в подзаголовке */
@@ -249,19 +262,6 @@ body {
     .branding {
         align-items: center;
         text-align: center;
-    }
-    .site-subtitle {
-        position: static;
-        transform: none;
-        width: auto;
-        margin: 0 auto;
-    }
-    .site-name-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-    .domain {
-        margin-left: 0; /* Сброс отступа на мобильных */
     }
 }
 
