@@ -175,19 +175,19 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.08); /* Безцветный с 8% непрозрачностью */
+    background: rgba(128, 128, 128, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(128, 128, 128, 0.15);
     color: #ccc;
     transition: all 0.3s ease-in-out;
     backdrop-filter: blur(5px);
 }
 
 .btn:hover {
-    background: rgba(255, 255, 255, 0.15); /* Увеличенная непрозрачность до 15% */
+    background: rgba(128, 128, 128, 0.12);
     color: #ccc;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(128, 128, 128, 0.2);
 }
 
 .btn img {
