@@ -79,10 +79,18 @@ body {
 
 /* Копирайт */
 .footer-copyright {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 20px;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+/* Стиль для ReD */
+.highlight {
+    color: #ff2d2d;
+    font-weight: bold;
 }
 
 /* Брендинг */
@@ -215,13 +223,6 @@ body {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
-
-/* Стиль для ReD */
-.highlight {
-    color: #ff2d2d;
-    font-weight: bold;
-}
-
 
 /* Адаптивность */
 @media (max-width: 768px) {
