@@ -207,37 +207,4 @@ body {
     color: #ff2d2d;
 }
 
-/* Прогресс-бар */
-/* Стиль для полосы прогресса с закруглёнными углами */
-progress {
-    width: 100%;
-    height: 8px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-}
 
-/* Стиль фона прогресс-бара для Webkit-браузеров */
-progress::-webkit-progress-bar {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-/* Стиль заполненной части прогресс-бара для Webkit-браузеров */
-progress::-webkit-progress-value {
-    background: #ff2d2d;
-    border-radius: 10px;
-}
-
-/* Адаптивность */
-/* Настройки для экранов шириной до 768px */
-@media (max-width: 768px) {
-    .footer-column {
-        min-width: 100%;
-        max-width: 100%;
-        width: 100%;
-    }
-
-    .glass-block {
-        width: calc(100% - 40px); /* Одинаковая ширина на мобильных */
-    }
-}
