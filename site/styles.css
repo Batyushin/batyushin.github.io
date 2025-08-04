@@ -1,4 +1,3 @@
-/* Сброс и базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -8,40 +7,19 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: white;
-    background: #000;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
-}
-
-/* Анимированный общий градиент */
-.wrapper-gradient {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7), rgba(255, 0, 0, 0.8));
     background-size: 300% 300%;
-    min-height: 100vh;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
     animation: gradientFlow 10s ease-in-out infinite;
 }
 
-/* Анимация градиента */
 @keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* Универсальный стеклянный блок */
 .glass-block {
     max-width: 1200px;
     width: calc(100% - 40px);
@@ -54,14 +32,12 @@ body {
     box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-/* Шапка */
 .header {
     position: sticky;
     top: env(safe-area-inset-top);
     z-index: 1000;
 }
 
-/* Основной контент */
 .main {
     flex: 1;
     display: flex;
@@ -69,24 +45,53 @@ body {
     justify-content: center;
 }
 
-/* Подвал */
 .footer {
     background: transparent;
-    backdrop-filter: blur(25px) saturate(1.4);
-    color: #ccc;
     padding-bottom: calc(40px + env(safe-area-inset-bottom));
 }
 
-/* Колонки подвала */
+/* Футер — 2 колонки */
 .footer-columns {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 40px;
-    margin-top: 20px;
+    justify-content: space-between;
 }
 
-/* Остальные стили */
+.footer-column {
+    flex: 1;
+    min-width: 280px;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ff2d2d;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+}
+
+.footer-buttons,
+.footer-buttons-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Стеклянный copyright */
+.footer-copyright {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ff2d2d;
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Стили заголовка и брендинга */
 .header-inner,
 .branding,
 .main-text,
@@ -121,6 +126,7 @@ body {
     height: 20px;
 }
 
+/* Кнопки */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -169,39 +175,6 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-.footer-buttons,
-.footer-buttons-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.footer-column h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #ff2d2d;
-}
-
-.footer-column p {
-    margin-bottom: 10px;
-}
-
 .highlight {
     color: #ff2d2d;
-}
-
-.footer-copyright {
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px 0;
-    color: #ff2d2d;
-    font-size: 0.85rem;
-    opacity: 0.8;
-    animation: fadeIn 1s ease-in-out;
-}
-
-.footer-copyright p {
-    margin: 0;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
