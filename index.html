@@ -2,9 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Batyushin.ru</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Saira+Stencil+One&display=swap" rel="stylesheet">
@@ -13,11 +11,12 @@
 </head>
 <body>
 <div class="wrapper-gradient">
-  <!-- Шапка -->
   <header class="header glass-block">
     <div class="header-inner">
       <div class="branding">
-        <div class="site-name">BATYUSHIN<span class="domain">.ru</span></div>
+        <div class="site-name-wrapper">
+          <a href="/" class="site-name-link">BATYUSHIN</a><span class="domain">.ru</span>
+        </div>
         <div class="site-subtitle">
           <span class="aka">aka</span>
           <img src="site/img/red.webp" alt="icon" class="icon-red" />
@@ -27,7 +26,6 @@
     </div>
   </header>
 
-  <!-- Основной контент -->
   <main class="main glass-block">
     <div class="main-text">
       <p>Здесь будет содержимое страницы.</p>
@@ -36,56 +34,7 @@
       <p>Я, Дмитрий Батюшин (aka ReD), делюсь опытом в сфере автоматизации процессов. Если у вас есть идеи или вопросы, пишите в Telegram или на почту!</p>
       <p>Поддержите проект, чтобы я мог продолжать делиться знаниями! 😊</p>
     </div>
-    <div class="main-buttons">
-      <a href="https://t.me/BlogReD" class="btn" target="_blank">
-        <img src="site/img/tg.svg" alt="tg">Заметки Красного
-      </a>
-      <a href="https://vk.com/red.home" class="btn" target="_blank">
-        <img src="site/img/VK.png" alt="vk">Заметки Красного
-      </a>
-    </div>
   </main>
-
-  <!-- Подвал -->
-  <footer class="footer">
-    <div class="footer-columns">
-      <div class="footer-column glass-block">
-        <h3>Контакты</h3>
-        <p>Привет!</p>
-        <p>Связаться со мной можно одним из удобных для вас способов:</p>
-        <div class="small-buttons">
-          <a href="https://t.me/red_ik" class="btn small" target="_blank">💬 @ReD_ik</a>
-          <a href="tel:+79952882810" class="btn small" target="_blank">📞 +7 (995) 288-28-10</a>
-          <a href="mailto:red_ik@inbox.ru" class="btn small" target="_blank">📧 red_ik@inbox.ru</a>
-        </div>
-      </div>
-      <div class="footer-column glass-block">
-        <h3>Поддержка</h3>
-        <p>Если я оказался вам полезен, поддержите проект! Перевод на <strong>+7 (995) 288-28-10</strong> или по кнопкам ниже: 💸</p>
-        <div class="small-buttons">
-          <a href="javascript:void(0)" class="btn small" id="copyPhoneButton">Скопировать телефон</a>
-          <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" class="btn yellow small" target="_blank">Поддержать</a>
-        </div>
-        <p>🎉 Поддержать можно на любую сумму от 1₽, это поможет развитию проекта!</p>
-      </div>
-    </div>
-    <div class="footer-copyright glass-block">
-      <p>© 2025 Дмитрий Батюшин (<img src="site/img/red.webp" alt="icon" class="icon-small"> <span class="highlight">ReD</span>)</p>
-    </div>
-  </footer>
 </div>
-
-<script>
-  document.getElementById('copyPhoneButton').addEventListener('click', function () {
-    const phoneNumber = "+79952882810";
-    const textarea = document.createElement('textarea');
-    textarea.value = phoneNumber;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    alert('Телефон скопирован: ' + phoneNumber);
-  });
-</script>
 </body>
 </html>
