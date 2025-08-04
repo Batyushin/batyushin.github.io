@@ -113,6 +113,14 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
+}
+
+.small-buttons {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Центрирование кнопок по горизонтали */
 }
 
 /* Название сайта */
@@ -157,7 +165,6 @@ body {
 .btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center; /* Центрирование кнопок по горизонтали */
     gap: 0.6rem;
     padding: 12px 20px;
     margin: 10px;
