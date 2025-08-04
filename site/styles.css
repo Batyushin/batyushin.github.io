@@ -120,6 +120,7 @@ body {
 .site-name-wrapper {
     display: flex;
     align-items: baseline; /* Выравнивание по базовой линии */
+    gap: 0; /* Убираем промежуток между элементами */
 }
 
 /* Название сайта */
@@ -129,6 +130,8 @@ body {
     font-size: 2.5rem;
     color: #ff2d2d;
     text-decoration: none; /* Убираем подчёркивание */
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
 }
 
 /* Домен в названии сайта */
@@ -138,7 +141,8 @@ body {
     font-size: 2.5rem;
     color: #fff;
     text-decoration: none; /* Убираем подчёркивание */
-    margin-left: 5px; /* Небольшой отступ от BATYUSHIN */
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
 }
 
 /* Подзаголовок сайта */
@@ -151,12 +155,10 @@ body {
     margin-top: 5px;
     color: #ccc;
     width: fit-content; /* Адаптируется под содержимое */
-    position: relative;
-    left: 0; /* Сброс смещения */
-    transform: translateX(0); /* Сброс трансформации */
-    /* Центрируем относительно ширины site-name */
-    margin-left: calc(100% - 100%); /* Начальная точка */
-    text-align: center; /* Центрирование текста внутри */
+    position: absolute;
+    left: 50%; /* Смещение влево на 50% от родителя */
+    transform: translateX(-50%); /* Сдвиг назад на половину своей ширины */
+    top: 100%; /* Расположение под site-name-wrapper */
 }
 
 /* Иконка в подзаголовке */
