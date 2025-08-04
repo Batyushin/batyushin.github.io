@@ -8,17 +8,19 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: #ccc;
-    min-height: 100vh;
+    background: #000;
     overflow-x: hidden;
-    background: #000; /* Чёрный фон для всей страницы */
 }
 
 /* Контейнер с анимированным градиентом */
 .wrapper-gradient {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 50%, rgba(139, 0, 0, 0.7), rgba(255, 0, 0, 0.8));
     min-height: 100vh;
+    height: auto; /* Для прокрутки */
     display: flex;
     flex-direction: column;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
     animation: gradientFlow 10s ease-in-out infinite;
 }
 
@@ -49,14 +51,11 @@ body {
 
 /* Шапка */
 .header {
-    position: sticky;
-    top: env(safe-area-inset-top);
-    z-index: 1000;
+    z-index: 1000; /* Сохранено для слоёв, но без sticky */
 }
 
 /* Основной контент */
 .main {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,16 +71,17 @@ body {
 .footer-columns {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center; /* Центрирование колонок */
+    gap: 20px; /* Расстояние между колонками, как между шапкой и основным блоком */
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .footer-column {
     flex: 1;
+    width: calc((1200px - 20px) / 2); /* Каждая колонка ~590px для суммарной ширины 1200px */
     min-width: 280px;
-    max-width: 400px; /* Ограничение ширины для колонок */
+    max-width: 590px; /* Ограничение для точной ширины */
 }
 
 .footer-column h3 {
@@ -104,7 +104,7 @@ body {
 }
 
 .footer-copyright {
-    text-align: center; /* Центрирование копирайта */
+    text-align: center;
     font-size: 0.9rem;
     color: #ff2d2d;
     opacity: 0.8;
@@ -168,7 +168,7 @@ body {
 .btn:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 45, 45, 0.4));
     color: #ff2d2d;
-    transform: translateY(-3px);
+    transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -190,7 +190,7 @@ body {
 .btn.yellow:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 193, 7, 0.3));
     color: #ff2d2d;
-    transform: translateY(-3px);
+    transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -220,5 +220,7 @@ progress::-webkit-progress-value {
 @media (max-width: 768px) {
     .footer-column {
         min-width: 100%;
+        max-width: 100%; /* Полная ширина на мобильных */
+        width: 100%;
     }
 }
