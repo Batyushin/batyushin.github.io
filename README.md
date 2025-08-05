@@ -13,4 +13,4 @@
 
 ---
 
-© 2025 (ReD)
+© 2025 <img src="site/img/red.webp"> ReD
