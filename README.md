@@ -13,4 +13,4 @@
 * Email: [red_ik@inbox.ru](mailto:red_ik@inbox.ru)
 
 ---
-© 2025
+© 2025 (ReD)
