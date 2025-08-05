@@ -2,15 +2,15 @@
 
 🌐 Сайт: https://batyushin.ru/
 
-
-
 ## 🔗 Ссылки
-* Личный блог: [![Блог Красного](site/img/red.webp) Блог Красного](https://t.me/BlogReD)
 
+* Личный блог: <a href="https://t.me/BlogReD"><img src="site/img/red.webp" alt="Блог Красного" width="20" height="20" style="vertical-align:middle; margin-right:6px;">Блог Красного</a>
 
 ## 📞 Контакты
+
 * 💬 Telegram: [@ReD_ik](https://t.me/ReD_ik)
 * 📧 Email: [red_ik@inbox.ru](mailto:red_ik@inbox.ru)
 
 ---
+
 © 2025 (ReD)
