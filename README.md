@@ -4,7 +4,7 @@
 
 ## 🔗 Ссылки
 
-* Личный блог: <a href="https://t.me/BlogReD"><img src="site/img/red.webp" alt="Блог Красного" width="13" height="13" style="vertical-align:middle; margin-right:6px;">Блог Красного</a>
+* Личный блог: <a href="https://t.me/BlogReD"><img src="site/img/red.webp" alt="Блог Красного" width="15" height="15" style="vertical-align:middle; margin-right:6px;">Блог Красного</a>
 
 ## 📞 Контакты
 
