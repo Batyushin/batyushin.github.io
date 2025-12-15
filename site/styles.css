@@ -115,7 +115,33 @@ a { text-decoration: none; color: inherit; }
 .arrow-icon { position: absolute; top: 20px; right: 20px; opacity: 0.3; }
 
 /* 4. STACK */
+
+/* 4. STACK */
 .card-stack { grid-area: stack; justify-content: center; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+.tag {
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ccc;
+    border: 1px solid rgba(255,255,255,0.05);
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    transition: all 0.3s ease; /* Плавная анимация */
+    display: inline-block;
+}
+
+/* Эффект при наведении */
+.tag:hover {
+    background: rgba(255, 45, 45, 0.15); /* Красная подсветка */
+    border-color: rgba(255, 45, 45, 0.4);
+    color: #fff;
+    transform: translateY(-3px); /* Легкий подъем вверх */
+    box-shadow: 0 4px 12px rgba(255, 45, 45, 0.2); /* Свечение */
+}
+
 .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .tag {
     padding: 6px 12px; background: rgba(255,255,255,0.08); border-radius: 8px;
