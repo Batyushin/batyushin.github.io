@@ -1,262 +1,217 @@
-/* Сброс стилей */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- НАСТРОЙКИ (VARIABLES) --- */
+:root {
+    --bg-color: #050505;
+    --glass-bg: rgba(30, 30, 30, 0.35);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --highlight-red: #ff2d2d;
+    --deep-red: #500000;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --radius: 24px;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Базовые стили тела */
+/* Сброс */
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #ccc;
-    background: #000; /* Статический чёрный фон */
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
     overflow-x: hidden;
-    position: relative; /* Для работы псевдоэлемента */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
 }
 
-/* Общий градиент через псевдоэлемент */
-body::before {
-    content: '';
+/* --- ЖИВОЙ ФОН --- */
+.background-orb {
     position: fixed;
-    top: 0;
-    left: 0;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -2;
+    opacity: 0.5;
+    animation: float 12s infinite ease-in-out;
+}
+.orb-1 {
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, var(--highlight-red), transparent 70%);
+    top: -10%; left: -10%;
+}
+.orb-2 {
+    width: 50vw; height: 50vw;
+    background: radial-gradient(circle, var(--deep-red), transparent 60%);
+    bottom: -10%; right: -10%;
+    animation-delay: -6s;
+}
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(40px, 60px); }
+}
+
+.noise {
+    position: fixed; inset: 0; z-index: -1; opacity: 0.04; pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* --- ОСНОВНОЙ КОНТЕЙНЕР --- */
+.wrapper {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(35deg, rgba(0, 0, 0, 0.9) 60%, rgba(139, 0, 0, 0.7) 86%, rgba(255, 0, 0, 0.8) 100%);
-}
-
-/* Контейнер с градиентом */
-.wrapper-gradient {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-/* Базовый стиль для блоков "стекло" */
-.glass-block {
-    max-width: 1200px;
-    width: calc(100% - 40px);
-    margin: 20px auto;
-    padding: 20px;
-    backdrop-filter: blur(30px) saturate(1.4); /* Эффект стекла */
-    background-color: rgba(255, 255, 255, 0.05); /* Базовый цвет стекла */
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Шапка */
-.header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Основной контент */
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Подвал */
-.footer {
-    background: transparent;
-    padding: 20px;
-}
-
-/* Колонки подвала */
-.footer-columns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Колонки в подвале */
-.footer-column {
-    flex: 1;
-    min-width: 280px;
-    max-width: 590px;
-}
-
-/* Копирайт */
-.footer-copyright {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* Брендинг */
-.header-inner,
-.branding {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.branding:hover .site-subtitle {
-    color: #ff2d2d;
-}
-
-/* Обёртка названия сайта */
-.site-name-wrapper {
-    display: flex;
-    align-items: baseline;
-    gap: 0;
-}
-
-/* Название сайта */
-.site-name {
-    font-family: 'Saira Stencil One', sans-serif;
-    font-size: 2.5rem;
-    color: #ff2d2d;
-    text-decoration: none;
-    display: inline;
-}
-
-/* Домен */
-.domain {
-    font-family: 'Saira Stencil One', sans-serif;
-    font-size: 2.5rem;
-    color: #fff;
-    text-decoration: none;
-    display: inline;
-}
-
-/* Подзаголовок */
-.site-subtitle {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 1.2rem;
-    margin-top: 5px;
-    color: #ccc;
-    width: fit-content;
-    margin-left: 0;
-    text-align: center;
+    max-width: 1100px;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    text-decoration: none;
+    z-index: 10;
 }
 
-/* Иконки */
-.icon-red,
-.icon-small {
-    width: 20px;
-    height: 20px;
+/* --- СЕТКА (BENTO GRID) --- */
+.grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr; /* Мобилка: 2 колонки */
+    grid-auto-rows: minmax(140px, auto);
 }
 
-.icon-small {
-    width: 13px;
-    height: 13px;
-}
-
-.highlight {
-    color: #ff2d2d;
-}
-
-/* Текст основного блока */
-.main-text {
+/* --- ОБЩИЙ СТИЛЬ КАРТОЧЕК --- */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    box-shadow:
+            0 10px 40px rgba(0,0,0,0.4),
+            inset 0 1px 0 rgba(255,255,255,0.15),
+            inset 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+.card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 70%);
+    transform: translateX(-100%);
+    transition: 0.6s;
+    pointer-events: none;
+}
+.card:hover::after { transform: translateX(100%); }
+
+.card:hover {
+    border-color: rgba(255, 45, 45, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(255, 45, 45, 0.15);
+}
+
+h1, h2, h3 { margin-bottom: 8px; color: #fff; font-weight: 700; }
+p, span { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+a { text-decoration: none; color: inherit; }
+
+/* --- СПЕЦИФИКА КАРТОЧЕК --- */
+
+/* 1. Hero Card */
+.card-hero {
+    grid-column: span 2;
+    background: radial-gradient(circle at top right, rgba(255, 45, 45, 0.15), transparent 60%), var(--glass-bg);
     align-items: center;
     text-align: center;
-}
-
-/* Кнопки */
-.main-buttons,
-.small-buttons {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    gap: 15px;
 }
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 10px 15px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    background: rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.15);
-    color: #ccc;
-    transition: all 0.3s ease-in-out;
-    backdrop-filter: blur(5px);
-    margin-bottom: 15px;
-}
-
-.btn:hover {
-    background: rgba(0, 0, 0, 0.12);
-    color: #ccc;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 0, 0, 0.20);
-}
-
-.btn img {
-    width: 20px;
-    height: 20px;
-}
-
-.btn.small {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    height: 36px;
+.site-title {
+    font-family: 'Saira Stencil One', cursive;
+    font-size: 2.5rem;
     line-height: 1;
+    background: linear-gradient(to right, #fff 40%, var(--highlight-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+.domain { font-size: 2.5rem; -webkit-text-fill-color: rgba(255,255,255,0.5); }
+.subtitle-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; }
+.icon-red { width: 24px; height: 24px; border-radius: 50%; box-shadow: 0 0 10px rgba(255, 45, 45, 0.5); }
+.aka, .nickname { font-size: 1.1rem; color: #ccc; font-weight: 600; }
+.nickname { color: var(--highlight-red); }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.badge { padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); }
+.badge.red { background: rgba(255, 45, 45, 0.2); color: var(--highlight-red); border-color: rgba(255,45,45,0.3); }
+.hero-desc { margin-top: 10px; max-width: 400px; }
+.highlight-text { color: #fff; font-weight: 600; }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .header-inner,
-    .branding {
-        align-items: center;
-        text-align: center;
+/* 2 & 3. Link Cards */
+.card-link { align-items: flex-start; }
+.icon-box { margin-bottom: auto; width: 40px; height: 40px; }
+.icon-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+.arrow-icon { position: absolute; top: 20px; right: 20px; opacity: 0.5; font-size: 1.2rem; }
+.link-info h3 { font-size: 1.1rem; }
+
+/* 4. Contact Card (FIXED SIZE) */
+.card-contact {
+    grid-column: span 2; /* На мобилке широкий */
+    /* Уменьшаем отступы, чтобы влезло в маленький блок на ПК */
+    padding: 20px;
+    gap: 10px;
+}
+.contact-list {
+    display: flex; flex-direction: column; gap: 8px; margin-bottom: auto;
+}
+.contact-list a {
+    color: #fff; font-weight: 500; transition: color 0.2s;
+    display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
+}
+.contact-list a:hover { color: var(--highlight-red); }
+.icon-inline { width: 18px; height: 18px; object-fit: contain; }
+.emoji-icon { font-size: 1.1rem; width: 18px; display: flex; justify-content: center; }
+
+.btn-copy {
+    background: rgba(255,255,255,0.1);
+    border: none; color: #fff; padding: 10px; width: 100%; border-radius: 10px; cursor: pointer;
+    font-weight: 600; font-size: 0.85rem;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: 0.2s;
+}
+.btn-copy:hover { background: rgba(255,255,255,0.2); }
+
+/* 5. Donate Card */
+.card-donate {
+    grid-column: span 2; /* На мобилке широкий, как и контакты */
+    background: linear-gradient(135deg, rgba(80, 0, 0, 0.5), transparent);
+    border-color: rgba(255, 45, 45, 0.3);
+    flex-direction: row; align-items: center; gap: 20px;
+}
+.donate-icon { font-size: 2rem; }
+
+/* Footer */
+.footer {
+    text-align: center; margin-top: 30px; padding: 15px; border-radius: 15px;
+    background: rgba(20, 20, 20, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.icon-small { width: 16px; height: 16px; vertical-align: middle; margin: 0 2px; }
+.highlight { color: var(--highlight-red); font-weight: 700; }
+
+/* --- DESKTOP ADAPTIVE (900px+) --- */
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+        grid-auto-rows: 180px; /* Фиксированная высота */
     }
 
-    .site-subtitle {
-        position: static;
-        transform: none;
-        width: auto;
-        margin: 0 auto;
+    .card-hero { grid-column: span 2; grid-row: span 2; }
+    .card-link { grid-column: span 1; grid-row: span 1; }
+    .card-info { grid-column: span 2; grid-row: span 1; }
+
+    /* Исправлено: теперь контакты занимают 1 клетку, как донат */
+    .card-contact {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 
-    .site-name-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main-buttons,
-    .small-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn,
-    .btn.small {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    /* Уменьшить градиент для мобильных устройств */
-    .wrapper-gradient {
-        background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 70%, rgba(139, 0, 0, 0.42) 84%, rgba(255, 0, 0, 0.48) 100%);
+    .card-donate {
+        grid-column: span 1;
+        grid-row: span 1;
+        flex-direction: column; justify-content: center; text-align: center;
     }
 }

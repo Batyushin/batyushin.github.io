@@ -1,0 +1,262 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Базовые стили тела */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #ccc;
+    background: #000; /* Статический чёрный фон */
+    overflow-x: hidden;
+    position: relative; /* Для работы псевдоэлемента */
+}
+
+/* Общий градиент через псевдоэлемент */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(35deg, rgba(0, 0, 0, 0.9) 60%, rgba(139, 0, 0, 0.7) 86%, rgba(255, 0, 0, 0.8) 100%);
+}
+
+/* Контейнер с градиентом */
+.wrapper-gradient {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Базовый стиль для блоков "стекло" */
+.glass-block {
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    padding: 20px;
+    backdrop-filter: blur(30px) saturate(1.4); /* Эффект стекла */
+    background-color: rgba(255, 255, 255, 0.05); /* Базовый цвет стекла */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Шапка */
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Основной контент */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Подвал */
+.footer {
+    background: transparent;
+    padding: 20px;
+}
+
+/* Колонки подвала */
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Колонки в подвале */
+.footer-column {
+    flex: 1;
+    min-width: 280px;
+    max-width: 590px;
+}
+
+/* Копирайт */
+.footer-copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Брендинг */
+.header-inner,
+.branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.branding:hover .site-subtitle {
+    color: #ff2d2d;
+}
+
+/* Обёртка названия сайта */
+.site-name-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+}
+
+/* Название сайта */
+.site-name {
+    font-family: 'Saira Stencil One', sans-serif;
+    font-size: 2.5rem;
+    color: #ff2d2d;
+    text-decoration: none;
+    display: inline;
+}
+
+/* Домен */
+.domain {
+    font-family: 'Saira Stencil One', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    text-decoration: none;
+    display: inline;
+}
+
+/* Подзаголовок */
+.site-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: #ccc;
+    width: fit-content;
+    margin-left: 0;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+}
+
+/* Иконки */
+.icon-red,
+.icon-small {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-small {
+    width: 13px;
+    height: 13px;
+}
+
+.highlight {
+    color: #ff2d2d;
+}
+
+/* Текст основного блока */
+.main-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Кнопки */
+.main-buttons,
+.small-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.15);
+    color: #ccc;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+    margin-bottom: 15px;
+}
+
+.btn:hover {
+    background: rgba(0, 0, 0, 0.12);
+    color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 0, 0, 0.20);
+}
+
+.btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn.small {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    height: 36px;
+    line-height: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-inner,
+    .branding {
+        align-items: center;
+        text-align: center;
+    }
+
+    .site-subtitle {
+        position: static;
+        transform: none;
+        width: auto;
+        margin: 0 auto;
+    }
+
+    .site-name-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-buttons,
+    .small-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn,
+    .btn.small {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Уменьшить градиент для мобильных устройств */
+    .wrapper-gradient {
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 70%, rgba(139, 0, 0, 0.42) 84%, rgba(255, 0, 0, 0.48) 100%);
+    }
+}

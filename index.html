@@ -2,88 +2,133 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>Batyushin.ru</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Batyushin.ru | ReD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="site/styles.css" />
   <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
 </head>
 <body>
-<div class="wrapper-gradient">
-  <!-- Шапка -->
-  <header class="header glass-block">
-    <div class="header-inner">
+
+<div class="background-orb orb-1"></div>
+<div class="background-orb orb-2"></div>
+<div class="noise"></div>
+
+<div class="wrapper">
+  <div class="grid">
+
+    <div class="card card-hero liquid-tilt">
       <div class="branding">
-        <div class="site-name-wrapper">
-          <a href="/" class="site-name">BATYUSHIN<span class="domain">.ru</span></a>
-        </div>
-        <a href="/" class="site-subtitle">
+        <h1 class="site-title">BATYUSHIN<span class="domain">.ru</span></h1>
+        <div class="subtitle-row">
           <span class="aka">aka</span>
           <img src="site/img/red.webp" alt="icon" class="icon-red" />
           <span class="nickname">ReD</span>
+        </div>
+        <div class="badges">
+          <span class="badge red">Auto-Expert</span>
+          <span class="badge">Engineering</span>
+        </div>
+      </div>
+      <p class="hero-desc">
+        Инженерный подход к хаосу.<br>
+        Автоматизирую скучное, создаю великое.<br>
+      </p>
+    </div>
+
+    <a href="https://t.me/BlogReD" target="_blank" class="card card-link liquid-tilt">
+      <div class="arrow-icon">➔</div>
+      <div class="icon-box">
+        <img src="site/img/tg.svg" alt="Telegram" class="icon-img">
+      </div>
+      <div class="link-info">
+        <h3>Telegram</h3>
+        <span>Заметки Красного</span>
+      </div>
+    </a>
+
+    <a href="https://vk.com/red.home" target="_blank" class="card card-link liquid-tilt">
+      <div class="arrow-icon">➔</div>
+      <div class="icon-box">
+        <img src="site/img/VK.png" alt="VK" class="icon-img">
+      </div>
+      <div class="link-info">
+        <h3>ВКонтакте</h3>
+        <span>Личный паблик</span>
+      </div>
+    </a>
+
+    <div class="card card-info liquid-tilt">
+      <h3>О проекте</h3>
+      <p>Я Дмитрий Батюшин. Здесь я собираю свои наработки, скрипты и мысли по домашней автоматизации. Без воды, только практика.</p>
+    </div>
+
+    <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" target="_blank" class="card card-donate liquid-tilt">
+      <div class="donate-icon">💸</div>
+      <div class="donate-text">
+        <h3>Support</h3>
+        <span>Поддержать проект</span>
+      </div>
+    </a>
+
+    <div class="card card-contact liquid-tilt">
+      <h3>Связь</h3>
+      <div class="contact-list">
+        <a href="https://t.me/red_ik" target="_blank">
+          <img src="site/img/tg.svg" alt="TG" class="icon-inline">
+          @ReD_ik
+        </a>
+        <a href="mailto:red_ik@inbox.ru">
+          <span class="emoji-icon">📧</span>
+          red_ik@inbox.ru
         </a>
       </div>
+      <button class="btn-copy" id="copyBtn">
+        <span>+7 (995) 288-28-10</span>
+        <span class="copy-icon">📋</span>
+      </button>
     </div>
-  </header>
 
-  <!-- Основной контент -->
-  <main class="main glass-block">
-    <div class="main-text">
-      <p>Здесь будет содержимое страницы.</p>
-      <p>Пока думаю чем наполнить.</p>
-      <p>Это пример дополнительного контента, чтобы страница была длиннее и появилась прокрутка. Здесь могут быть заметки об автоматизации, мои проекты или полезные статьи.</p>
-      <p>Я, Дмитрий Батюшин (aka ReD), делюсь опытом в сфере автоматизации процессов. Если у вас есть идеи или вопросы, пишите в Telegram или на почту!</p>
-      <p>Поддержите проект, чтобы я мог продолжать делиться знаниями! 😊</p>
-    </div>
-    <div class="main-buttons">
-      <a href="https://t.me/BlogReD" class="btn" target="_blank">
-        <img src="site/img/tg.svg" alt="tg">Заметки Красного
-      </a>
-      <a href="https://vk.com/red.home" class="btn" target="_blank">
-        <img src="site/img/VK.png" alt="vk">Заметки Красного
-      </a>
-    </div>
-  </main>
+  </div>
 
-  <!-- Подвал -->
-  <footer class="footer">
-    <div class="footer-columns">
-      <div class="footer-column glass-block">
-        <h3>Контакты</h3>
-        <p>Привет!</p>
-        <p>Связаться со мной можно одним из удобных для вас способов:</p>
-        <div class="small-buttons">
-          <a href="https://t.me/red_ik" class="btn small" target="_blank">💬 @ReD_ik</a>
-          <a href="tel:+79952882810" class="btn small" target="_blank">☎️ +7 (995) 288-28-10</a>
-          <a href="mailto:red_ik@inbox.ru" class="btn small" target="_blank">📧 red_ik@inbox.ru</a>
-        </div>
-      </div>
-      <div class="footer-column glass-block">
-        <h3>Поддержка</h3>
-        <p>Если я оказался вам полезен, поддержите проект!</p>
-        <p>Перевод на <strong>+7 (995) 288-28-10</strong> или по кнопкам ниже: 💸</p>
-        <div class="small-buttons">
-          <a href="javascript:void(0)" class="btn small" id="copyPhoneButton">📞️ Скопировать телефон</a>
-          <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" class="btn small" target="_blank">💳 Поддержать</a>
-        </div>
-        <p>🎉 Поддержать можно на любую сумму от 1₽, это поможет развитию проекта!</p>
-      </div>
-    </div>
-    <div class="footer-copyright glass-block">
-      <p>© 2025 Дмитрий Батюшин (<img src="site/img/red.webp" alt="icon" class="icon-small"> <span class="highlight">ReD</span>)</p>
-    </div>
+  <footer class="footer glass-block-footer">
+    <p>© 2025 Дмитрий Батюшин (<img src="site/img/red.webp" alt="icon" class="icon-small"> <span class="highlight">ReD</span>)</p>
   </footer>
 </div>
 
 <script>
-  document.getElementById('copyPhoneButton').addEventListener('click', function () {
-    const phoneNumber = "+79952882810";
-    navigator.clipboard.writeText(phoneNumber)
-            .then(() => alert('Телефон скопирован: ' + phoneNumber))
-            .catch(err => console.error('Ошибка копирования:', err));
+  // Логика копирования телефона
+  document.getElementById('copyBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const phone = "+79952882810";
+    navigator.clipboard.writeText(phone).then(() => {
+      const span = this.querySelector('span:first-child');
+      const oldText = span.innerText;
+      span.innerText = "Скопировано!";
+      setTimeout(() => span.innerText = oldText, 2000);
+    });
+  });
+
+  // Эффект "Жидкого наклона" (Tilt) для Десктопа
+  const cards = document.querySelectorAll('.liquid-tilt');
+  document.addEventListener('mousemove', (e) => {
+    // Работает только на экранах шире 900px
+    if (window.innerWidth < 900) return;
+
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardX = rect.left + rect.width / 2;
+      const cardY = rect.top + rect.height / 2;
+
+      const offsetX = (e.clientX - cardX) / 40;
+      const offsetY = (e.clientY - cardY) / 40;
+
+      card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
+    });
   });
 </script>
 </body>
