@@ -94,7 +94,7 @@
 
   <div class="podcasts-header-grid">
 
-    <a href="index.html" class="card card-hero ph-hero">
+    <a href="index.html" class="card card-hero ph-hero liquid-tilt">
       <div class="branding">
         <h1 class="site-title">BATYUSHIN<span class="domain">.ru</span></h1>
         <div class="subtitle-row">
@@ -114,7 +114,7 @@
       </div>
     </a>
 
-    <a href="https://t.me/BlogReD" target="_blank" class="card card-tg ph-tg">
+    <a href="https://t.me/BlogReD" target="_blank" class="card card-tg ph-tg liquid-tilt">
       <div class="arrow-icon">➔</div>
       <img src="site/img/tg.svg" alt="Telegram" class="icon-img">
       <div class="link-info">
@@ -123,7 +123,7 @@
       </div>
     </a>
 
-    <a href="https://vk.com/red.home" target="_blank" class="card card-vk ph-vk">
+    <a href="https://vk.com/red.home" target="_blank" class="card card-vk ph-vk liquid-tilt">
       <div class="arrow-icon">➔</div>
       <img src="site/img/VK.png" alt="VK" class="icon-img">
       <div class="link-info">
@@ -132,7 +132,7 @@
       </div>
     </a>
 
-    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut ph-sprut">
+    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut ph-sprut liquid-tilt">
       <div class="arrow-icon">➔</div>
       <img src="site/img/sprut.png" alt="Sprut" class="icon-img">
       <div class="link-info">
@@ -141,7 +141,7 @@
       </div>
     </a>
 
-    <a href="index.html" class="card area-home ph-home" style="background: rgba(255,255,255,0.05);">
+    <a href="index.html" class="card area-home ph-home liquid-tilt" style="background: rgba(255,255,255,0.05);">
       <div class="arrow-icon arrow-back">➔</div>
       <span class="emoji-large">🏠</span>
       <div class="link-info">
@@ -151,6 +151,7 @@
     </a>
 
   </div>
+
   <div class="content-header" style="margin-bottom: 20px;">
     <h2 style="font-size: 1.8rem; border-left: 4px solid var(--highlight-red); padding-left: 15px; color: #fff;">Подкасты</h2>
   </div>
@@ -488,20 +489,26 @@
 </div>
 
 <script>
+  // liquid tilt (optimized)
   const cards = document.querySelectorAll('.liquid-tilt');
+  let raf = null;
+
   document.addEventListener('mousemove', (e) => {
     if (window.innerWidth < 900) return;
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardX = rect.left + rect.width / 2;
-      const cardY = rect.top + rect.height / 2;
-      const offsetX = (e.clientX - cardX) / 45;
-      const offsetY = (e.clientY - cardY) / 45;
-      card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
+    if (raf) return;
+
+    raf = requestAnimationFrame(() => {
+      raf = null;
+      cards.forEach(card => {
+        const r = card.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / 45;
+        const dy = (e.clientY - (r.top + r.height / 2)) / 45;
+        card.style.transform =
+                `perspective(1000px) rotateX(${-dy}deg) rotateY(${dx}deg)`;
+      });
     });
   });
 </script>
+
 </body>
 </html>
