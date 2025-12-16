@@ -129,28 +129,38 @@
       </p>
     </div>
 
-    <div class="card card-contact liquid-tilt" id="contact">
+    <div class="card card-contact liquid-tilt" id="contact" onclick="location.href='contacts.html'" style="cursor: pointer;">
+
       <div class="contact-header">
         <h3>Связь со мной</h3>
         <p>Заказ разработки / Консультации</p>
       </div>
+
       <div class="contact-group">
-        <a href="https://t.me/red_ik" target="_blank" class="contact-row">
+
+        <a href="https://t.me/red_ik" target="_blank" class="contact-row" onclick="event.stopPropagation()">
           <img src="site/img/tg.svg" class="icon-mini" alt="tg">
           <span>@ReD_ik</span>
         </a>
-        <a href="mailto:red_ik@inbox.ru" class="contact-row">
+
+        <a href="mailto:red_ik@inbox.ru" class="contact-row" onclick="event.stopPropagation()">
           <span class="icon-emoji">📧</span>
           <span>red_ik@inbox.ru</span>
         </a>
+
         <div class="phone-actions">
-          <a href="tel:+79952882810" class="btn-call">
+          <a href="tel:+79952882810" class="btn-call" onclick="event.stopPropagation()">
             <span class="icon-emoji">📞</span>
             <span>Позвонить</span>
           </a>
-          <button class="btn-copy-icon copy-trigger" data-phone="+79952882810">📋</button>
+
+          <button class="btn-copy-icon copy-trigger" data-phone="+79952882810" title="Скопировать" onclick="event.stopPropagation()">
+            📋
+          </button>
         </div>
       </div>
+
+      <div class="arrow-icon">➔</div>
     </div>
 
     <div class="card card-donate liquid-tilt">
