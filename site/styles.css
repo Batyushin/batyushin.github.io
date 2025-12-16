@@ -28,18 +28,10 @@ body {
 
 /* --- DOCK MENU --- */
 .dock-menu {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    padding: 10px 20px;
-    display: flex; gap: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
+    background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px; padding: 10px 20px;
+    display: flex; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     margin-bottom: env(safe-area-inset-bottom);
 }
@@ -124,38 +116,57 @@ a { text-decoration: none; color: inherit; }
 .card-mad { grid-area: mad; align-items: flex-start; min-height: 140px; background: linear-gradient(135deg, rgba(138,43,226,0.1), transparent); }
 .emoji-large { font-size: 2.5rem; margin-bottom: auto; }
 
-/* Stack */
-.card-stack { grid-area: stack; justify-content: center; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+/* Stack (UPDATED) */
+.card-stack {
+    grid-area: stack;
+    justify-content: flex-start; /* Выравнивание сверху */
+    align-items: flex-start;     /* Выравнивание слева */
+    gap: 15px;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0; }
 .tag {
     padding: 6px 12px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: #ccc;
     border: 1px solid rgba(255,255,255,0.05); text-decoration: none; transition: all 0.3s ease; display: inline-block;
 }
 .tag:hover { background: rgba(255, 45, 45, 0.15); border-color: rgba(255, 45, 45, 0.4); color: #fff; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(255, 45, 45, 0.2); }
 
-/* FEATURED ARTICLE */
+/* FEATURED ARTICLE (UPDATED) */
 .card-article {
     grid-area: projects;
     text-decoration: none;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0,0,0,0.3));
     display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 15px;
-    position: relative; /* Для стрелки */
+    position: relative;
+    padding: 24px;
 }
 
 .article-content { width: 100%; padding-right: 20px; }
 
-/* Стрелка справа сверху */
+/* Стрелка */
 .arrow-icon-small {
     position: absolute; top: 24px; right: 24px; font-size: 1.2rem; opacity: 0.5; transition: transform 0.3s, color 0.3s, opacity 0.3s;
 }
 .card-article:hover .arrow-icon-small { transform: translate(5px, -5px); color: var(--highlight-red); opacity: 1; }
 
 .article-content h3 {
-    font-size: 1.3rem; margin-bottom: 10px;
+    font-size: 1.3rem; margin-bottom: 12px;
     background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     line-height: 1.2;
 }
-.article-content p { font-size: 0.85rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
+
+/* Стили для подзаголовка (не красный) */
+.article-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7); /* Приглушенный белый */
+    margin-bottom: 12px; /* Отступ от подзаголовка до текста */
+    display: block;
+}
+
+/* Стили для основного текста */
+.article-desc {
+    font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6);
+}
 
 /* Бейдж снизу */
 .article-badge {
@@ -164,7 +175,7 @@ a { text-decoration: none; color: inherit; }
     font-size: 0.75rem; font-weight: 700; color: #ccc; text-transform: uppercase; letter-spacing: 0.5px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: background 0.3s, color 0.3s;
-    margin-top: auto;
+    margin-top: auto; /* Прижимает к низу */
 }
 .icon-journal { font-size: 1rem; line-height: 1; }
 
@@ -231,7 +242,7 @@ a { text-decoration: none; color: inherit; }
             "about about contact contact"
             "donate donate donate donate";
 
-        grid-template-rows: 150px 150px 180px 280px 100px;
+        grid-template-rows: 150px 150px 220px 280px 100px;
     }
 }
 
