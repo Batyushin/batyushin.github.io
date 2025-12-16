@@ -116,12 +116,10 @@ a { text-decoration: none; color: inherit; }
 .card-mad { grid-area: mad; align-items: flex-start; min-height: 140px; background: linear-gradient(135deg, rgba(138,43,226,0.1), transparent); }
 .emoji-large { font-size: 2.5rem; margin-bottom: auto; }
 
-/* Stack (UPDATED) */
+/* Stack */
 .card-stack {
     grid-area: stack;
-    justify-content: flex-start; /* Выравнивание сверху */
-    align-items: flex-start;     /* Выравнивание слева */
-    gap: 15px;
+    justify-content: flex-start; align-items: flex-start; gap: 15px;
 }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0; }
 .tag {
@@ -130,7 +128,7 @@ a { text-decoration: none; color: inherit; }
 }
 .tag:hover { background: rgba(255, 45, 45, 0.15); border-color: rgba(255, 45, 45, 0.4); color: #fff; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(255, 45, 45, 0.2); }
 
-/* FEATURED ARTICLE (UPDATED) */
+/* FEATURED ARTICLE */
 .card-article {
     grid-area: projects;
     text-decoration: none;
@@ -142,40 +140,26 @@ a { text-decoration: none; color: inherit; }
 
 .article-content { width: 100%; padding-right: 20px; }
 
-/* Стрелка */
 .arrow-icon-small {
     position: absolute; top: 24px; right: 24px; font-size: 1.2rem; opacity: 0.5; transition: transform 0.3s, color 0.3s, opacity 0.3s;
 }
 .card-article:hover .arrow-icon-small { transform: translate(5px, -5px); color: var(--highlight-red); opacity: 1; }
 
 .article-content h3 {
-    font-size: 1.3rem; margin-bottom: 12px;
+    font-size: 1.3rem; margin-bottom: 8px;
     background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     line-height: 1.2;
 }
 
-/* Стили для подзаголовка (не красный) */
-.article-label {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7); /* Приглушенный белый */
-    margin-bottom: 12px; /* Отступ от подзаголовка до текста */
-    display: block;
-}
+.article-desc { font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
 
-/* Стили для основного текста */
-.article-desc {
-    font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6);
-}
-
-/* Бейдж снизу */
 .article-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(255, 255, 255, 0.08); padding: 8px 12px; border-radius: 12px;
     font-size: 0.75rem; font-weight: 700; color: #ccc; text-transform: uppercase; letter-spacing: 0.5px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: background 0.3s, color 0.3s;
-    margin-top: auto; /* Прижимает к низу */
+    margin-top: auto;
 }
 .icon-journal { font-size: 1rem; line-height: 1; }
 
@@ -242,7 +226,8 @@ a { text-decoration: none; color: inherit; }
             "about about contact contact"
             "donate donate donate donate";
 
-        grid-template-rows: 150px 150px 220px 280px 100px;
+        /* Уменьшил высоту до 190px, чтобы убрать пустоту */
+        grid-template-rows: 150px 150px 190px 280px 100px;
     }
 }
 
