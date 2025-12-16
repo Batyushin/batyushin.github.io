@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-" />
+    <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
+      <change afterPath="$PROJECT_DIR$/podcasts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/red/IdeaProjects/batyushin.github.io/old",
+    "last_opened_file_path": "/Users/red/IdeaProjects/batyushin.github.io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -51,14 +56,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/site" />
       <recent name="$PROJECT_DIR$/old" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/site" />
       <recent name="$PROJECT_DIR$/site/article" />
       <recent name="$PROJECT_DIR$/site/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/.idea/site/img" />
-      <recent name="$PROJECT_DIR$/.idea/site" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -89,22 +96,7 @@
       <workItem from="1754395852129" duration="3885000" />
       <workItem from="1755600256959" duration="1000" />
       <workItem from="1765824388521" duration="16212000" />
-    </task>
-    <task id="LOCAL-00087" summary="-">
-      <option name="closed" value="true" />
-      <created>1754325174838</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1754325174838</updated>
-    </task>
-    <task id="LOCAL-00088" summary="-">
-      <option name="closed" value="true" />
-      <created>1754325363628</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1754325363628</updated>
+      <workItem from="1765877427582" duration="5176000" />
     </task>
     <task id="LOCAL-00089" summary="-">
       <option name="closed" value="true" />
@@ -482,7 +474,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765876244035</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="-">
+      <option name="closed" value="true" />
+      <created>1765877654900</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1765877654900</updated>
+    </task>
+    <task id="LOCAL-00137" summary="-">
+      <option name="closed" value="true" />
+      <created>1765878854724</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1765878854724</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

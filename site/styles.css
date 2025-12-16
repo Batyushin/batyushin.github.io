@@ -12,7 +12,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-/* Smooth Scroll padding */
+/* Плавный скролл */
 html { scroll-behavior: smooth; scroll-padding-top: 40px; }
 
 body {
@@ -53,14 +53,20 @@ body {
 @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, 50px); } }
 .noise { position: fixed; inset: 0; z-index: -1; opacity: 0.05; pointer-events: none; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
 
-/* --- LAYOUT --- */
+/* --- LAYOUT GLOBAL --- */
 .wrapper { width: 100%; max-width: 1000px; z-index: 10; padding-bottom: 60px; }
 
+/* 1. СЕТКА ГЛАВНОЙ СТРАНИЦЫ */
 .grid {
     display: grid; gap: 16px; grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "hero hero" "tg vk" "mad sprut" "stack stack"
         "projects projects" "about about" "contact contact" "donate donate";
+}
+
+/* 2. СЕТКА ШАПКИ (ДЛЯ ВНУТРЕННИХ СТРАНИЦ) */
+.top-grid {
+    display: grid; gap: 16px; grid-template-columns: 1fr; margin-bottom: 24px;
 }
 
 /* --- CARDS BASE --- */
@@ -79,16 +85,14 @@ body {
 h1, h3 { color: #fff; font-weight: 700; margin-bottom: 6px; line-height: 1.2; }
 p, span { color: var(--text-muted); font-size: 0.9rem; line-height: 1.4; }
 a { text-decoration: none; color: inherit; }
-.glitch-hover:hover { animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; color: var(--highlight-red); }
-@keyframes glitch { 0% { transform: translate(0) } 20% { transform: translate(-2px, 2px) } 40% { transform: translate(-2px, -2px) } 60% { transform: translate(2px, 2px) } 80% { transform: translate(2px, -2px) } 100% { transform: translate(0) } }
 
-/* --- SECTIONS --- */
-
-/* Hero */
+/* --- HERO BLOCK --- */
 .card-hero {
     grid-area: hero; min-height: 240px; align-items: center; text-align: center; justify-content: center;
     background: radial-gradient(circle at top right, rgba(255,45,45,0.12), transparent 70%), var(--glass-bg);
 }
+a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
+
 .site-title { font-family: 'Saira Stencil One', cursive; font-size: 2.8rem; background: linear-gradient(to right, #fff 40%, var(--highlight-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .domain { font-size: 2.8rem; -webkit-text-fill-color: rgba(255,255,255,0.4); }
 .subtitle-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
@@ -98,25 +102,19 @@ a { text-decoration: none; color: inherit; }
 .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); }
 .badge.red { background: rgba(255, 45, 45, 0.15); color: var(--highlight-red); border-color: rgba(255,45,45,0.25); }
 .hero-desc { margin-top: 15px; margin-bottom: 30px; max-width: 420px; }
-.highlight-text { color: #fff; font-weight: 600; }
 
-/* Links */
+/* --- SMALL LINKS --- */
 .card-tg { grid-area: tg; }
 .card-vk { grid-area: vk; }
-.card-tg, .card-vk { min-height: 140px; align-items: flex-start; }
-.icon-img {
-    width: 36px; height: 36px; margin-bottom: auto;
-    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3));
-    object-fit: contain;
-}
+.card-mad { grid-area: mad; }
+.card-sprut { grid-area: sprut; }
+.card-tg, .card-vk, .card-mad, .card-sprut { min-height: 140px; align-items: flex-start; }
+
+.icon-img { width: 36px; height: 36px; margin-bottom: auto; filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3)); object-fit: contain; }
+.emoji-large { font-size: 2.5rem; margin-bottom: auto; }
 .arrow-icon { position: absolute; top: 20px; right: 20px; opacity: 0.3; }
 
-/* Sprut & Mad Dom */
-.card-sprut { grid-area: sprut; align-items: flex-start; min-height: 140px; background: linear-gradient(135deg, rgba(0,100,255,0.1), transparent); }
-.card-mad { grid-area: mad; align-items: flex-start; min-height: 140px; background: linear-gradient(135deg, rgba(138,43,226,0.1), transparent); }
-.emoji-large { font-size: 2.5rem; margin-bottom: auto; }
-
-/* Stack */
+/* --- STACK --- */
 .card-stack {
     grid-area: stack;
     justify-content: flex-start; align-items: flex-start; gap: 15px;
@@ -128,51 +126,37 @@ a { text-decoration: none; color: inherit; }
 }
 .tag:hover { background: rgba(255, 45, 45, 0.15); border-color: rgba(255, 45, 45, 0.4); color: #fff; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(255, 45, 45, 0.2); }
 
-/* FEATURED ARTICLE */
+/* --- FEATURED ARTICLE --- */
 .card-article {
-    grid-area: projects;
-    text-decoration: none;
+    grid-area: projects; text-decoration: none;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0,0,0,0.3));
     display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 15px;
-    position: relative;
-    padding: 24px;
+    position: relative; padding: 24px;
 }
-
 .article-content { width: 100%; padding-right: 20px; }
-
-.arrow-icon-small {
-    position: absolute; top: 24px; right: 24px; font-size: 1.2rem; opacity: 0.5; transition: transform 0.3s, color 0.3s, opacity 0.3s;
-}
+.arrow-icon-small { position: absolute; top: 24px; right: 24px; font-size: 1.2rem; opacity: 0.5; transition: transform 0.3s, color 0.3s, opacity 0.3s; }
 .card-article:hover .arrow-icon-small { transform: translate(5px, -5px); color: var(--highlight-red); opacity: 1; }
 
-.article-content h3 {
-    font-size: 1.3rem; margin-bottom: 8px;
-    background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    line-height: 1.2;
-}
-
+.article-content h3 { font-size: 1.3rem; margin-bottom: 8px; background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
+.article-label { font-size: 0.85rem; font-weight: 500; color: rgba(255, 255, 255, 0.7); margin-bottom: 12px; display: block; }
 .article-desc { font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
 
 .article-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(255, 255, 255, 0.08); padding: 8px 12px; border-radius: 12px;
     font-size: 0.75rem; font-weight: 700; color: #ccc; text-transform: uppercase; letter-spacing: 0.5px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background 0.3s, color 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05); transition: background 0.3s, color 0.3s;
     margin-top: auto;
 }
 .icon-journal { font-size: 1rem; line-height: 1; }
-
 .card-article:hover .article-badge { background: rgba(255, 255, 255, 0.15); color: #fff; border-color: rgba(255, 255, 255, 0.2); }
 
-/* About */
+/* --- ABOUT & CONTACT --- */
 .card-about { grid-area: about; justify-content: flex-start; gap: 15px; }
 .card-about p { font-size: 0.95rem; line-height: 1.6; color: #ddd; }
 
-/* Contact */
 .card-contact { grid-area: contact; gap: 15px; justify-content: flex-start; }
 .contact-group { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-
 .contact-row, .btn-call, .btn-copy-icon {
     display: flex; align-items: center; height: 52px !important; min-height: 52px !important; max-height: 52px !important;
     padding: 0 16px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05);
@@ -186,7 +170,7 @@ a { text-decoration: none; color: inherit; }
 .btn-call { flex: 1; justify-content: center; cursor: pointer; gap: 12px; }
 .btn-copy-icon { width: 52px; justify-content: center; cursor: pointer; font-size: 1.2rem; padding: 0; }
 
-/* Donate */
+/* --- DONATE --- */
 .card-donate {
     grid-area: donate; background: linear-gradient(135deg, rgba(80, 0, 0, 0.4), rgba(20,20,20,0.4));
     border-color: rgba(255, 45, 45, 0.25); flex-direction: row; align-items: center; gap: 20px; padding: 20px 30px;
@@ -207,6 +191,25 @@ a { text-decoration: none; color: inherit; }
 }
 .btn-donate-small:hover { background: var(--highlight-red); color: #fff; box-shadow: 0 0 15px rgba(255,45,45,0.4); }
 
+/* --- INTERNAL PAGES ELEMENTS --- */
+.content-header { margin-bottom: 20px; }
+.content-list { display: flex; flex-direction: column; gap: 16px; }
+
+/* Карточка подкаста (список) */
+.podcast-item {
+    min-height: auto; flex-direction: row; align-items: center; gap: 20px; text-decoration: none; padding: 20px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.podcast-item:hover { transform: translateX(5px); border-color: var(--highlight-red); }
+.pod-preview {
+    font-size: 2.5rem; background: rgba(255,255,255,0.05); width: 80px; height: 80px;
+    border-radius: 16px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+}
+.pod-info { display: flex; flex-direction: column; gap: 6px; }
+.pod-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin: 0; }
+.pod-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
+.pod-meta { font-size: 0.75rem; color: var(--highlight-red); font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+
 /* Footer */
 .footer { text-align: center; margin-top: 20px; padding: 15px; justify-content: center; align-items: center; }
 .icon-small { width: 14px; height: 14px; vertical-align: middle; margin: 0 2px; }
@@ -215,20 +218,33 @@ a { text-decoration: none; color: inherit; }
 
 /* --- DESKTOP (900px+) --- */
 @media (min-width: 900px) {
+    /* 1. ГЛАВНАЯ СТРАНИЦА (SPRUT ПОД ТЕЛЕГРАМОМ) */
     .grid {
         grid-template-columns: repeat(4, 1fr);
 
-        /* Layout */
         grid-template-areas:
             "hero hero tg vk"
-            "hero hero mad sprut"
+            "hero hero sprut mad"
             "stack stack projects projects"
             "about about contact contact"
             "donate donate donate donate";
 
-        /* Уменьшил высоту до 190px, чтобы убрать пустоту */
         grid-template-rows: 150px 150px 190px 280px 100px;
     }
+
+    /* 2. ШАПКА ВНУТРЕННИХ СТРАНИЦ (SPRUT ПОД ТЕЛЕГРАМОМ) */
+    .top-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 150px 150px;
+        grid-template-areas:
+            "hero hero tg vk"
+            "hero hero sprut home";
+    }
+    .area-hero { grid-area: hero; }
+    .area-tg   { grid-area: tg; }
+    .area-vk   { grid-area: vk; }
+    .area-home { grid-area: home; }
+    .area-sprut{ grid-area: sprut; }
 }
 
 /* Mobile Adjustments */
@@ -237,4 +253,7 @@ a { text-decoration: none; color: inherit; }
     .donate-controls { flex-direction: column; margin-left: 0; width: 100%; }
     .donate-controls .simple-phone { width: 100%; justify-content: center; background: rgba(255,255,255,0.05); }
     .btn-donate-small { width: 100%; text-align: center; }
+
+    .podcast-item { flex-direction: column; align-items: flex-start; }
+    .pod-preview { width: 50px; height: 50px; font-size: 1.5rem; }
 }
