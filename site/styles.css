@@ -10,7 +10,10 @@
     --radius: 24px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+/* Smooth Scroll padding */
+html { scroll-behavior: smooth; scroll-padding-top: 40px; }
 
 body {
     background-color: var(--bg-color);
@@ -35,91 +38,51 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
     padding: 10px 20px;
-    display: flex;
-    gap: 20px;
+    display: flex; gap: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
 
-.dock-item {
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: transform 0.2s;
-    filter: grayscale(1);
-    opacity: 0.7;
+    /* iPhone Safe Area */
+    margin-bottom: env(safe-area-inset-bottom);
 }
-
-.dock-item:hover {
-    transform: scale(1.2) translateY(-5px);
-    filter: grayscale(0);
-    opacity: 1;
-}
-
-@keyframes slideUp {
-    from { transform: translate(-50%, 100px); opacity: 0; }
-    to { transform: translate(-50%, 0); opacity: 1; }
-}
+.dock-item { font-size: 1.5rem; text-decoration: none; transition: transform 0.2s; filter: grayscale(1); opacity: 0.7; }
+.dock-item:hover { transform: scale(1.2) translateY(-5px); filter: grayscale(0); opacity: 1; }
+@keyframes slideUp { from { transform: translate(-50%, 100px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
 
 /* --- BACKGROUND FX --- */
-.background-orb {
-    position: fixed; border-radius: 50%; filter: blur(80px); z-index: -2; opacity: 0.55;
-    animation: float 14s infinite ease-in-out;
-}
+.background-orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -2; opacity: 0.55; animation: float 14s infinite ease-in-out; }
 .orb-1 { width: 70vw; height: 70vw; background: radial-gradient(circle, var(--highlight-red), transparent 70%); top: -15%; left: -15%; }
 .orb-2 { width: 60vw; height: 60vw; background: radial-gradient(circle, var(--deep-red), transparent 60%); bottom: -10%; right: -10%; animation-delay: -7s; }
 
 .cyber-grid {
     position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background-image:
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.5;
-    animation: gridMove 20s linear infinite;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px; opacity: 0.5; animation: gridMove 20s linear infinite;
 }
 @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
 @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, 50px); } }
-
 .noise { position: fixed; inset: 0; z-index: -1; opacity: 0.05; pointer-events: none; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
 
 /* --- LAYOUT --- */
 .wrapper { width: 100%; max-width: 1000px; z-index: 10; padding-bottom: 60px; }
 
 .grid {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: 1fr 1fr;
-    /* МОБИЛЬНАЯ ВЕРСИЯ */
+    display: grid; gap: 16px; grid-template-columns: 1fr 1fr;
     grid-template-areas:
-        "hero hero"
-        "tg vk"
-        "mad sprut"  /* Поменял местами */
-        "stack stack"
-        "projects projects"
-        "about about"
-        "contact contact"
-        "donate donate"; /* Партнеры удалены, Донат во всю ширину */
+        "hero hero" "tg vk" "mad sprut" "stack stack"
+        "projects projects" "about about" "contact contact" "donate donate";
 }
 
 /* --- CARDS BASE --- */
 .card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(25px) saturate(140%);
-    -webkit-backdrop-filter: blur(25px) saturate(140%);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius);
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background: var(--glass-bg); backdrop-filter: blur(25px) saturate(140%); -webkit-backdrop-filter: blur(25px) saturate(140%);
+    border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 24px;
+    position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s, border-color 0.3s;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 50px rgba(255, 45, 45, 0.15), 0 0 20px rgba(255, 45, 45, 0.1) inset;
+    transform: translateY(-4px); box-shadow: 0 20px 50px rgba(255, 45, 45, 0.15), 0 0 20px rgba(255, 45, 45, 0.1) inset;
     border-color: rgba(255, 45, 45, 0.5);
 }
 
@@ -131,11 +94,9 @@ a { text-decoration: none; color: inherit; }
 
 /* --- SECTIONS --- */
 
-/* 1. HERO */
+/* Hero */
 .card-hero {
-    grid-area: hero;
-    min-height: 240px;
-    align-items: center; text-align: center; justify-content: center;
+    grid-area: hero; min-height: 240px; align-items: center; text-align: center; justify-content: center;
     background: radial-gradient(circle at top right, rgba(255,45,45,0.12), transparent 70%), var(--glass-bg);
 }
 .site-title { font-family: 'Saira Stencil One', cursive; font-size: 2.8rem; background: linear-gradient(to right, #fff 40%, var(--highlight-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -149,11 +110,15 @@ a { text-decoration: none; color: inherit; }
 .hero-desc { margin-top: 15px; margin-bottom: 30px; max-width: 420px; }
 .highlight-text { color: #fff; font-weight: 600; }
 
-/* 2 & 3. LINKS */
+/* Links */
 .card-tg { grid-area: tg; }
 .card-vk { grid-area: vk; }
 .card-tg, .card-vk { min-height: 140px; align-items: flex-start; }
-.icon-img { width: 36px; height: 36px; margin-bottom: auto; filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3)); }
+.icon-img {
+    width: 36px; height: 36px; margin-bottom: auto;
+    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3));
+    object-fit: contain; /* FIX SPRUT ICON */
+}
 .arrow-icon { position: absolute; top: 20px; right: 20px; opacity: 0.3; }
 
 /* Sprut & Mad Dom */
@@ -161,7 +126,7 @@ a { text-decoration: none; color: inherit; }
 .card-mad { grid-area: mad; align-items: flex-start; min-height: 140px; background: linear-gradient(135deg, rgba(138,43,226,0.1), transparent); }
 .emoji-large { font-size: 2.5rem; margin-bottom: auto; }
 
-/* 4. STACK */
+/* Stack */
 .card-stack { grid-area: stack; justify-content: center; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .tag {
@@ -170,22 +135,19 @@ a { text-decoration: none; color: inherit; }
 }
 .tag:hover { background: rgba(255, 45, 45, 0.15); border-color: rgba(255, 45, 45, 0.4); color: #fff; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(255, 45, 45, 0.2); }
 
-/* PROJECTS */
-.card-projects {
-    grid-area: projects;
-    background: linear-gradient(to right, rgba(255,255,255,0.02), rgba(0,0,0,0));
-    justify-content: center;
-}
+/* Projects */
+.card-projects { grid-area: projects; background: linear-gradient(to right, rgba(255,255,255,0.02), rgba(0,0,0,0)); justify-content: center; }
 .coming-soon { display: inline-block; margin-top: 10px; font-size: 0.8rem; padding: 4px 8px; background: rgba(255,200,0,0.1); color: #ffcc00; border-radius: 4px; }
 
-/* 5. ABOUT */
+/* About */
 .card-about { grid-area: about; justify-content: flex-start; gap: 15px; }
 .card-about p { font-size: 0.95rem; line-height: 1.6; color: #ddd; }
 
-/* 6. CONTACT */
+/* Contact */
 .card-contact { grid-area: contact; gap: 15px; justify-content: flex-start; }
 .contact-group { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
 
+/* FIXED HEIGHT BUTTONS */
 .contact-row, .btn-call, .btn-copy-icon {
     display: flex; align-items: center; height: 52px !important; min-height: 52px !important; max-height: 52px !important;
     padding: 0 16px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05);
@@ -199,7 +161,7 @@ a { text-decoration: none; color: inherit; }
 .btn-call { flex: 1; justify-content: center; cursor: pointer; gap: 12px; }
 .btn-copy-icon { width: 52px; justify-content: center; cursor: pointer; font-size: 1.2rem; padding: 0; }
 
-/* 7. DONATE */
+/* Donate */
 .card-donate {
     grid-area: donate; background: linear-gradient(135deg, rgba(80, 0, 0, 0.4), rgba(20,20,20,0.4));
     border-color: rgba(255, 45, 45, 0.25); flex-direction: row; align-items: center; gap: 20px; padding: 20px 30px;
@@ -220,7 +182,7 @@ a { text-decoration: none; color: inherit; }
 }
 .btn-donate-small:hover { background: var(--highlight-red); color: #fff; box-shadow: 0 0 15px rgba(255,45,45,0.4); }
 
-/* FOOTER */
+/* Footer */
 .footer { text-align: center; margin-top: 20px; padding: 15px; justify-content: center; align-items: center; }
 .icon-small { width: 14px; height: 14px; vertical-align: middle; margin: 0 2px; }
 .highlight { color: var(--highlight-red); font-weight: 700; }
@@ -230,22 +192,12 @@ a { text-decoration: none; color: inherit; }
 @media (min-width: 900px) {
     .grid {
         grid-template-columns: repeat(4, 1fr);
-
-        /* Обновленная раскладка:
-           r1: Hero(2x2) | TG | VK
-           r2: Hero      | Mad | Sprut  (Свапнул тут)
-           r3: Stack(2)  | Projects(2)
-           r4: About(2)  | Contact(2)
-           r5: Donate(4) (На всю ширину, без партнеров)
-        */
         grid-template-areas:
             "hero hero tg vk"
             "hero hero mad sprut"
             "stack stack projects projects"
             "about about contact contact"
             "donate donate donate donate";
-
-        /* Высоты строк (подправлены под контент) */
         grid-template-rows: 150px 150px 180px 280px 100px;
     }
 }

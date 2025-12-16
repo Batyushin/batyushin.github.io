@@ -2,8 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Batyushin.ru | ReD</title>
+  <meta name="description" content="Дмитрий Батюшин (ReD). IoT Architect, автоматизация, умный дом, SprutHub, WirenBoard." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://batyushin.ru/" />
+  <meta property="og:title" content="Batyushin.ru | Заметки Красного" />
+  <meta property="og:description" content="Инженерный подход к хаосу. Автоматизирую скучное, создаю великое." />
+  <meta property="og:image" content="site/img/og-preview.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="site/styles.css" />
@@ -77,7 +85,7 @@
 
     <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut liquid-tilt">
       <div class="arrow-icon">➔</div>
-      <img src="site/img/sprut.png" alt="Telegram" class="icon-img">
+      <img src="site/img/sprut.png" alt="Sprut" class="icon-img">
       <div class="link-info">
         <h3>Sprut.ai</h3>
         <span>80+ авторских статей</span>
@@ -106,7 +114,7 @@
     <div class="card card-projects liquid-tilt" id="projects">
       <div class="projects-content">
         <h3>Популярные проекты</h3>
-        <p>Сборка и/или настройка оборудования под управлением WirenBoard, датчики уровня жидкости, датчик давления жидкости, датчик качества воздуха,DIY решения.</p>
+        <p>Сборка и настройка WirenBoard, датчики уровня жидкости, давления, качества воздуха, DIY решения.</p>
         <span class="coming-soon">Скоро раздел наполнится статьями...</span>
       </div>
     </div>
@@ -117,7 +125,7 @@
         Я Дмитрий Батюшин. Собираю свои наработки, делюсь опытом и мыслями. Здесь нет воды, только «мясо» и автоматизация.
       </p>
       <p>
-        За плечами 15 лет в операторах связи. Теперь этот хардкорный бэкграунд трудиться на благо домашней автоматизации. Сменил биллинг на spruthub и Node-RED. Теперь автоматизирую всё, что не приколочено.
+        За плечами 15 лет в операторах связи. Теперь этот хардкорный бэкграунд работает на домашнюю автоматизацию. Сменил биллинг на spruthub и Node-RED. Теперь автоматизирую всё, что не прибито.
       </p>
     </div>
 
@@ -157,8 +165,8 @@
 
       <div class="donate-controls">
         <div class="simple-phone copy-trigger" data-phone="+79952882810" title="Нажми, чтобы скопировать">
+          <span class="sp-label">СБП:</span>
           <span class="sp-number">+7 (995) 288-28-10</span>
-          <span class="sp-label">copy</span>
         </div>
 
         <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" target="_blank" class="btn-donate-small">
@@ -177,6 +185,7 @@
 </div>
 
 <script>
+  // Logic Copy
   document.querySelectorAll('.copy-trigger').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -188,11 +197,13 @@
 
       navigator.clipboard.writeText(phone).then(() => {
         this.classList.add('copied');
+
         if(this.classList.contains('simple-phone')) {
           textTarget.innerText = "Скопировано!";
         } else {
           this.innerHTML = "✅";
         }
+
         setTimeout(() => {
           this.classList.remove('copied');
           if(this.classList.contains('simple-phone')) {
@@ -205,6 +216,7 @@
     });
   });
 
+  // Tilt Logic
   const cards = document.querySelectorAll('.liquid-tilt');
   document.addEventListener('mousemove', (e) => {
     if (window.innerWidth < 900) return;
