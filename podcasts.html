@@ -5,48 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Подкасты и Эфиры | Batyushin.ru</title>
 
+  <meta name="description" content="Подкасты, интервью и эфиры с участием Дмитрия Батюшина (ReD)." />
+  <meta property="og:title" content="Подкасты и Эфиры | ReD" />
+  <meta property="og:image" content="site/img/og-preview.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="site/styles.css" />
   <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
 
   <style>
-    /* Сетка шапки для страницы подкастов */
-    .podcast-header-grid {
+    /* 1. НАСТРОЙКА ШАПКИ (ЖЕЛЕЗОБЕТОННАЯ СЕТКА) */
+    .podcasts-header-grid {
       display: grid;
-      gap: 12px;
-      /* Мобильная версия: 2 колонки */
-      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+
+      /* --- МОБИЛЬНАЯ ВЕРСИЯ --- */
+      grid-template-columns: 1fr 1fr; /* Две колонки */
+
+      /* Рисуем карту:
+         1. Hero занимает обе колонки
+         2. TG и VK делят ряд
+         3. Sprut и Home делят следующий ряд
+      */
+      grid-template-areas:
+        "hero hero"
+        "tg   vk"
+        "sprut home";
     }
 
-    /* Hero занимает всю ширину (2 колонки) */
-    .ph-hero { grid-column: 1 / -1; }
+    /* Привязываем классы к зонам (Работает везде) */
+    .ph-hero  { grid-area: hero; }
+    .ph-tg    { grid-area: tg; }
+    .ph-vk    { grid-area: vk; }
+    .ph-sprut { grid-area: sprut; }
+    .ph-home  { grid-area: home; }
 
-    /* Остальные кнопки (TG, VK, Sprut, Home) по умолчанию занимают по 1 ячейке
-       и выстроятся в 2 ряда по 2 штуки. */
+    /* 2. ФИКС СПИСКА ПОДКАСТОВ (Прижимаем влево) */
+    .podcast-item {
+      justify-content: flex-start !important;
+    }
 
-    /* DESKTOP (900px+) */
+    /* 3. СТИЛЬ СТРЕЛКИ "НАЗАД" */
+    .arrow-back {
+      transform: rotate(180deg);
+      display: inline-block;
+      transition: transform 0.3s, color 0.3s, opacity 0.3s;
+    }
+    .card:hover .arrow-back {
+      transform: rotate(180deg) translateX(5px);
+      color: var(--highlight-red);
+      opacity: 1;
+    }
+
+    /* 4. DESKTOP (900px+): Меням карту на широкую */
     @media (min-width: 900px) {
-      .podcast-header-grid {
+      .podcasts-header-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 150px 150px;
-        /* Жесткая схема для ПК */
+
+        /* Новая карта для ПК */
         grid-template-areas:
            "hero hero tg vk"
            "hero hero sprut home";
       }
-
-      .ph-hero  { grid-area: hero; grid-column: auto; } /* Сбрасываем span */
-      .ph-tg    { grid-area: tg; }
-      .ph-vk    { grid-area: vk; }
-      .ph-sprut { grid-area: sprut; }
-      .ph-home  { grid-area: home; }
     }
-
-    /* Доп стиль для стрелки "Назад" */
-    .arrow-back { transform: rotate(180deg); display: inline-block; transition: 0.3s; }
-    .card:hover .arrow-back { transform: rotate(180deg) translateX(5px); color: var(--highlight-red); opacity: 1; }
   </style>
 
 </head>
@@ -66,7 +92,7 @@
 
 <div class="wrapper">
 
-  <div class="podcast-header-grid">
+  <div class="podcasts-header-grid">
 
     <a href="index.html" class="card card-hero ph-hero">
       <div class="branding">
@@ -76,7 +102,10 @@
           <img src="site/img/red.webp" alt="icon" class="icon-red" />
           <span class="nickname">ReD</span>
         </div>
-        <p class="hero-desc">Инженерный подход к хаосу.<br>Автоматизирую скучное, создаю великое.</p>
+        <p class="hero-desc">
+          Инженерный подход к хаосу.<br>
+          Автоматизирую скучное, создаю великое.
+        </p>
         <div class="badges">
           <span class="badge red">IoT Architect</span>
           <span class="badge red">Network Expert</span>
@@ -85,89 +114,100 @@
       </div>
     </a>
 
-    <a href="https://t.me/BlogReD" target="_blank" class="card link-card ph-tg">
-      <span class="arrow-icon">➔</span>
-      <img src="site/img/tg.svg" alt="TG" class="icon-img">
-      <div class="link-info"><h3>Telegram</h3><span>Блог Красного</span></div>
+    <a href="https://t.me/BlogReD" target="_blank" class="card card-tg ph-tg">
+      <div class="arrow-icon">➔</div>
+      <img src="site/img/tg.svg" alt="Telegram" class="icon-img">
+      <div class="link-info">
+        <h3>Telegram</h3>
+        <span>Блог Красного</span>
+      </div>
     </a>
 
-    <a href="https://vk.com/red.home" target="_blank" class="card link-card ph-vk">
-      <span class="arrow-icon">➔</span>
+    <a href="https://vk.com/red.home" target="_blank" class="card card-vk ph-vk">
+      <div class="arrow-icon">➔</div>
       <img src="site/img/VK.png" alt="VK" class="icon-img">
-      <div class="link-info"><h3>ВКонтакте</h3><span>Паблик</span></div>
+      <div class="link-info">
+        <h3>ВКонтакте</h3>
+        <span>Паблик</span>
+      </div>
     </a>
 
-    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card link-card ph-sprut">
-      <span class="arrow-icon">➔</span>
+    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut ph-sprut">
+      <div class="arrow-icon">➔</div>
       <img src="site/img/sprut.png" alt="Sprut" class="icon-img">
-      <div class="link-info"><h3>Sprut.ai</h3><span>Статьи</span></div>
+      <div class="link-info">
+        <h3>Sprut.ai</h3>
+        <span>80+ авторских статей</span>
+      </div>
     </a>
 
-    <a href="index.html" class="card link-card ph-home" style="background: rgba(255,255,255,0.05);">
-      <span class="arrow-icon arrow-back">➔</span>
+    <a href="index.html" class="card area-home ph-home" style="background: rgba(255,255,255,0.05);">
+      <div class="arrow-icon arrow-back">➔</div>
       <span class="emoji-large">🏠</span>
-      <div class="link-info"><h3>На главную</h3><span>Вернуться</span></div>
+      <div class="link-info">
+        <h3>На главную</h3>
+        <span>Вернуться</span>
+      </div>
     </a>
 
   </div>
-
-  <div class="content-header" style="margin-top: 40px; margin-bottom: 20px;">
+  <div class="content-header" style="margin-bottom: 20px;">
     <h2 style="font-size: 1.8rem; border-left: 4px solid var(--highlight-red); padding-left: 15px; color: #fff;">Подкасты и Эфиры</h2>
   </div>
 
   <div class="content-list">
 
-    <a href="https://www.youtube.com/live/nGRS2otzxcY" target="_blank" class="card podcast-item">
+    <a href="https://www.youtube.com/live/nGRS2otzxcY" target="_blank" class="card podcast-item liquid-tilt">
       <div class="pod-preview">📺</div>
       <div class="pod-info">
-        <span class="pod-meta">YOUTUBE • 7 АПР. 2024</span>
+        <span class="pod-meta">YouTube • 7 апр. 2024г.</span>
         <h3 class="pod-title">SprutPodcast №1 / всё про умный дом</h3>
         <p class="pod-desc">Пилотный выпуск нового сезона. Разбор новостей, Zigbee и боли интеграторов.</p>
       </div>
-      <span class="arrow-icon">➔</span>
+      <div class="arrow-icon">➔</div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=IorsZnD4Pus" target="_blank" class="card podcast-item">
+    <a href="https://www.youtube.com/watch?v=IorsZnD4Pus" target="_blank" class="card podcast-item liquid-tilt">
       <div class="pod-preview">📺</div>
       <div class="pod-info">
-        <span class="pod-meta">YOUTUBE • 14 АПР. 2024</span>
+        <span class="pod-meta">YouTube • 14 апр. 2024г.</span>
         <h3 class="pod-title">SprutPodcast №2 / умный дом и не только</h3>
         <p class="pod-desc">Второй выпуск. Обсуждаем новинки и ответы на вопросы.</p>
       </div>
-      <span class="arrow-icon">➔</span>
+      <div class="arrow-icon">➔</div>
     </a>
 
-    <a href="https://podcast.sprut.ai/" target="_blank" class="card podcast-item">
+    <a href="https://podcast.sprut.ai/" target="_blank" class="card podcast-item liquid-tilt">
       <div class="pod-preview">🎤</div>
       <div class="pod-info">
-        <span class="pod-meta">AUDIO</span>
-        <h3 class="pod-title">podcast.sprut.ai</h3>
+        <span class="pod-meta">Audio</span>
+        <h3 class="pod-title">Подкасты sprut.ai</h3>
         <p class="pod-desc">На каких ресурсах можно послушать наши подкасты.</p>
       </div>
-      <span class="arrow-icon">➔</span>
+      <div class="arrow-icon">➔</div>
     </a>
 
   </div>
 
-  <footer class="footer">
-    <p>© 2025 Дмитрий Батюшин (<span class="highlight">ReD</span>)</p>
+  <footer class="footer card liquid-tilt" style="margin-top: 40px;">
+    <p>© 2025 Дмитрий Батюшин (<span style="color: var(--highlight-red); font-weight: 700;">ReD</span>)</p>
   </footer>
 
   <div style="height: 80px;"></div>
 </div>
 
 <script>
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll('.liquid-tilt');
   document.addEventListener('mousemove', (e) => {
     if (window.innerWidth < 900) return;
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
     cards.forEach(card => {
       const rect = card.getBoundingClientRect();
-      const cardX = rect.left + rect.width/2;
-      const cardY = rect.top + rect.height/2;
-      const offsetX = (e.clientX - cardX) / 50;
-      const offsetY = (e.clientY - cardY) / 50;
+      const cardX = rect.left + rect.width / 2;
+      const cardY = rect.top + rect.height / 2;
+      const offsetX = (e.clientX - cardX) / 45;
+      const offsetY = (e.clientY - cardY) / 45;
       card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
     });
   });
