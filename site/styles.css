@@ -60,7 +60,7 @@ body {
 .grid {
     display: grid; gap: 16px; grid-template-columns: 1fr 1fr;
     grid-template-areas:
-        "hero hero" "tg vk" "mad sprut" "stack stack"
+        "hero hero" "tg vk" "sprut podcast" "stack stack"
         "projects projects" "about about" "contact contact" "donate donate";
 }
 
