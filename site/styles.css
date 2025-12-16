@@ -106,9 +106,9 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 /* --- SMALL LINKS --- */
 .card-tg { grid-area: tg; }
 .card-vk { grid-area: vk; }
-.card-mad { grid-area: mad; }
+.card-podcust { grid-area: podcust; }
 .card-sprut { grid-area: sprut; }
-.card-tg, .card-vk, .card-mad, .card-sprut { min-height: 140px; align-items: flex-start; }
+.card-tg, .card-vk, .card-podcust, .card-sprut { min-height: 140px; align-items: flex-start; }
 
 .icon-img { width: 36px; height: 36px; margin-bottom: auto; filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3)); object-fit: contain; }
 .emoji-large { font-size: 2.5rem; margin-bottom: auto; }
@@ -235,7 +235,7 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 
         grid-template-areas:
             "hero hero tg vk"
-            "hero hero sprut mad"
+            "hero hero sprut podcast"
             "stack stack projects projects"
             "about about contact contact"
             "donate donate donate donate";

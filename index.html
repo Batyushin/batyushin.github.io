@@ -125,7 +125,7 @@
         Я Дмитрий Батюшин. Собираю свои наработки, делюсь опытом и мыслями. Здесь нет воды, только «мясо» и автоматизация.
       </p>
       <p>
-        За плечами 15 лет в операторах связи. Теперь этот хардкорный бэкграунд работает на домашнюю автоматизацию. Сменил биллинг на <b>sprut</b>hub и Node-RED. Теперь автоматизирую всё, что не прибито.
+        За плечами 15 лет в операторах связи. Теперь этот хардкорный бэкграунд работает на домашнюю автоматизацию.
       </p>
     </div>
 
@@ -148,9 +148,7 @@
             <span class="icon-emoji">📞</span>
             <span>Позвонить</span>
           </a>
-          <button class="btn-copy-icon copy-trigger" data-phone="+79952882810" title="Скопировать">
-            📋
-          </button>
+          <button class="btn-copy-icon copy-trigger" data-phone="+79952882810">📋</button>
         </div>
       </div>
     </div>
@@ -161,7 +159,7 @@
         <p>Если я оказался вам полезен, поддержите проект! 🎉</p>
       </div>
       <div class="donate-controls">
-        <div class="simple-phone copy-trigger" data-phone="+79952882810" title="Нажми, чтобы скопировать">
+        <div class="simple-phone copy-trigger" data-phone="+79952882810">
           <span class="sp-number">+7 (995) 288-28-10</span>
           <span class="sp-label">copy</span>
         </div>
@@ -181,38 +179,49 @@
 </div>
 
 <script>
+  // copy phone
   document.querySelectorAll('.copy-trigger').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      const phone = this.getAttribute('data-phone');
-      const textTarget = this.querySelector('.sp-number') || this;
-      const originalText = textTarget.innerText;
+      const phone = this.dataset.phone;
+      const text = this.querySelector('.sp-number');
+      const original = text?.innerText;
+
       navigator.clipboard.writeText(phone).then(() => {
         this.classList.add('copied');
-        if(this.classList.contains('simple-phone')) { textTarget.innerText = "Скопировано!"; } else { this.innerHTML = "✅"; }
+        if (text) text.innerText = 'Скопировано!';
+        else this.innerText = '✅';
+
         setTimeout(() => {
           this.classList.remove('copied');
-          if(this.classList.contains('simple-phone')) { textTarget.innerText = originalText; } else { this.innerHTML = "📋"; }
+          if (text) text.innerText = original;
+          else this.innerText = '📋';
         }, 2000);
       });
     });
   });
 
+  // liquid tilt (optimized)
   const cards = document.querySelectorAll('.liquid-tilt');
+  let raf = null;
+
   document.addEventListener('mousemove', (e) => {
     if (window.innerWidth < 900) return;
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardX = rect.left + rect.width / 2;
-      const cardY = rect.top + rect.height / 2;
-      const offsetX = (e.clientX - cardX) / 45;
-      const offsetY = (e.clientY - cardY) / 45;
-      card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
+    if (raf) return;
+
+    raf = requestAnimationFrame(() => {
+      raf = null;
+      cards.forEach(card => {
+        const r = card.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / 45;
+        const dy = (e.clientY - (r.top + r.height / 2)) / 45;
+        card.style.transform =
+                `perspective(1000px) rotateX(${-dy}deg) rotateY(${dx}deg)`;
+      });
     });
   });
 </script>
+
 </body>
 </html>
