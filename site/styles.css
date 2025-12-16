@@ -12,7 +12,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-/* Плавный скролл */
+/* Smooth Scroll padding */
 html { scroll-behavior: smooth; scroll-padding-top: 40px; }
 
 body {
@@ -112,7 +112,19 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 
 .icon-img { width: 36px; height: 36px; margin-bottom: auto; filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3)); object-fit: contain; }
 .emoji-large { font-size: 2.5rem; margin-bottom: auto; }
-.arrow-icon { position: absolute; top: 20px; right: 20px; opacity: 0.3; }
+
+/* === ИСПРАВЛЕНИЕ СТРЕЛОК === */
+.arrow-icon {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 1.2rem; opacity: 0.3;
+    transition: transform 0.3s, color 0.3s, opacity 0.3s;
+}
+/* При наведении на карточку стрелка становится красной и двигается */
+.card:hover .arrow-icon {
+    color: var(--highlight-red);
+    opacity: 1;
+    transform: translate(3px, -3px);
+}
 
 /* --- STACK --- */
 .card-stack {
@@ -138,7 +150,6 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 .card-article:hover .arrow-icon-small { transform: translate(5px, -5px); color: var(--highlight-red); opacity: 1; }
 
 .article-content h3 { font-size: 1.3rem; margin-bottom: 8px; background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
-.article-label { font-size: 0.85rem; font-weight: 500; color: rgba(255, 255, 255, 0.7); margin-bottom: 12px; display: block; }
 .article-desc { font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
 
 .article-badge {
