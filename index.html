@@ -16,10 +16,17 @@
 <div class="cyber-grid"></div>
 <div class="noise"></div>
 
+<nav class="dock-menu">
+  <a href="#hero" class="dock-item" title="Главная">🏠</a>
+  <a href="#projects" class="dock-item" title="Проекты">⚡️</a>
+  <a href="#stack" class="dock-item" title="Стек">🛠</a>
+  <a href="#contact" class="dock-item" title="Связь">📞</a>
+</nav>
+
 <div class="wrapper">
   <div class="grid">
 
-    <div class="card card-hero liquid-tilt">
+    <div class="card card-hero liquid-tilt" id="hero">
       <div class="branding">
         <h1 class="site-title glitch-hover" data-text="BATYUSHIN.ru">BATYUSHIN<span class="domain">.ru</span></h1>
         <div class="subtitle-row">
@@ -59,11 +66,29 @@
       </div>
     </a>
 
-    <div class="card card-stack liquid-tilt">
+    <a href="https://t.me/mad_dom" target="_blank" class="card card-mad liquid-tilt">
+      <div class="arrow-icon">➔</div>
+      <span class="emoji-large">🤪</span>
+      <div class="link-info">
+        <h3>Дом тронулся</h3>
+        <span>IT-юмор и боль</span>
+      </div>
+    </a>
+
+    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut liquid-tilt">
+      <div class="arrow-icon">➔</div>
+      <img src="site/img/sprut.png" alt="Telegram" class="icon-img">
+      <div class="link-info">
+        <h3>Sprut.ai</h3>
+        <span>80+ авторских статей</span>
+      </div>
+    </a>
+
+    <div class="card card-stack liquid-tilt" id="stack">
       <h3>Мой стек</h3>
 
       <div class="skill-tags">
-        <a href="https://spruthub.ru" target="_blank" class="tag">spruthub</a>
+        <a href="https://spruthub.ru" target="_blank" class="tag">SprutHub</a>
         <a href="https://wirenboard.com" target="_blank" class="tag">WirenBoard</a>
         <a href="https://nodered.org" target="_blank" class="tag">Node-RED</a>
         <a href="https://www.home-assistant.io" target="_blank" class="tag">Home Assistant</a>
@@ -78,17 +103,25 @@
       </div>
     </div>
 
+    <div class="card card-projects liquid-tilt" id="projects">
+      <div class="projects-content">
+        <h3>Популярные проекты</h3>
+        <p>Сборка и/или настройка оборудования под управлением WirenBoard, датчики уровня жидкости, датчик давления жидкости, датчик качества воздуха,DIY решения.</p>
+        <span class="coming-soon">Скоро раздел наполнится статьями...</span>
+      </div>
+    </div>
+
     <div class="card card-about liquid-tilt">
       <h3>О проекте</h3>
       <p>
         Я Дмитрий Батюшин. Собираю свои наработки, делюсь опытом и мыслями. Здесь нет воды, только «мясо» и автоматизация.
       </p>
       <p>
-        За плечами 15 лет в операторах связи. Теперь этот хардкорный бэкграунд работает на благо домашней автоматизации. Сменил биллинг на spruthub и Node-RED, автоматизирую всё, что не приколочено.
+        За плечами 15 лет в операторах связи. Теперь этот хардкорный бэкграунд работает на домашнюю автоматизацию. Сменил биллинг на spruthub и Node-RED. Теперь автоматизирую всё, что не прибито.
       </p>
     </div>
 
-    <div class="card card-contact liquid-tilt">
+    <div class="card card-contact liquid-tilt" id="contact">
       <div class="contact-header">
         <h3>Связь со мной</h3>
         <p>Заказ разработки / Консультации</p>
@@ -139,10 +172,11 @@
   <footer class="footer card liquid-tilt">
     <p>© 2025 Дмитрий Батюшин (<img src="site/img/red.webp" alt="icon" class="icon-small"> <span class="highlight">ReD</span>)</p>
   </footer>
+
+  <div style="height: 80px;"></div>
 </div>
 
 <script>
-  // Копирование
   document.querySelectorAll('.copy-trigger').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -154,13 +188,11 @@
 
       navigator.clipboard.writeText(phone).then(() => {
         this.classList.add('copied');
-
         if(this.classList.contains('simple-phone')) {
           textTarget.innerText = "Скопировано!";
         } else {
           this.innerHTML = "✅";
         }
-
         setTimeout(() => {
           this.classList.remove('copied');
           if(this.classList.contains('simple-phone')) {
@@ -173,14 +205,11 @@
     });
   });
 
-  // Tilt Effect
   const cards = document.querySelectorAll('.liquid-tilt');
   document.addEventListener('mousemove', (e) => {
     if (window.innerWidth < 900) return;
-
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
-
     cards.forEach(card => {
       const rect = card.getBoundingClientRect();
       const cardX = rect.left + rect.width / 2;
