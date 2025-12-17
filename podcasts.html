@@ -17,66 +17,25 @@
   <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
 
   <style>
-    /* 1. НАСТРОЙКА ШАПКИ (ЖЕЛЕЗОБЕТОННАЯ СЕТКА) */
-    .podcasts-header-grid {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 40px;
-
-      /* --- МОБИЛЬНАЯ ВЕРСИЯ --- */
-      grid-template-columns: 1fr 1fr; /* Две колонки */
-
-      /* Рисуем карту:
-         1. Hero занимает обе колонки
-         2. TG и VK делят ряд
-         3. Sprut и Home делят следующий ряд
-      */
-      grid-template-areas:
-        "hero hero"
-        "tg   vk"
-        "sprut home";
+    /* 1. СЕТКА ШАПКИ */
+    .header-grid {
+      display: grid; gap: 16px; margin-bottom: 40px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "hero hero" "tg vk" "sprut home";
     }
+    .ph-hero  { grid-area: hero; } .ph-tg { grid-area: tg; } .ph-vk { grid-area: vk; } .ph-sprut { grid-area: sprut; } .ph-home  { grid-area: home; }
 
-    /* Привязываем классы к зонам (Работает везде) */
-    .ph-hero  { grid-area: hero; }
-    .ph-tg    { grid-area: tg; }
-    .ph-vk    { grid-area: vk; }
-    .ph-sprut { grid-area: sprut; }
-    .ph-home  { grid-area: home; }
+    /* Стрелка назад */
+    .arrow-back { transform: rotate(180deg); display: inline-block; transition: transform 0.3s; }
+    .card:hover .arrow-back { transform: rotate(180deg) translateX(5px); color: var(--highlight-red); opacity: 1; }
 
-    /* 2. ФИКС СПИСКА ПОДКАСТОВ (Прижимаем влево) */
-    .podcast-item {
-      justify-content: flex-start !important;
-    }
-
-    /* 3. СТИЛЬ СТРЕЛКИ "НАЗАД" */
-    .arrow-back {
-      transform: rotate(180deg);
-      display: inline-block;
-      transition: transform 0.3s, color 0.3s, opacity 0.3s;
-    }
-    .card:hover .arrow-back {
-      transform: rotate(180deg) translateX(5px);
-      color: var(--highlight-red);
-      opacity: 1;
-    }
-
-    /* 4. DESKTOP (900px+): Меням карту на широкую */
     @media (min-width: 900px) {
-      .podcasts-header-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 150px 150px;
-
-        /* Новая карта для ПК */
-        grid-template-areas:
-           "hero hero tg vk"
-           "hero hero sprut home";
-      }
+      .header-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 150px 150px; grid-template-areas: "hero hero tg vk" "hero hero sprut home"; }
     }
   </style>
 
   <script src="site/metrics.js"></script>
-  <link rel="canonical" href="https://batyushin.ru/podcusts.html" />
+  <link rel="canonical" href="https://batyushin.ru/podcasts.html" />
 </head>
 <body>
 
@@ -86,16 +45,15 @@
 <div class="noise"></div>
 
 <nav class="dock-menu">
-  <a href="index.html" class="dock-item" title="Главная">🏠</a>
-  <a href="articles.html" class="dock-item" title="Статьи">📃</a>
-  <a href="podcasts.html" class="dock-item" title="Подкасты">🎙️</a>
-  <a href="contacts.html" class="dock-item" title="Связь">📞</a>
+  <a href="index.html" class="dock-item home" title="Главная">🏠</a>
+  <a href="articles.html" class="dock-item articles" title="Статьи">📃</a>
+  <a href="podcasts.html" class="dock-item podcasts" title="Подкасты">🎙️</a>
+  <a href="contacts.html" class="dock-item contacts" title="Связь">📞</a>
 </nav>
 
 <div class="wrapper">
 
-  <div class="podcasts-header-grid">
-
+  <div class="header-grid">
     <a href="index.html" class="card card-hero ph-hero liquid-tilt">
       <div class="branding">
         <h1 class="site-title">BATYUSHIN<span class="domain">.ru</span></h1>
@@ -104,54 +62,24 @@
           <img src="site/img/red.webp" alt="icon" class="icon-red" />
           <span class="nickname">ReD</span>
         </div>
-        <p class="hero-desc">
-          Инженерный подход к хаосу.<br>
-          Автоматизирую скучное, создаю великое.
-        </p>
+        <p class="hero-desc">Инженерный подход к хаосу.<br>Автоматизирую скучное, создаю великое.</p>
         <div class="badges">
-          <span class="badge red">IoT Architect</span>
-          <span class="badge red">Network Expert</span>
-          <span class="badge">CCTV & Security</span>
+          <span class="badge red">IoT Architect</span><span class="badge red">Network Expert</span><span class="badge">CCTV & Security</span>
         </div>
       </div>
     </a>
-
     <a href="https://t.me/BlogReD" target="_blank" class="card card-tg ph-tg liquid-tilt">
-      <div class="arrow-icon">➔</div>
-      <img src="site/img/tg.svg" alt="Telegram" class="icon-img">
-      <div class="link-info">
-        <h3>Telegram</h3>
-        <span>Блог Красного</span>
-      </div>
+      <div class="arrow-icon">➔</div><img src="site/img/tg.svg" alt="Telegram" class="icon-img"><div class="link-info"><h3>Telegram</h3><span>Блог Красного</span></div>
     </a>
-
     <a href="https://vk.com/red.home" target="_blank" class="card card-vk ph-vk liquid-tilt">
-      <div class="arrow-icon">➔</div>
-      <img src="site/img/VK.png" alt="VK" class="icon-img">
-      <div class="link-info">
-        <h3>ВКонтакте</h3>
-        <span>Паблик</span>
-      </div>
+      <div class="arrow-icon">➔</div><img src="site/img/VK.png" alt="VK" class="icon-img"><div class="link-info"><h3>ВКонтакте</h3><span>Паблик</span></div>
     </a>
-
     <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut ph-sprut liquid-tilt">
-      <div class="arrow-icon">➔</div>
-      <img src="site/img/sprut.png" alt="Sprut" class="icon-img">
-      <div class="link-info">
-        <h3>Sprut.ai</h3>
-        <span>80+ авторских статей</span>
-      </div>
+      <div class="arrow-icon">➔</div><img src="site/img/sprut.png" alt="Sprut" class="icon-img"><div class="link-info"><h3>Sprut.ai</h3><span>80+ авторских статей</span></div>
     </a>
-
     <a href="index.html" class="card area-home ph-home liquid-tilt" style="background: rgba(255,255,255,0.05);">
-      <div class="arrow-icon arrow-back">➔</div>
-      <span class="emoji-large">🏠</span>
-      <div class="link-info">
-        <h3>На главную</h3>
-        <span>Вернуться назад</span>
-      </div>
+      <div class="arrow-icon arrow-back">➔</div><span class="emoji-large">🏠</span><div class="link-info"><h3>На главную</h3><span>Вернуться назад</span></div>
     </a>
-
   </div>
 
   <a href="index.html" class="card card-header liquid-tilt">
@@ -159,343 +87,158 @@
     <div class="arrow-icon arrow-back">➔</div>
   </a>
 
-  <div class="content-list">
+  <div class="card content-panel">
 
+    <div class="panel-list">
 
-    <div class="content-list">
-
-      <div class="card podcast-item video-embed liquid-tilt">
-        <div class="pod-info">
+      <div class="article-item video-embed">
+        <div class="art-info">
           <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span class="pod-meta" style="color: #ff0000;">YouTube • 14 апр. 2024г.</span>
-            <span style="font-size: 1.5rem;">📺</span>
+            <div class="art-tags"><span class="art-tag" style="background: rgba(255,0,0,0.2); color: #ff9999;">YouTube • 14 апр. 2024г.</span></div>
           </div>
-          <h3 class="pod-title" style="margin-top: 5px;">SprutPodcast №2 / умный дом и не только</h3>
-          <p class="pod-desc">Второй выпуск. Обсуждаем новинки и ответы на вопросы.</p>
+          <h3 class="art-title" style="margin-top: 8px;">SprutPodcast №2 / умный дом и не только</h3>
+          <p class="art-desc">Второй выпуск. Обсуждаем новинки и ответы на вопросы.</p>
         </div>
-
         <div class="video-responsive">
           <iframe src="https://www.youtube.com/embed/IorsZnD4Pus" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
 
-      <div class="card podcast-item video-embed liquid-tilt">
-        <div class="pod-info">
+      <div class="article-item video-embed">
+        <div class="art-info">
           <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span class="pod-meta" style="color: #ff0000;">YouTube • 7 апр. 2024г.</span>
-            <span style="font-size: 1.5rem;">📺</span>
+            <div class="art-tags"><span class="art-tag" style="background: rgba(255,0,0,0.2); color: #ff9999;">YouTube • 7 апр. 2024г.</span></div>
           </div>
-          <h3 class="pod-title" style="margin-top: 5px;">SprutPodcast №1 / всё про умный дом</h3>
-          <p class="pod-desc">Пилотный выпуск нового сезона. Разбор новостей, Zigbee и боли интеграторов.</p>
+          <h3 class="art-title" style="margin-top: 8px;">SprutPodcast №1 / всё про умный дом</h3>
+          <p class="art-desc">Пилотный выпуск нового сезона. Разбор новостей, Zigbee и боли интеграторов.</p>
         </div>
-
         <div class="video-responsive">
           <iframe src="https://www.youtube.com/embed/nGRS2otzxcY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
 
+      <a href="https://t.me/SprutAI_Podcast/54" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 38</h3><p class="art-desc">Ватериус. Ваши счетчики под контролем.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/52" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 37</h3><p class="art-desc">Умный дом глазами интегратора Intelligent House.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/49" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 36</h3><p class="art-desc">Умный дом глазами Яндекса.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/48" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 35</h3><p class="art-desc">Aqara. Планы, идеи и стратегия.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/46" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 34</h3><p class="art-desc">Облачный умный дом. В чем подвох если облако отключили?</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/45" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 33</h3><p class="art-desc">Умный дом Сбера. Почему он такой?</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/44" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 32</h3><p class="art-desc">Новости за ноябрь 2021 года.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/43" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 31</h3><p class="art-desc">Видеонаблюдение.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/42" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 30</h3><p class="art-desc">Умный дом для школьников и студентов.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/41" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 29</h3><p class="art-desc">Умный дом Сбера глазами разработчиков.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/40" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 28</h3><p class="art-desc">Интересные новости за последний месяц.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/38" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 27</h3><p class="art-desc">Про космонавтику от очевидца.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/37" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 26</h3><p class="art-desc">Умный дом с AlexxIT.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/36" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 25</h3><p class="art-desc">Безопасность в умном доме.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/35" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 24</h3><p class="art-desc">Разговоры об умной даче и не только.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/34" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 23</h3><p class="art-desc">Умный дом с Alex Kvazis.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/31" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 22</h3><p class="art-desc">Климат в умном доме.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/30" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 21</h3><p class="art-desc">Умный привод для открытия окон - Drivent.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/29" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 20</h3><p class="art-desc">Умный дом когда мы в нем.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/28" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 19</h3><p class="art-desc">Итоги 2020 года.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/27" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 18</h3><p class="art-desc">Новогодний умный дом.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/25" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 16</h3><p class="art-desc">Женский взгляд на умный дом.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/23" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 14</h3><p class="art-desc">DIY. Можно ли сделать свое устройство?</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/22" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 13</h3><p class="art-desc">Homebridge. Еще один пристрастный обзор.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/21" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 12</h3><p class="art-desc">Home Assistant - обзор с пристрастием.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/19" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 10</h3><p class="art-desc">Алиса, Маруся, Салют - кто еще?</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/18" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 9</h3><p class="art-desc">Умный ли дом у Google?</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/17" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 8</h3><p class="art-desc">Что такое Apple HomeKit?</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/16" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 7</h3><p class="art-desc">Умный дом из Китая.</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
+      <a href="https://t.me/SprutAI_Podcast/9" target="_blank" class="article-item">
+        <div class="art-preview">🎤</div>
+        <div class="art-info"><h3 class="art-title">Sprut.Podcast - 1</h3><p class="art-desc">Кто мы такие? Что за сообщество Sprut.ai?</p><div class="art-tags"><span class="art-tag">Audio</span></div></div><div class="article-arrow">➔</div>
+      </a>
 
-
-    <a href="https://t.me/SprutAI_Podcast/54" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 38</h3>
-        <p class="pod-desc">Ватериус. Ваши счетчики под контролем</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/52" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 37</h3>
-        <p class="pod-desc">Умный дом глазами интегратора Intelligent House</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/49" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 36</h3>
-        <p class="pod-desc">Умный дом глазами Яндекса</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/48" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 35</h3>
-        <p class="pod-desc">Aqara. Планы, идеи и стратегия</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/46" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 34</h3>
-        <p class="pod-desc">Облачный умный дом. В чем подвох если облако отключили?</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/45" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 33</h3>
-        <p class="pod-desc">Умный дом Сбера. Почему он такой?</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/44" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 32</h3>
-        <p class="pod-desc">Новости за ноябрь 2021 года</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/43" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 31</h3>
-        <p class="pod-desc">Видеонаблюдение</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/42" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 30</h3>
-        <p class="pod-desc">Умный дом для школьников и студентов</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/41" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 29</h3>
-        <p class="pod-desc">Умный дом Сбера глазами разработчиков</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/40" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 28</h3>
-        <p class="pod-desc">Интересные новости за последний месяц</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/38" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 27</h3>
-        <p class="pod-desc">Про космонавтику от очевидца и немного про умный дом</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/37" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 26</h3>
-        <p class="pod-desc">Умный дом с AlexxIT</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/36" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 25</h3>
-        <p class="pod-desc">Безопасность в умном доме</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/35" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 24</h3>
-        <p class="pod-desc">Разговоры об умной даче и не только.</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/34" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 23</h3>
-        <p class="pod-desc">Умный дом с Alex Kvazis</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/31" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 22</h3>
-        <p class="pod-desc">Климат в умном доме</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/30" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 21</h3>
-        <p class="pod-desc">Умный привод для открытия окон - Drivent</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/29" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 20</h3>
-        <p class="pod-desc">Умный дом когда мы в нем</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/28" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 19</h3>
-        <p class="pod-desc">Итоги 2020 года</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/27" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 18</h3>
-        <p class="pod-desc">Новогодний умный дом</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/25" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 16</h3>
-        <p class="pod-desc">Женский взгляд на умный дом</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/23" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 14</h3>
-        <p class="pod-desc">DIY. Можно ли сделать свое устройство для умного дома?</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/22" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 13</h3>
-        <p class="pod-desc">Homebridge. Еще один пристрастный обзор</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/21" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 12</h3>
-        <p class="pod-desc">Home Assistant - обзор с пристрастием</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/19" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 10</h3>
-        <p class="pod-desc">Алиса, Маруся, Салют - кто еще?</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/18" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 9</h3>
-        <p class="pod-desc">Умный ли дом у Google?</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/17" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 8</h3>
-        <p class="pod-desc">Что такое Apple HomeKit?</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/16" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 7</h3>
-        <p class="pod-desc">Умный дом из Китая. Производители, особенности хабов и экосистем.</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
-    <a href="https://t.me/SprutAI_Podcast/9" target="_blank" class="card podcast-item liquid-tilt">
-      <div class="pod-preview">🎤</div>
-      <div class="pod-info">
-        <span class="pod-meta">Audio</span>
-        <h3 class="pod-title">Sprut.Podcast - 1</h3>
-        <p class="pod-desc">Кто мы такие? Зачем мы тут собрались? Что за сообщество Sprut.ai?</p>
-      </div>
-      <div class="arrow-icon">➔</div>
-    </a>
-
+    </div>
   </div>
 
   <footer class="footer card liquid-tilt" style="margin-top: 40px;">
@@ -506,8 +249,5 @@
 </div>
 
 <script src="site/script.js"></script>
-</body>
-</html>
-
 </body>
 </html>

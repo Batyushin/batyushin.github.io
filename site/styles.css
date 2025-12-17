@@ -34,7 +34,6 @@ body {
     transform: translateX(-50%);
     z-index: 1000;
 
-    /* Стеклянный фон самого дока */
     background: rgba(20, 20, 20, 0.6);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -43,12 +42,10 @@ body {
 
     border-radius: 24px;
 
-    /* Фиксация размеров */
     height: 70px;
     padding: 0 15px;
     padding-bottom: 10px;
     box-sizing: border-box;
-
     overflow: visible;
 
     display: flex;
@@ -60,62 +57,31 @@ body {
     margin-bottom: env(safe-area-inset-bottom);
 }
 
-.dock-menu.dock-hidden {
-    transform: translate(-50%, 200%);
-}
+.dock-menu.dock-hidden { transform: translate(-50%, 200%); }
 
 .dock-item {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 12px;
+    display: flex; justify-content: center; align-items: center;
+    text-decoration: none; border-radius: 12px;
 
-    /* --- ИЗМЕНЕНИЕ: НЕПРОЗРАЧНЫЙ ФОН --- */
-    background: #181818; /* Сплошной темный цвет, не просвечивает */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая рамка */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Тень под кнопкой */
+    background: #181818;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 
-    /* Размеры (меняются скриптом) */
     width: calc(45px * var(--scale, 1));
     height: calc(45px * var(--scale, 1));
-
-    /* Размер эмодзи */
     font-size: calc(22px * var(--scale, 1));
-    line-height: 1;
+    line-height: 1; margin-bottom: 0;
 
-    margin-bottom: 0;
-
-    /* Анимация */
-    transition:
-            width 0.1s ease-out,
-            height 0.1s ease-out,
-            font-size 0.1s ease-out,
-            background 0.2s;
-
-    transform-origin: bottom center;
-    cursor: pointer;
-    flex-shrink: 0;
+    transition: width 0.1s ease-out, height 0.1s ease-out, font-size 0.1s ease-out, background 0.2s;
+    transform-origin: bottom center; cursor: pointer; flex-shrink: 0;
 }
 
-/* При наведении кнопка становится чуть светлее, но остается непрозрачной */
-.dock-item:hover {
-    background: #2a2a2a;
-    border-color: rgba(255, 255, 255, 0.3);
-}
+.dock-item:hover { background: #2a2a2a; border-color: rgba(255, 255, 255, 0.3); }
 
-/* Мобильная версия */
 @media (max-width: 768px) {
-    .dock-menu {
-        height: auto;
-        padding: 10px;
-    }
-    .dock-item {
-        width: 50px !important;
-        height: 50px !important;
-        font-size: 26px !important;
-    }
+    .dock-menu { height: auto; padding: 10px; }
+    .dock-item { width: 50px !important; height: 50px !important; font-size: 26px !important; }
 }
 
 /* --- BACKGROUND FX --- */
@@ -135,17 +101,13 @@ body {
 /* --- LAYOUT GLOBAL --- */
 .wrapper { width: 100%; max-width: 1000px; z-index: 10; padding-bottom: 60px; }
 
-/* 1. СЕТКА ГЛАВНОЙ СТРАНИЦЫ */
 .grid {
     display: grid; gap: 16px; grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "hero hero" "tg vk" "sprut podcast" "stack stack"
-        "projects projects" "about about" "contact contact" "donate donate";
+    grid-template-areas: "hero hero" "tg vk" "sprut podcast" "stack stack" "projects projects" "about about" "contact contact" "donate donate";
 }
-
-/* 2. СЕТКА ШАПКИ (ДЛЯ ВНУТРЕННИХ СТРАНИЦ) */
-.top-grid {
-    display: grid; gap: 16px; grid-template-columns: 1fr; margin-bottom: 24px;
+.header-grid, .top-grid {
+    display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin-bottom: 24px;
+    grid-template-areas: "hero hero" "tg vk" "sprut home";
 }
 
 /* --- CARDS BASE --- */
@@ -166,12 +128,8 @@ p, span { color: var(--text-muted); font-size: 0.9rem; line-height: 1.4; }
 a { text-decoration: none; color: inherit; }
 
 /* --- HERO BLOCK --- */
-.card-hero {
-    grid-area: hero; min-height: 240px; align-items: center; text-align: center; justify-content: center;
-    background: radial-gradient(circle at top right, rgba(255,45,45,0.12), transparent 70%), var(--glass-bg);
-}
+.card-hero { grid-area: hero; min-height: 240px; align-items: center; text-align: center; justify-content: center; background: radial-gradient(circle at top right, rgba(255,45,45,0.12), transparent 70%), var(--glass-bg); }
 a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
-
 .site-title { font-family: 'Saira Stencil One', cursive; font-size: 2.8rem; background: linear-gradient(to right, #fff 40%, var(--highlight-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .domain { font-size: 2.8rem; -webkit-text-fill-color: rgba(255,255,255,0.4); }
 .subtitle-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
@@ -183,74 +141,37 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 .hero-desc { margin-top: 15px; margin-bottom: 30px; max-width: 420px; }
 
 /* --- SMALL LINKS --- */
-.card-tg { grid-area: tg; }
-.card-vk { grid-area: vk; }
-.card-podcust { grid-area: podcust; }
-.card-sprut { grid-area: sprut; }
+.card-tg { grid-area: tg; } .card-vk { grid-area: vk; } .card-podcust { grid-area: podcust; } .card-sprut { grid-area: sprut; }
 .card-tg, .card-vk, .card-podcust, .card-sprut { min-height: 140px; align-items: flex-start; }
-
 .icon-img { width: 36px; height: 36px; margin-bottom: auto; filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3)); object-fit: contain; }
 .emoji-large { font-size: 2.5rem; margin-bottom: auto; }
 
-/* === ИСПРАВЛЕНИЕ СТРЕЛОК === */
-.arrow-icon {
-    position: absolute; top: 20px; right: 20px;
-    font-size: 1.2rem; opacity: 0.3;
-    transition: transform 0.3s, color 0.3s, opacity 0.3s;
-}
-.card:hover .arrow-icon {
-    color: var(--highlight-red);
-    opacity: 1;
-    transform: translate(3px, -3px);
-}
+/* --- ARROWS --- */
+.arrow-icon { position: absolute; top: 20px; right: 20px; font-size: 1.2rem; opacity: 0.3; transition: transform 0.3s, color 0.3s, opacity 0.3s; }
+.card:hover .arrow-icon { color: var(--highlight-red); opacity: 1; transform: translate(3px, -3px); }
 
 /* --- STACK --- */
-.card-stack {
-    grid-area: stack;
-    justify-content: flex-start; align-items: flex-start; gap: 15px;
-}
+.card-stack { grid-area: stack; justify-content: flex-start; align-items: flex-start; gap: 15px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0; }
-.tag {
-    padding: 6px 12px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: #ccc;
-    border: 1px solid rgba(255,255,255,0.05); text-decoration: none; transition: all 0.3s ease; display: inline-block;
-}
+.tag { padding: 6px 12px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: #ccc; border: 1px solid rgba(255,255,255,0.05); text-decoration: none; transition: all 0.3s ease; display: inline-block; }
 .tag:hover { background: rgba(255, 45, 45, 0.15); border-color: rgba(255, 45, 45, 0.4); color: #fff; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(255, 45, 45, 0.2); }
 
 /* --- FEATURED ARTICLE --- */
-.card-article {
-    grid-area: projects; text-decoration: none;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0,0,0,0.3));
-    display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 15px;
-    position: relative; padding: 24px;
-}
+.card-article { grid-area: projects; text-decoration: none; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0,0,0,0.3)); display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 15px; position: relative; padding: 24px; }
 .article-content { width: 100%; padding-right: 20px; }
 .arrow-icon-small { position: absolute; top: 24px; right: 24px; font-size: 1.2rem; opacity: 0.5; transition: transform 0.3s, color 0.3s, opacity 0.3s; }
 .card-article:hover .arrow-icon-small { transform: translate(5px, -5px); color: var(--highlight-red); opacity: 1; }
-
-.article-content h3 { font-size: 1.3rem; margin-bottom: 8px; background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
+.article-content h3 { font-size: 1.3rem; margin-bottom: 8px; line-height: 1.2; }
 .article-desc { font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
-
-.article-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255, 255, 255, 0.08); padding: 8px 12px; border-radius: 12px;
-    font-size: 0.75rem; font-weight: 700; color: #ccc; text-transform: uppercase; letter-spacing: 0.5px;
-    border: 1px solid rgba(255, 255, 255, 0.05); transition: background 0.3s, color 0.3s;
-    margin-top: auto;
-}
+.article-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.08); padding: 8px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; color: #ccc; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(255, 255, 255, 0.05); transition: background 0.3s, color 0.3s; margin-top: auto; }
 .icon-journal { font-size: 1rem; line-height: 1; }
 .card-article:hover .article-badge { background: rgba(255, 255, 255, 0.15); color: #fff; border-color: rgba(255, 255, 255, 0.2); }
 
 /* --- ABOUT & CONTACT --- */
 .card-about { grid-area: about; justify-content: flex-start; gap: 15px; }
-.card-about p { font-size: 0.95rem; line-height: 1.6; color: #ddd; }
-
 .card-contact { grid-area: contact; gap: 15px; justify-content: flex-start; }
 .contact-group { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-.contact-row, .btn-call, .btn-copy-icon {
-    display: flex; align-items: center; height: 52px !important; min-height: 52px !important; max-height: 52px !important;
-    padding: 0 16px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05);
-    color: #fff; font-weight: 500; text-decoration: none; transition: 0.2s; font-size: 0.95rem; box-sizing: border-box;
-}
+.contact-row, .btn-call, .btn-copy-icon { display: flex; align-items: center; height: 52px !important; min-height: 52px !important; max-height: 52px !important; padding: 0 16px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); color: #fff; font-weight: 500; text-decoration: none; transition: 0.2s; font-size: 0.95rem; box-sizing: border-box; }
 .contact-row:hover, .btn-call:hover, .btn-copy-icon:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.1); }
 .contact-row { gap: 12px; width: 100%; }
 .icon-mini { width: 22px; height: 22px; }
@@ -260,98 +181,58 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 .btn-copy-icon { width: 52px; justify-content: center; cursor: pointer; font-size: 1.2rem; padding: 0; }
 
 /* --- DONATE --- */
-.card-donate {
-    grid-area: donate; background: linear-gradient(135deg, rgba(80, 0, 0, 0.4), rgba(20,20,20,0.4));
-    border-color: rgba(255, 45, 45, 0.25); flex-direction: row; align-items: center; gap: 20px; padding: 20px 30px;
-}
+.card-donate { grid-area: donate; background: linear-gradient(135deg, rgba(80, 0, 0, 0.4), rgba(20,20,20,0.4)); border-color: rgba(255, 45, 45, 0.25); flex-direction: row; align-items: center; gap: 20px; padding: 20px 30px; }
 .donate-text h3 { margin: 0; font-size: 1.1rem; }
 .donate-text p { margin: 4px 0 0; font-size: 0.85rem; opacity: 0.7; }
 .donate-controls { display: flex; align-items: center; gap: 15px; margin-left: auto; }
-.simple-phone {
-    display: flex; align-items: center; gap: 8px; font-family: monospace; font-size: 1rem; color: #fff;
-    cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: background 0.2s;
-}
+.simple-phone { display: flex; align-items: center; gap: 8px; font-family: monospace; font-size: 1rem; color: #fff; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: background 0.2s; }
 .simple-phone:hover { background: rgba(255,255,255,0.1); }
 .sp-label { opacity: 0.5; font-family: 'Inter', sans-serif; font-size: 0.8rem; }
 .sp-number { font-weight: 700; letter-spacing: 0.5px; }
-.btn-donate-small {
-    padding: 8px 16px; border-radius: 20px; background: rgba(255, 45, 45, 0.2);
-    color: var(--highlight-red); border: 1px solid rgba(255,45,45,0.3); font-size: 0.85rem; font-weight: 600; transition: 0.2s;
-}
+.btn-donate-small { padding: 8px 16px; border-radius: 20px; background: rgba(255, 45, 45, 0.2); color: var(--highlight-red); border: 1px solid rgba(255,45,45,0.3); font-size: 0.85rem; font-weight: 600; transition: 0.2s; }
 .btn-donate-small:hover { background: var(--highlight-red); color: #fff; box-shadow: 0 0 15px rgba(255,45,45,0.4); }
 
 /* --- INTERNAL PAGES ELEMENTS --- */
-.content-header { margin-bottom: 20px; }
-.content-list { display: flex; flex-direction: column; gap: 16px; }
-
-.podcast-item {
-    min-height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-    text-decoration: none;
-    padding: 20px;
-    transition: transform 0.2s, border-color 0.2s;
-}
-.podcast-item:hover { transform: translateX(5px); border-color: var(--highlight-red); }
-.pod-preview {
-    font-size: 2.5rem; background: rgba(255,255,255,0.05); width: 80px; height: 80px;
-    border-radius: 16px; display: flex; justify-content: center; align-items: center; flex-shrink: 0;
-}
-.pod-info { display: flex; flex-direction: column; gap: 6px; }
-.pod-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin: 0; }
-.pod-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
-.pod-meta { font-size: 0.75rem; color: var(--highlight-red); font-weight: 600; text-transform: uppercase; margin-top: 4px; }
-
-/* ЗАГОЛОВОК С ЭМОДЗИ (ДЛЯ ВНУТРЕННИХ СТРАНИЦ) */
-.card-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    min-height: auto;
-    padding: 20px 25px;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: inherit;
-}
-.card-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
+.card-header { flexDirection: row; alignItems: center; justifyContent: space-between; min-height: auto; padding: 20px 25px; margin-bottom: 20px; text-decoration: none; color: inherit; }
+.card-header h2 { margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 12px; }
 .emoji-title { font-size: 1.8rem; line-height: 1; }
+
+.content-panel { padding: 30px; gap: 20px; }
+.panel-list { display: flex; flex-direction: column; gap: 16px; }
+
+/* --- УНИВЕРСАЛЬНЫЙ СПИСОК (ARTICLE / PODCAST) --- */
+.article-item { position: relative; display: flex; align-items: flex-start; gap: 20px; padding: 20px 25px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; padding-right: 50px; }
+.article-item:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--highlight-red); transform: translateX(5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+.art-preview { font-size: 2.2rem; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.05); border-radius: 12px; flex-shrink: 0; margin-top: 5px; }
+.art-info { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.art-title { font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0; line-height: 1.3; }
+.art-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+.art-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.art-tag { font-size: 0.75rem; padding: 4px 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #ccc; font-weight: 500; transition: 0.2s; }
+.article-item:hover .art-tag { background: rgba(255, 45, 45, 0.1); border-color: rgba(255, 45, 45, 0.3); color: #fff; }
+
+.article-arrow { position: absolute; top: 20px; right: 20px; font-size: 1.2rem; color: #fff; opacity: 0.2; transition: 0.3s; }
+.article-item:hover .article-arrow { opacity: 1; color: var(--highlight-red); transform: translate(3px, -3px); }
+
+/* --- VIDEO EMBED --- */
+.article-item.video-embed { flex-direction: column; padding-right: 25px; }
+.article-item.video-embed .video-responsive { width: 100%; margin-top: 15px; }
+
+.video-responsive { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+.video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
 /* Footer */
 .footer { text-align: center; margin-top: 20px; padding: 15px; justify-content: center; align-items: center; }
 .icon-small { width: 14px; height: 14px; vertical-align: middle; margin: 0 2px; }
 .highlight { color: var(--highlight-red); font-weight: 700; }
-.copied { color: #4eff7b !important; }
 
 /* --- DESKTOP (900px+) --- */
 @media (min-width: 900px) {
-    .grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas:
-            "hero hero tg vk"
-            "hero hero sprut podcast"
-            "stack stack projects projects"
-            "about about contact contact"
-            "donate donate donate donate";
-        grid-template-rows: 150px 150px 190px 280px 100px;
-    }
-    .top-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 150px 150px;
-        grid-template-areas: "hero hero tg vk" "hero hero sprut home";
-    }
-    .area-hero { grid-area: hero; }
-    .area-tg   { grid-area: tg; }
-    .area-vk   { grid-area: vk; }
-    .area-home { grid-area: home; }
-    .area-sprut{ grid-area: sprut; }
+    .grid { grid-template-columns: repeat(4, 1fr); grid-template-areas: "hero hero tg vk" "hero hero sprut podcast" "stack stack projects projects" "about about contact contact" "donate donate donate donate"; grid-template-rows: 150px 150px 190px 280px 100px; }
+    .header-grid, .top-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 150px 150px; grid-template-areas: "hero hero tg vk" "hero hero sprut home"; }
+    .area-hero { grid-area: hero; } .area-tg { grid-area: tg; } .area-vk { grid-area: vk; } .area-home { grid-area: home; } .area-sprut{ grid-area: sprut; }
 }
 
 /* Mobile Adjustments */
@@ -360,101 +241,6 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
     .donate-controls { flex-direction: column; margin-left: 0; width: 100%; }
     .donate-controls .simple-phone { width: 100%; justify-content: center; background: rgba(255,255,255,0.05); }
     .btn-donate-small { width: 100%; text-align: center; }
-    .podcast-item { flex-direction: column; align-items: flex-start; }
-    .pod-preview { width: 50px; height: 50px; font-size: 1.5rem; }
-}
-
-/* --- ВИДЕО МОДАЛ (Pop-up) --- */
-.video-modal-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Темный фон */
-    backdrop-filter: blur(10px);      /* Размытие фона сайта */
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.video-modal-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.video-container {
-    position: relative;
-    width: 90%;
-    max-width: 1000px;
-    aspect-ratio: 16 / 9; /* Пропорции видео */
-    background: #000;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    overflow: hidden;
-    transform: scale(0.9);
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.video-modal-overlay.active .video-container {
-    transform: scale(1);
-}
-
-.video-close-btn {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    color: #fff;
-    font-size: 30px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    transition: color 0.2s;
-}
-.video-close-btn:hover { color: var(--highlight-red); }
-
-/* iframe внутри */
-.video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* --- ВСТРАИВАНИЕ ВИДЕО (VIDEO EMBED) --- */
-
-/* Модификатор для карточки с видео: делаем её вертикальной */
-.podcast-item.video-embed {
-    flex-direction: column; /* Элементы друг под другом */
-    align-items: stretch;   /* Растянуть на всю ширину */
-    gap: 15px;
-    padding: 20px;
-    height: auto;           /* Высота авто (под видео) */
-}
-
-/* Контейнер для плеера (чтобы сохранять пропорции 16:9) */
-.video-responsive {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Пропорция 16:9 */
-    height: 0;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.video-responsive iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Убираем лишние отступы у заголовка в видео-режиме */
-.podcast-item.video-embed .pod-info {
-    width: 100%;
+    .article-item { flex-direction: column; align-items: flex-start; padding-right: 25px; }
+    .art-preview { width: 50px; height: 50px; font-size: 1.5rem; margin-top: 0; }
 }
