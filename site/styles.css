@@ -41,7 +41,6 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 
     border-radius: 24px;
-
     height: 70px;
     padding: 0 15px;
     padding-bottom: 10px;
@@ -78,11 +77,6 @@ body {
 }
 
 .dock-item:hover { background: #2a2a2a; border-color: rgba(255, 255, 255, 0.3); }
-
-@media (max-width: 768px) {
-    .dock-menu { height: auto; padding: 10px; }
-    .dock-item { width: 50px !important; height: 50px !important; font-size: 26px !important; }
-}
 
 /* --- BACKGROUND FX --- */
 .background-orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -2; opacity: 0.55; animation: float 14s infinite ease-in-out; }
@@ -193,14 +187,17 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 .btn-donate-small:hover { background: var(--highlight-red); color: #fff; box-shadow: 0 0 15px rgba(255,45,45,0.4); }
 
 /* --- INTERNAL PAGES ELEMENTS --- */
-.card-header { flexDirection: row; alignItems: center; justifyContent: space-between; min-height: auto; padding: 20px 25px; margin-bottom: 20px; text-decoration: none; color: inherit; }
+.card-header {
+    display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+    min-height: auto; padding: 20px 25px; margin-bottom: 20px; text-decoration: none; color: inherit;
+}
 .card-header h2 { margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 12px; }
 .emoji-title { font-size: 1.8rem; line-height: 1; }
 
 .content-panel { padding: 30px; gap: 20px; }
 .panel-list { display: flex; flex-direction: column; gap: 16px; }
 
-/* --- УНИВЕРСАЛЬНЫЙ СПИСОК (ARTICLE / PODCAST) --- */
+/* --- UNIVERSAL ITEM (ARTICLE / PODCAST) --- */
 .article-item { position: relative; display: flex; align-items: flex-start; gap: 20px; padding: 20px 25px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; padding-right: 50px; }
 .article-item:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--highlight-red); transform: translateX(5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
@@ -208,92 +205,79 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 .art-info { display: flex; flex-direction: column; gap: 6px; width: 100%; }
 .art-title { font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0; line-height: 1.3; }
 .art-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-
 .art-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .art-tag { font-size: 0.75rem; padding: 4px 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #ccc; font-weight: 500; transition: 0.2s; }
 .article-item:hover .art-tag { background: rgba(255, 45, 45, 0.1); border-color: rgba(255, 45, 45, 0.3); color: #fff; }
-
 .article-arrow { position: absolute; top: 20px; right: 20px; font-size: 1.2rem; color: #fff; opacity: 0.2; transition: 0.3s; }
 .article-item:hover .article-arrow { opacity: 1; color: var(--highlight-red); transform: translate(3px, -3px); }
 
 /* --- VIDEO EMBED --- */
 .article-item.video-embed { flex-direction: column; padding-right: 25px; }
-.article-item.video-embed .video-responsive { width: 100%; margin-top: 15px; }
-
-.video-responsive { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+.article-item.video-embed .video-responsive { width: 100%; margin-top: 15px; position: relative; padding-bottom: 56.25%; height: 0; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
 .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+/* --- AUDIO PLAYER (PODCAST LAYOUT) --- */
+.article-item.podcast-layout { flex-direction: row; align-items: center; justify-content: space-between; gap: 30px; padding-right: 25px; }
+.pod-text-content { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.pod-player-container { width: 300px; flex-shrink: 0; }
+
+/* AUDIO PLAYER DARK THEME */
+.pod-player-container audio { width: 100%; height: 40px; border-radius: 20px; outline: none; box-shadow: none; }
+
+audio::-webkit-media-controls-panel {
+    background-color: #2a2a2a; /* Темно-серый фон плеера */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+audio:hover::-webkit-media-controls-panel { background-color: #333; }
+
+/* Иконки: инвертируем (черный -> белый) и добавляем яркость */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-fullscreen-button,
+audio::-webkit-media-controls-overflow-button {
+    filter: invert(1) brightness(1.5);
+    cursor: pointer;
+}
+
+/* Текст таймера */
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: #ccc !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-shadow: none;
+}
+audio:focus { outline: none; }
+
+/* Custom tag color for Audio */
+.tag-audio { color: #4eff7b !important; background: rgba(78, 255, 123, 0.1) !important; border-color: rgba(78, 255, 123, 0.2) !important; }
 
 /* Footer */
 .footer { text-align: center; margin-top: 20px; padding: 15px; justify-content: center; align-items: center; }
 .icon-small { width: 14px; height: 14px; vertical-align: middle; margin: 0 2px; }
 .highlight { color: var(--highlight-red); font-weight: 700; }
 
-/* --- DESKTOP (900px+) --- */
+/* --- RESPONSIVE --- */
 @media (min-width: 900px) {
     .grid { grid-template-columns: repeat(4, 1fr); grid-template-areas: "hero hero tg vk" "hero hero sprut podcast" "stack stack projects projects" "about about contact contact" "donate donate donate donate"; grid-template-rows: 150px 150px 190px 280px 100px; }
     .header-grid, .top-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 150px 150px; grid-template-areas: "hero hero tg vk" "hero hero sprut home"; }
     .area-hero { grid-area: hero; } .area-tg { grid-area: tg; } .area-vk { grid-area: vk; } .area-home { grid-area: home; } .area-sprut{ grid-area: sprut; }
 }
-
-/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .article-item.podcast-layout { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .pod-player-container { width: 100%; margin-top: 5px; }
+    .dock-menu { height: auto; padding: 10px; }
+    .dock-item { width: 50px !important; height: 50px !important; font-size: 26px !important; }
+}
 @media (max-width: 600px) {
     .card-donate { flex-direction: column; text-align: center; padding: 20px; }
     .donate-controls { flex-direction: column; margin-left: 0; width: 100%; }
-    .donate-controls .simple-phone { width: 100%; justify-content: center; background: rgba(255,255,255,0.05); }
-    .btn-donate-small { width: 100%; text-align: center; }
+    .btn-donate-small, .simple-phone { width: 100%; justify-content: center; }
     .article-item { flex-direction: column; align-items: flex-start; padding-right: 25px; }
     .art-preview { width: 50px; height: 50px; font-size: 1.5rem; margin-top: 0; }
-}
-
-/* --- НОВЫЙ СТИЛЬ: ПЛЕЕР СПРАВА (PODCAST LAYOUT) --- */
-
-/* Контейнер карточки */
-.article-item.podcast-layout {
-    flex-direction: row;       /* Текст слева, плеер справа */
-    align-items: center;       /* Центрируем по вертикали */
-    justify-content: space-between;
-    gap: 30px;                 /* Отступ между текстом и плеером */
-    padding-right: 25px;       /* Убираем лишний отступ для стрелки, так как тут плеер */
-}
-
-/* Левая часть (Текст) */
-.pod-text-content {
-    flex: 1;                   /* Занимает все свободное место */
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-/* Правая часть (Плеер) */
-.pod-player-container {
-    width: 300px;              /* Фиксированная ширина плеера на ПК */
-    flex-shrink: 0;            /* Не сжиматься */
-}
-
-.pod-player-container audio {
-    width: 100%;
-    height: 40px;
-    border-radius: 20px;
-    outline: none;
-}
-
-/* Специальный цвет для тега AUDIO (Зеленый неон) */
-.tag-audio {
-    color: #4eff7b !important;
-    background: rgba(78, 255, 123, 0.1) !important;
-    border-color: rgba(78, 255, 123, 0.2) !important;
-}
-
-/* --- АДАПТИВНОСТЬ (МОБИЛКИ) --- */
-@media (max-width: 768px) {
-    .article-item.podcast-layout {
-        flex-direction: column; /* На телефоне плеер падает вниз */
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .pod-player-container {
-        width: 100%;            /* На телефоне плеер во всю ширину */
-        margin-top: 5px;
-    }
 }
