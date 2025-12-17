@@ -244,3 +244,56 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
     .article-item { flex-direction: column; align-items: flex-start; padding-right: 25px; }
     .art-preview { width: 50px; height: 50px; font-size: 1.5rem; margin-top: 0; }
 }
+
+/* --- НОВЫЙ СТИЛЬ: ПЛЕЕР СПРАВА (PODCAST LAYOUT) --- */
+
+/* Контейнер карточки */
+.article-item.podcast-layout {
+    flex-direction: row;       /* Текст слева, плеер справа */
+    align-items: center;       /* Центрируем по вертикали */
+    justify-content: space-between;
+    gap: 30px;                 /* Отступ между текстом и плеером */
+    padding-right: 25px;       /* Убираем лишний отступ для стрелки, так как тут плеер */
+}
+
+/* Левая часть (Текст) */
+.pod-text-content {
+    flex: 1;                   /* Занимает все свободное место */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Правая часть (Плеер) */
+.pod-player-container {
+    width: 300px;              /* Фиксированная ширина плеера на ПК */
+    flex-shrink: 0;            /* Не сжиматься */
+}
+
+.pod-player-container audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    outline: none;
+}
+
+/* Специальный цвет для тега AUDIO (Зеленый неон) */
+.tag-audio {
+    color: #4eff7b !important;
+    background: rgba(78, 255, 123, 0.1) !important;
+    border-color: rgba(78, 255, 123, 0.2) !important;
+}
+
+/* --- АДАПТИВНОСТЬ (МОБИЛКИ) --- */
+@media (max-width: 768px) {
+    .article-item.podcast-layout {
+        flex-direction: column; /* На телефоне плеер падает вниз */
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .pod-player-container {
+        width: 100%;            /* На телефоне плеер во всю ширину */
+        margin-top: 5px;
+    }
+}
