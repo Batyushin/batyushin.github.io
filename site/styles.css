@@ -26,18 +26,62 @@ body {
     padding: 30px 15px;
 }
 
-/* --- DOCK MENU --- */
+/* --- DOCK MENU (MACOS STYLE) --- */
 .dock-menu {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
-    background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px; padding: 10px 20px;
-    display: flex; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    /* Стеклянный фон */
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+    border-radius: 24px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-end; /* Иконки растут вверх */
+    gap: 10px;
+    height: auto;
+    transition: width 0.2s ease;
     margin-bottom: env(safe-area-inset-bottom);
 }
-.dock-item { font-size: 1.5rem; text-decoration: none; transition: transform 0.2s; filter: grayscale(1); opacity: 0.7; }
-.dock-item:hover { transform: scale(1.2) translateY(-5px); filter: grayscale(0); opacity: 1; }
-@keyframes slideUp { from { transform: translate(-50%, 100px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+
+.dock-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: background 0.2s;
+
+    /* Переменная размера для JS-анимации */
+    width: var(--size, 50px);
+    height: var(--size, 50px);
+}
+
+.dock-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.dock-icon {
+    font-size: calc(var(--size, 50px) * 0.55); /* Размер смайла зависит от размера кнопки */
+    pointer-events: none;
+    line-height: 1;
+}
+
+/* На мобильных отключаем увеличение */
+@media (max-width: 768px) {
+    .dock-item { width: 50px !important; height: 50px !important; }
+    .dock-icon { font-size: 26px !important; }
+}
+
 
 /* --- BACKGROUND FX --- */
 .background-orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -2; opacity: 0.55; animation: float 14s infinite ease-in-out; }
@@ -228,22 +272,32 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 .pod-meta { font-size: 0.75rem; color: var(--highlight-red); font-weight: 600; text-transform: uppercase; margin-top: 4px; }
 
 /* --- СТИЛЬ ЗАГОЛОВКА (МОДИФИКАТОР) --- */
-/* Перенес сюда для порядка */
+/* Перенес сюда для порядка и исправил под новый HTML */
 .card-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: row;       /* В ряд */
+    align-items: center;       /* Центровка по вертикали */
+    justify-content: space-between; /* Текст слева, стрелка справа */
     min-height: auto;
     padding: 20px 25px;
     margin-bottom: 20px;
-    gap: 15px;
+    text-decoration: none;     /* Убираем подчеркивание ссылки */
+    color: inherit;            /* Цвет текста как у родителя */
 }
-.card-header::before {
-    content: ""; display: block; width: 4px; height: 24px;
-    background: var(--highlight-red); border-radius: 2px;
-    box-shadow: 0 0 12px var(--highlight-red);
+
+/* Красная полоска удалена */
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;             /* Чтобы эмодзи и текст ровно стояли */
+    align-items: center;
+    gap: 12px;                 /* Расстояние от эмодзи до букв */
 }
-.card-header h2 { margin: 0; font-size: 1.5rem; }
+
+.emoji-title {
+    font-size: 1.8rem;         /* Эмодзи чуть крупнее текста */
+    line-height: 1;
+}
 
 /* Footer */
 .footer { text-align: center; margin-top: 20px; padding: 15px; justify-content: center; align-items: center; }
