@@ -208,7 +208,13 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 
 /* Карточка подкаста (список) */
 .podcast-item {
-    min-height: auto; flex-direction: row; align-items: center; gap: 20px; text-decoration: none; padding: 20px;
+    min-height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* Исправили! Теперь текст не разъезжается */
+    gap: 20px;
+    text-decoration: none;
+    padding: 20px;
     transition: transform 0.2s, border-color 0.2s;
 }
 .podcast-item:hover { transform: translateX(5px); border-color: var(--highlight-red); }
@@ -220,6 +226,24 @@ a.card-hero { cursor: pointer; text-decoration: none; color: inherit; }
 .pod-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin: 0; }
 .pod-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
 .pod-meta { font-size: 0.75rem; color: var(--highlight-red); font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+
+/* --- СТИЛЬ ЗАГОЛОВКА (МОДИФИКАТОР) --- */
+/* Перенес сюда для порядка */
+.card-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+.card-header::before {
+    content: ""; display: block; width: 4px; height: 24px;
+    background: var(--highlight-red); border-radius: 2px;
+    box-shadow: 0 0 12px var(--highlight-red);
+}
+.card-header h2 { margin: 0; font-size: 1.5rem; }
 
 /* Footer */
 .footer { text-align: center; margin-top: 20px; padding: 15px; justify-content: center; align-items: center; }

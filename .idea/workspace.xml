@@ -7,6 +7,8 @@
     <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/podcasts.html" beforeDir="false" afterPath="$PROJECT_DIR$/podcasts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +30,12 @@
     &quot;accountId&quot;: &quot;7fee59b5-68b9-4a7b-9bdd-e6a7fd9f720a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -61,11 +69,11 @@
       <recent name="$PROJECT_DIR$/old" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/site/" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/site" />
+      <recent name="$PROJECT_DIR$/site/" />
       <recent name="$PROJECT_DIR$/site/img" />
       <recent name="$PROJECT_DIR$/site/article" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -96,23 +104,7 @@
       <workItem from="1754395852129" duration="3885000" />
       <workItem from="1755600256959" duration="1000" />
       <workItem from="1765824388521" duration="16212000" />
-      <workItem from="1765877427582" duration="22202000" />
-    </task>
-    <task id="LOCAL-00105" summary="-">
-      <option name="closed" value="true" />
-      <created>1754396548710</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1754396548710</updated>
-    </task>
-    <task id="LOCAL-00106" summary="-">
-      <option name="closed" value="true" />
-      <created>1754396671835</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1754396671835</updated>
+      <workItem from="1765877427582" duration="26776000" />
     </task>
     <task id="LOCAL-00107" summary="-">
       <option name="closed" value="true" />
@@ -490,7 +482,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765900992113</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="-">
+      <option name="closed" value="true" />
+      <created>1765905291835</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1765905291835</updated>
+    </task>
+    <task id="LOCAL-00155" summary="-">
+      <option name="closed" value="true" />
+      <created>1765962046677</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1765962046677</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
