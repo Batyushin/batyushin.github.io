@@ -139,4 +139,63 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.no-click').forEach(element => {
         element.addEventListener('click', (e) => { e.stopPropagation(); });
     });
+
+
+// === 4. YOUTUBE MODAL PLAYER ===
+    // 1. Создаем HTML для модалки динамически (чтобы не мусорить в HTML файлах)
+    const modalHTML = `
+      <div class="video-modal-overlay" id="videoModal">
+        <div class="video-container">
+           <button class="video-close-btn" id="closeVideo">✖ Закрыть</button>
+           <div id="playerTarget"></div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const modal = document.getElementById('videoModal');
+    const closeBtn = document.getElementById('closeVideo');
+    const playerTarget = document.getElementById('playerTarget');
+    let playerHtml = '';
+
+    // Функция открытия
+    const openVideo = (videoId) => {
+        // Формируем код плеера (autoplay=1 чтобы сразу играло)
+        playerHtml = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        playerTarget.innerHTML = playerHtml;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Блокируем скролл сайта
+    };
+
+    // Функция закрытия
+    const closeVideoFunc = () => {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            playerTarget.innerHTML = ''; // Удаляем iframe, чтобы звук прекратился
+        }, 300);
+        document.body.style.overflow = '';
+    };
+
+    // Слушаем клики по карточкам с классом .video-trigger
+    document.querySelectorAll('.video-trigger').forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault(); // Отменяем переход по ссылке
+            const videoId = this.getAttribute('data-video-id');
+            if (videoId) {
+                openVideo(videoId);
+            }
+        });
+    });
+
+    // Закрытие по кнопке и по клику на фон
+    closeBtn.addEventListener('click', closeVideoFunc);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeVideoFunc();
+    });
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeVideoFunc();
+    });
+
+
 });

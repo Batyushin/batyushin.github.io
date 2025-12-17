@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sitemap.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/podcasts.html" beforeDir="false" afterPath="$PROJECT_DIR$/podcasts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,31 +104,7 @@
       <workItem from="1754395852129" duration="3885000" />
       <workItem from="1755600256959" duration="1000" />
       <workItem from="1765824388521" duration="16212000" />
-      <workItem from="1765877427582" duration="38022000" />
-    </task>
-    <task id="LOCAL-00117" summary="-">
-      <option name="closed" value="true" />
-      <created>1754397320037</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1754397320037</updated>
-    </task>
-    <task id="LOCAL-00118" summary="-">
-      <option name="closed" value="true" />
-      <created>1765826361630</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1765826361630</updated>
-    </task>
-    <task id="LOCAL-00119" summary="-">
-      <option name="closed" value="true" />
-      <created>1765828867069</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1765828867069</updated>
+      <workItem from="1765877427582" duration="40686000" />
     </task>
     <task id="LOCAL-00120" summary="-">
       <option name="closed" value="true" />
@@ -501,7 +474,31 @@
       <option name="project" value="LOCAL" />
       <updated>1765989564590</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="-">
+      <option name="closed" value="true" />
+      <created>1765990785583</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1765990785583</updated>
+    </task>
+    <task id="LOCAL-00167" summary="-">
+      <option name="closed" value="true" />
+      <created>1765990883542</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1765990883542</updated>
+    </task>
+    <task id="LOCAL-00168" summary="-">
+      <option name="closed" value="true" />
+      <created>1765991145294</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1765991145294</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
