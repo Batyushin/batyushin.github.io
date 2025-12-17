@@ -237,42 +237,9 @@
   <div style="height: 80px;"></div>
 </div>
 
-<script>
-  // Логика копирования
-  document.querySelectorAll('.copy-trigger').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const phone = this.getAttribute('data-phone');
+<script src="site/script.js"></script>
+</body>
+</html>
 
-      navigator.clipboard.writeText(phone).then(() => {
-        // Меняем иконку на галочку
-        const originalContent = this.innerHTML;
-        this.innerText = "✅";
-        this.classList.add('copy-success');
-
-        setTimeout(() => {
-          this.innerHTML = originalContent;
-          this.classList.remove('copy-success');
-        }, 2000);
-      });
-    });
-  });
-
-  // Тилт эффект
-  const cards = document.querySelectorAll('.liquid-tilt');
-  document.addEventListener('mousemove', (e) => {
-    if (window.innerWidth < 900) return;
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardX = rect.left + rect.width / 2;
-      const cardY = rect.top + rect.height / 2;
-      const offsetX = (e.clientX - cardX) / 45;
-      const offsetY = (e.clientY - cardY) / 45;
-      card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
-    });
-  });
-</script>
 </body>
 </html>

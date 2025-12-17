@@ -138,23 +138,23 @@
 
       <div class="contact-group">
 
-        <a href="https://t.me/red_ik" target="_blank" class="contact-row" onclick="event.stopPropagation()">
+        <a href="https://t.me/red_ik" target="_blank" class="contact-row no-click">
           <img src="site/img/tg.svg" class="icon-mini" alt="tg">
           <span>@ReD_ik</span>
         </a>
 
-        <a href="mailto:red_ik@inbox.ru" class="contact-row" onclick="event.stopPropagation()">
+        <a href="mailto:red_ik@inbox.ru" class="contact-row no-click">
           <span class="icon-emoji">📧</span>
           <span>red_ik@inbox.ru</span>
         </a>
 
         <div class="phone-actions">
-          <a href="tel:+79952882810" class="btn-call" onclick="event.stopPropagation()">
+          <a href="tel:+79952882810" class="btn-call no-click">
             <span class="icon-emoji">📞</span>
             <span>Позвонить</span>
           </a>
 
-          <button class="btn-copy-icon copy-trigger" data-phone="+79952882810" title="Скопировать" onclick="event.stopPropagation()">
+          <button class="btn-copy-icon copy-trigger no-click" data-phone="+79952882810" title="Скопировать">
             📋
           </button>
         </div>
@@ -188,50 +188,6 @@
   <div style="height: 80px;"></div>
 </div>
 
-<script>
-  // copy phone
-  document.querySelectorAll('.copy-trigger').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      const phone = this.dataset.phone;
-      const text = this.querySelector('.sp-number');
-      const original = text?.innerText;
-
-      navigator.clipboard.writeText(phone).then(() => {
-        this.classList.add('copied');
-        if (text) text.innerText = 'Скопировано!';
-        else this.innerText = '✅';
-
-        setTimeout(() => {
-          this.classList.remove('copied');
-          if (text) text.innerText = original;
-          else this.innerText = '📋';
-        }, 2000);
-      });
-    });
-  });
-
-  // liquid tilt (optimized)
-  const cards = document.querySelectorAll('.liquid-tilt');
-  let raf = null;
-
-  document.addEventListener('mousemove', (e) => {
-    if (window.innerWidth < 900) return;
-    if (raf) return;
-
-    raf = requestAnimationFrame(() => {
-      raf = null;
-      cards.forEach(card => {
-        const r = card.getBoundingClientRect();
-        const dx = (e.clientX - (r.left + r.width / 2)) / 45;
-        const dy = (e.clientY - (r.top + r.height / 2)) / 45;
-        card.style.transform =
-                `perspective(1000px) rotateX(${-dy}deg) rotateY(${dx}deg)`;
-      });
-    });
-  });
-</script>
-
+<script src="site/script.js"></script>
 </body>
 </html>
