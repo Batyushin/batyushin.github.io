@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://batyushin.ru/sitemap.xml
+
+Host: https://batyushin.ru
