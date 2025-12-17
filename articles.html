@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Статьи | Batyushin.ru</title>
+
+  <meta name="description" content="Статьи и заметки Дмитрия Батюшина (ReD). Автоматизация, IoT, SprutHub." />
+  <meta property="og:title" content="Статьи | ReD" />
+  <meta property="og:image" content="site/img/og-preview.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="site/styles.css" />
+  <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
+
+  <style>
+    /* --- 1. СЕТКА ШАПКИ --- */
+    .header-grid {
+      display: grid; gap: 16px; margin-bottom: 40px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "hero hero" "tg vk" "sprut home";
+    }
+    .area-hero { grid-area: hero; } .area-tg { grid-area: tg; } .area-vk { grid-area: vk; } .area-sprut { grid-area: sprut; } .area-home { grid-area: home; }
+
+    .arrow-back { transform: rotate(180deg); display: inline-block; transition: transform 0.3s; }
+    .card:hover .arrow-back { transform: rotate(180deg) translateX(5px); color: var(--highlight-red); opacity: 1; }
+
+    @media (min-width: 900px) {
+      .header-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 150px 150px; grid-template-areas: "hero hero tg vk" "hero hero sprut home"; }
+    }
+
+    /* --- 2. ОБЩИЙ КОНТЕЙНЕР --- */
+    .content-panel { padding: 30px; gap: 25px; }
+    .panel-list { display: flex; flex-direction: column; gap: 16px; }
+
+    /* --- 3. СТИЛИ КАРТОЧКИ СТАТЬИ --- */
+    .article-row {
+      display: flex; flex-direction: column; gap: 12px;
+      padding: 20px 25px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      text-decoration: none; cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+    }
+
+    .article-row:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--highlight-red);
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Верхняя часть: Заголовок и иконка */
+    .art-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
+
+    .art-title-block { display: flex; flex-direction: column; gap: 4px; }
+    .art-title { font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.3; }
+    .art-meta { font-size: 0.8rem; color: var(--highlight-red); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .art-icon { font-size: 1.5rem; opacity: 0.8; }
+
+    /* Описание */
+    .art-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; max-width: 90%; }
+
+    /* Теги внизу */
+    .art-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
+    .art-tag {
+      font-size: 0.75rem; padding: 4px 10px;
+      background: rgba(0,0,0,0.3); border-radius: 8px;
+      color: #ccc; border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .article-arrow {
+      position: absolute; top: 20px; right: 20px;
+      font-size: 1.2rem; opacity: 0.2; transition: 0.3s; color: #fff;
+    }
+    .article-row:hover .article-arrow {
+      opacity: 1; color: var(--highlight-red); transform: translateX(3px);
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="background-orb orb-1"></div>
+<div class="background-orb orb-2"></div>
+<div class="cyber-grid"></div>
+<div class="noise"></div>
+
+<nav class="dock-menu">
+  <a href="index.html" class="dock-item home" title="Главная">🏠</a>
+  <a href="articles.html" class="dock-item articles" title="Статьи">📃</a>
+  <a href="podcasts.html" class="dock-item podcasts" title="Подкасты">🎙️</a>
+  <a href="contacts.html" class="dock-item contacts" title="Связь">📞</a>
+</nav>
+
+<div class="wrapper">
+
+  <div class="header-grid">
+    <a href="index.html" class="card card-hero area-hero liquid-tilt">
+      <div class="branding">
+        <h1 class="site-title">BATYUSHIN<span class="domain">.ru</span></h1>
+        <div class="subtitle-row">
+          <span class="aka">aka</span>
+          <img src="site/img/red.webp" alt="icon" class="icon-red" />
+          <span class="nickname">ReD</span>
+        </div>
+        <p class="hero-desc">Инженерный подход к хаосу.<br>Автоматизирую скучное, создаю великое.</p>
+        <div class="badges">
+          <span class="badge red">IoT Architect</span><span class="badge red">Network Expert</span><span class="badge">CCTV & Security</span>
+        </div>
+      </div>
+    </a>
+    <a href="https://t.me/BlogReD" target="_blank" class="card card-tg area-tg liquid-tilt">
+      <div class="arrow-icon">➔</div><img src="site/img/tg.svg" alt="TG" class="icon-img"><div class="link-info"><h3>Telegram</h3><span>Блог Красного</span></div>
+    </a>
+    <a href="https://vk.com/red.home" target="_blank" class="card card-vk area-vk liquid-tilt">
+      <div class="arrow-icon">➔</div><img src="site/img/VK.png" alt="VK" class="icon-img"><div class="link-info"><h3>ВКонтакте</h3><span>Паблик</span></div>
+    </a>
+    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut area-sprut liquid-tilt">
+      <div class="arrow-icon">➔</div><img src="site/img/sprut.png" alt="Sprut" class="icon-img"><div class="link-info"><h3>Sprut.ai</h3><span>80+ авторских статей</span></div>
+    </a>
+    <a href="index.html" class="card area-home liquid-tilt" style="background: rgba(255,255,255,0.05);">
+      <div class="arrow-icon arrow-back">➔</div><span class="emoji-large">🏠</span><div class="link-info"><h3>На главную</h3><span>Вернуться</span></div>
+    </a>
+  </div>
+
+  <a href="index.html" class="card card-header liquid-tilt">
+    <h2><span class="emoji-title">📃</span>Статьи и Публикации</h2>
+    <div class="arrow-icon arrow-back">➔</div>
+  </a>
+
+  <div class="card content-panel liquid-tilt">
+
+    <div class="panel-list">
+
+      <a href="site/article/26102.pdf" target="_blank" class="article-row">
+        <div class="art-header">
+          <div class="art-title-block">
+            <span class="art-meta">Control Engineering • PDF</span>
+            <h3 class="art-title">Обзор Linux-контроллера JetHub D1+</h3>
+          </div>
+          <span class="art-icon">📰</span>
+        </div>
+        <p class="art-desc">
+          Обзор Linux-контроллера для автоматизации JetHub D1+ от JetHome и его применение.
+        </p>
+        <div class="art-tags">
+          <span class="art-tag">#jethome</span>
+          <span class="art-tag">#linux</span>
+          <span class="art-tag">#обзор</span>
+        </div>
+        <div class="article-arrow">➔</div>
+      </a>
+
+      <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="article-row">
+        <div class="art-header">
+          <div class="art-title-block">
+            <span class="art-meta">Sprut.ai</span>
+            <h3 class="art-title">Более 80 мох авторских статей на портале Sprut.ai</h3>
+          </div>
+          <span class="art-icon">📰️</span>
+        </div>
+        <p class="art-desc">
+          Колекция моих статей на портале Sprut.ai.
+        </p>
+        <div class="art-tags">
+          <span class="art-tag">#spruthub</span>
+          <span class="art-tag">#diy</span>
+          <span class="art-tag">#jethome</span>
+          <span class="art-tag">#wirenboard</span>
+        </div>
+        <div class="article-arrow">➔</div>
+      </a>
+
+
+    </div>
+  </div>
+
+  <footer class="footer card liquid-tilt" style="margin-top: 40px;">
+    <p>© 2025 Дмитрий Батюшин (<span style="color: var(--highlight-red); font-weight: 700;">ReD</span>)</p>
+  </footer>
+
+  <div style="height: 80px;"></div>
+</div>
+
+<script src="site/script.js"></script>
+</body>
+</html>
