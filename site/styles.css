@@ -34,6 +34,7 @@ body {
     transform: translateX(-50%);
     z-index: 1000;
 
+    /* Стеклянный фон самого дока */
     background: rgba(20, 20, 20, 0.6);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -42,21 +43,19 @@ body {
 
     border-radius: 24px;
 
-    /* --- ФИКСАЦИЯ РАЗМЕРОВ --- */
-    height: 70px;       /* Жесткая высота стекла */
-    padding: 0 15px;    /* Отступы только по бокам */
-    padding-bottom: 10px; /* Чтобы иконки стояли на дне */
-    box-sizing: border-box; /* Чтобы паддинги не ломали высоту */
+    /* Фиксация размеров */
+    height: 70px;
+    padding: 0 15px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 
-    /* Иконки вылезают за пределы стекла вверх */
     overflow: visible;
 
     display: flex;
-    align-items: flex-end; /* Прижимаем иконки к низу */
+    align-items: flex-end;
     justify-content: center;
     gap: 12px;
 
-    /* Анимация скрытия */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     margin-bottom: env(safe-area-inset-bottom);
 }
@@ -72,13 +71,13 @@ body {
     align-items: center;
     text-decoration: none;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
 
-    /* Базовые размеры */
-    width: 45px;
-    height: 45px;
+    /* --- ИЗМЕНЕНИЕ: НЕПРОЗРАЧНЫЙ ФОН --- */
+    background: #181818; /* Сплошной темный цвет, не просвечивает */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая рамка */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Тень под кнопкой */
 
-    /* При увеличении меняем width/height */
+    /* Размеры (меняются скриптом) */
     width: calc(45px * var(--scale, 1));
     height: calc(45px * var(--scale, 1));
 
@@ -88,23 +87,25 @@ body {
 
     margin-bottom: 0;
 
-    /* Очень быстрая реакция */
+    /* Анимация */
     transition:
             width 0.1s ease-out,
             height 0.1s ease-out,
             font-size 0.1s ease-out,
             background 0.2s;
 
-    transform-origin: bottom center; /* Растут строго вверх */
+    transform-origin: bottom center;
     cursor: pointer;
     flex-shrink: 0;
 }
 
+/* При наведении кнопка становится чуть светлее, но остается непрозрачной */
 .dock-item:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Мобильная версия - статика */
+/* Мобильная версия */
 @media (max-width: 768px) {
     .dock-menu {
         height: auto;
@@ -114,10 +115,8 @@ body {
         width: 50px !important;
         height: 50px !important;
         font-size: 26px !important;
-        transition: background 0.2s !important;
     }
 }
-
 
 /* --- BACKGROUND FX --- */
 .background-orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -2; opacity: 0.55; animation: float 14s infinite ease-in-out; }
