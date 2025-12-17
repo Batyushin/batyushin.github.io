@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // === 1. MACOS DOCK (Логика увеличения и скрытия) ===
+    // === 1. MACOS DOCK (Логика увеличения) ===
     const dock = document.querySelector('.dock-menu');
 
     if (dock) {
         const items = document.querySelectorAll('.dock-item');
-        const maxScale = 1.8; // Максимальный размер (1.8 раза)
-        const range = 150;    // Радиус реакции (пиксели)
+        const maxScale = 1.8;
+        const range = 150;
 
-        // Функция пересчета размеров иконок
         const updateDock = (mouseX) => {
             items.forEach(item => {
                 const rect = item.getBoundingClientRect();
@@ -18,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 let scale = 1;
                 if (distance < range) {
                     const x = distance / range;
-                    // Плавная кривая увеличения
-                    const val = Math.cos(x * Math.PI / 2);
-                    scale = 1 + (maxScale - 1) * Math.pow(val, 2.5);
+                    // Используем формулу для резкого, но плавного увеличения
+                    const val = 1 - Math.pow(x, 2);
+                    scale = 1 + (maxScale - 1) * val;
                 }
                 item.style.setProperty('--scale', scale);
             });
@@ -30,50 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
             items.forEach(item => item.style.setProperty('--scale', 1));
         };
 
-        // --- ПОВЕДЕНИЕ НА ПК (Мышь) ---
+        // Слушаем мышь ТОЛЬКО внутри дока
+        dock.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) {
+                requestAnimationFrame(() => updateDock(e.clientX));
+            }
+        });
+
+        dock.addEventListener('mouseleave', resetDock);
+
+        // === Логика скрытия/показа ===
+
+        // 1. На ПК: показываем, если мышь у самого низа
         window.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) {
-
-                // 1. Логика увеличения
-                // Считаем математику, только если док виден и мышь внизу
-                if (!dock.classList.contains('dock-hidden') && e.clientY > window.innerHeight - 150) {
-                    updateDock(e.clientX);
-                } else {
-                    resetDock();
-                }
-
-                // 2. Логика скрытия/показа
-                // Если мышь у самого низа (последние 20px) -> ПОКАЗАТЬ
-                if (e.clientY > window.innerHeight - 20) {
+                if (e.clientY > window.innerHeight - 15) {
                     dock.classList.remove('dock-hidden');
-                }
-                // Если мышь ушла выше зоны дока (на 120px от низа) -> СПРЯТАТЬ
-                else if (e.clientY < window.innerHeight - 120) {
-                    dock.classList.add('dock-hidden');
                 }
             }
         });
 
-        // Если мышь ушла с элемента дока - сбросить размер
-        dock.addEventListener('mouseleave', resetDock);
-
-        // --- ПОВЕДЕНИЕ НА ТЕЛЕФОНЕ (Скролл) ---
+        // 2. На Мобильном: прячем при скролле
         let lastScrollTop = 0;
-
-        // Изначально показываем
-        dock.classList.remove('dock-hidden');
-
         window.addEventListener('scroll', () => {
             if (window.innerWidth <= 768) {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop <= 0) return; // Игнорируем отскок наверху (iOS)
+                if (scrollTop < 0) return; // Fix для iOS
 
-                // Если скроллим вниз больше чем на 10px -> ПРЯЧЕМ
-                if (scrollTop > lastScrollTop + 10) {
+                if (scrollTop > lastScrollTop && scrollTop > 50) {
                     dock.classList.add('dock-hidden');
-                }
-                // Если скроллим вверх больше чем на 10px -> ПОКАЗЫВАЕМ
-                else if (scrollTop < lastScrollTop - 10) {
+                } else {
                     dock.classList.remove('dock-hidden');
                 }
                 lastScrollTop = scrollTop;
@@ -81,68 +66,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === 2. LIQUID TILT (Шевеление карточек) ===
-    // Вернул "старую" логику без ограничения дистанции - выглядит живее
+    // === 2. LIQUID TILT (Карточки) ===
     const cards = document.querySelectorAll('.liquid-tilt');
     if (cards.length > 0) {
         document.addEventListener('mousemove', (e) => {
-            // Отключаем на мобилках для производительности
             if (window.innerWidth < 900) return;
-
             requestAnimationFrame(() => {
                 cards.forEach(card => {
                     const rect = card.getBoundingClientRect();
                     const cardX = rect.left + rect.width / 2;
                     const cardY = rect.top + rect.height / 2;
-
-                    // Простая формула: чем дальше мышь, тем сильнее наклон (в пределах разумного)
-                    // Делим на 55 для мягкости (раньше было 45, так чуть плавнее)
                     const offsetX = (e.clientX - cardX) / 55;
                     const offsetY = (e.clientY - cardY) / 55;
-
                     card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
                 });
             });
         });
     }
 
-    // === 3. COPY PHONE LOGIC ===
+    // === 3. COPY LOGIC (ИСПРАВЛЕННАЯ) ===
     document.querySelectorAll('.copy-trigger').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+
             const phone = this.getAttribute('data-phone');
 
+            // 1. Ищем текстовое поле с номером (для донатов)
             const textTarget = this.querySelector('.sp-number');
-            // Ищем иконку внутри или берем саму кнопку, если иконки нет
-            const iconTarget = this.querySelector('.arrow-icon') || this.querySelector('.copy-icon') || this.querySelector('.icon-emoji') || this;
+
+            // 2. Ищем иконку внутри кнопки (если есть)
+            let iconTarget = this.querySelector('.arrow-icon') ||
+                this.querySelector('.copy-icon') ||
+                this.querySelector('.icon-emoji');
+
+            // 3. ЕСЛИ нет ни текста, ни иконки внутри — значит сама кнопка и есть иконка
+            if (!textTarget && !iconTarget) {
+                iconTarget = this;
+            }
 
             navigator.clipboard.writeText(phone).then(() => {
+
+                // СЦЕНАРИЙ А: Есть текст номера (Донат)
                 if (textTarget) {
                     const originalText = textTarget.innerText;
                     textTarget.innerText = "Скопировано!";
-                    textTarget.style.color = "#4eff7b";
+                    textTarget.style.color = "#4eff7b"; // Зеленый
+
                     setTimeout(() => {
                         textTarget.innerText = originalText;
                         textTarget.style.color = "";
                     }, 2000);
                 }
 
-                // Меняем иконку/текст на галочку
-                if (iconTarget.innerText) {
-                    const originalIcon = iconTarget.innerText;
-                    iconTarget.innerText = "✅";
-                    setTimeout(() => { iconTarget.innerText = originalIcon; }, 2000);
+                // СЦЕНАРИЙ Б: Есть иконка или сама кнопка (Контакты)
+                else if (iconTarget) {
+                    // Сохраняем текущее содержимое (там может быть 📋 или svg)
+                    const originalContent = iconTarget.innerHTML; // Используем innerHTML чтобы сохранить картинки если что
+
+                    // Меняем на галочку
+                    iconTarget.innerHTML = "✅";
+
+                    setTimeout(() => {
+                        iconTarget.innerHTML = originalContent;
+                    }, 2000);
                 }
             });
         });
     });
 
-    // Защита внутренних ссылок от клика по карточке
+    // Блокировка клика по внутренним элементам
     document.querySelectorAll('.no-click').forEach(element => {
-        element.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
+        element.addEventListener('click', (e) => { e.stopPropagation(); });
     });
-
 });
