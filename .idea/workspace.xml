@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
+      <change afterPath="$PROJECT_DIR$/project.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/podcasts.html" beforeDir="false" afterPath="$PROJECT_DIR$/podcasts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/red/IdeaProjects/batyushin.github.io/site",
+    "last_opened_file_path": "/Users/red/IdeaProjects/batyushin.github.io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,8 +65,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/site" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/site" />
       <recent name="$PROJECT_DIR$/old" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -103,23 +105,8 @@
       <workItem from="1754395852129" duration="3885000" />
       <workItem from="1755600256959" duration="1000" />
       <workItem from="1765824388521" duration="16212000" />
-      <workItem from="1765877427582" duration="43495000" />
-    </task>
-    <task id="LOCAL-00122" summary="-">
-      <option name="closed" value="true" />
-      <created>1765830525530</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1765830525530</updated>
-    </task>
-    <task id="LOCAL-00123" summary="-">
-      <option name="closed" value="true" />
-      <created>1765830841457</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1765830841458</updated>
+      <workItem from="1765877427582" duration="51944000" />
+      <workItem from="1766163476797" duration="891000" />
     </task>
     <task id="LOCAL-00124" summary="-">
       <option name="closed" value="true" />
@@ -497,7 +484,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765996498116</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="-">
+      <option name="closed" value="true" />
+      <created>1765997956169</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1765997956169</updated>
+    </task>
+    <task id="LOCAL-00172" summary="-">
+      <option name="closed" value="true" />
+      <created>1765998345826</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1765998345826</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
