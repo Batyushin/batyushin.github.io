@@ -16,112 +16,6 @@
   <link rel="stylesheet" href="site/styles.css" />
   <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
 
-  <style>
-    /* 1. СЕТКА ШАПКИ */
-    .articles-header-grid {
-      display: grid; gap: 16px; margin-bottom: 40px;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: "hero hero" "tg vk" "sprut home";
-    }
-    .ah-hero  { grid-area: hero; } .ah-tg { grid-area: tg; } .ah-vk { grid-area: vk; } .ah-sprut { grid-area: sprut; } .ah-home { grid-area: home; }
-
-    /* Стрелка назад в шапке */
-    .arrow-back { transform: rotate(180deg); display: inline-block; transition: transform 0.3s; }
-    .card:hover .arrow-back { transform: rotate(180deg) translateX(5px); color: var(--highlight-red); opacity: 1; }
-
-    @media (min-width: 900px) {
-      .articles-header-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 150px 150px; grid-template-areas: "hero hero tg vk" "hero hero sprut home"; }
-    }
-
-    /* 2. ОБЩАЯ ПОДЛОЖКА */
-    .content-panel { padding: 30px; gap: 20px; }
-    .panel-list { display: flex; flex-direction: column; gap: 16px; }
-
-    /* 3. СТИЛЬ СТАТЬИ */
-    .article-item {
-      position: relative; /* Важно для стрелки в углу */
-      display: flex;
-      align-items: flex-start; /* Выравнивание по верху, так как есть теги */
-      gap: 20px;
-      padding: 20px 25px;
-
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-
-      padding-right: 50px; /* Место под стрелку */
-    }
-
-    .article-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--highlight-red);
-      transform: translateX(5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* Иконка слева */
-    .art-preview {
-      font-size: 2.2rem;
-      width: 60px; height: 60px;
-      display: flex; justify-content: center; align-items: center;
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      flex-shrink: 0;
-      margin-top: 5px; /* Чуть опустить визуально */
-    }
-
-    /* Инфо блок */
-    .art-info { display: flex; flex-direction: column; gap: 6px; width: 100%; }
-
-    .art-title { font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0; line-height: 1.3; }
-    .art-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-
-    /* ТЕГИ (Как в первом варианте - пилюли) */
-    .art-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-
-    .art-tag {
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      color: #ccc;
-      font-weight: 500;
-      transition: 0.2s;
-    }
-
-    /* При наведении на статью теги чуть подсвечиваются */
-    .article-item:hover .art-tag {
-      background: rgba(255, 45, 45, 0.1);
-      border-color: rgba(255, 45, 45, 0.3);
-      color: #fff;
-    }
-
-    /* СТРЕЛКА В УГЛУ */
-    .article-arrow {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.2rem;
-      color: #fff;
-      opacity: 0.2;
-      transition: 0.3s;
-    }
-    .article-item:hover .article-arrow {
-      opacity: 1;
-      color: var(--highlight-red);
-      transform: translate(3px, -3px);
-    }
-
-    /* Мобильная адаптация */
-    @media (max-width: 600px) {
-      .article-item { flex-direction: column; align-items: flex-start; padding-right: 25px; }
-      .art-preview { width: 50px; height: 50px; font-size: 1.5rem; margin-top: 0; }
-    }
-  </style>
-
   <script src="site/metrics.js"></script>
   <link rel="canonical" href="https://batyushin.ru/articles.html" />
 </head>
@@ -132,21 +26,12 @@
 <div class="cyber-grid"></div>
 <div class="noise"></div>
 
-<nav class="dock-menu">
-  <a href="index.html" class="dock-item" title="Главная">🏠</a>
-  <a href="project.html" class="dock-item" title="Проекты">🚀</a>
-  <a href="articles.html" class="dock-item" title="Статьи">📃</a>
-  <a href="podcasts.html" class="dock-item" title="Подкасты">🎙️</a>
-  <a href="contacts.html" class="dock-item" title="Связь">📞</a>
-  <a href="https://t.me/BlogReD" target="_blank" class="dock-item" title="Блог Красного">
-    <img src="site/img/red.webp" alt="icon" class="icon-red" />
-  </a>
-</nav>
+<div id="dock-container"></div>
 
 <div class="wrapper">
 
-  <div class="articles-header-grid">
-    <a href="index.html" class="card card-hero ah-hero liquid-tilt">
+  <div class="header-grid">
+    <a href="index.html" class="card card-hero area-hero liquid-tilt">
       <div class="branding">
         <h1 class="site-title">BATYUSHIN<span class="domain">.ru</span></h1>
         <div class="subtitle-row">
@@ -166,7 +51,7 @@
       </div>
     </a>
 
-    <a href="https://t.me/BlogReD" target="_blank" class="card card-tg ah-tg liquid-tilt">
+    <a href="https://t.me/BlogReD" target="_blank" class="card card-tg area-tg liquid-tilt">
       <div class="arrow-icon">➔</div>
       <img src="site/img/tg.svg" alt="Telegram" class="icon-img">
       <div class="link-info">
@@ -175,7 +60,7 @@
       </div>
     </a>
 
-    <a href="https://vk.com/red.home" target="_blank" class="card card-vk ah-vk liquid-tilt">
+    <a href="https://vk.com/red.home" target="_blank" class="card card-vk area-vk liquid-tilt">
       <div class="arrow-icon">➔</div>
       <img src="site/img/VK.png" alt="VK" class="icon-img">
       <div class="link-info">
@@ -184,7 +69,7 @@
       </div>
     </a>
 
-    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut ah-sprut liquid-tilt">
+    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut area-sprut liquid-tilt">
       <div class="arrow-icon">➔</div>
       <img src="site/img/sprut.png" alt="Sprut" class="icon-img">
       <div class="link-info">
@@ -193,7 +78,7 @@
       </div>
     </a>
 
-    <a href="index.html" class="card area-home ah-home liquid-tilt" style="background: rgba(255,255,255,0.05);">
+    <a href="index.html" class="card area-home area-home liquid-tilt" style="background: rgba(255,255,255,0.05);">
       <div class="arrow-icon arrow-back">➔</div>
       <span class="emoji-large">🏠</span>
       <div class="link-info">
@@ -245,13 +130,12 @@
     </div>
   </div>
 
-  <footer class="footer card liquid-tilt" style="margin-top: 40px;">
-    <p>© 2025 Дмитрий Батюшин (<span style="color: var(--highlight-red); font-weight: 700;">ReD</span>)</p>
-  </footer>
+  <div id="footer-container" style="width:100%; display:flex; justify-content:center; margin-top: 40px;"></div>
 
   <div style="height: 80px;"></div>
 </div>
 
+<script src="site/loader.js"></script>
 <script src="site/script.js"></script>
 </body>
 </html>

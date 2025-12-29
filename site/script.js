@@ -1,93 +1,113 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // === 1. MACOS DOCK ===
-    const dock = document.querySelector('.dock-menu');
-    if (dock) {
-        const items = document.querySelectorAll('.dock-item');
-        const maxScale = 1.8; const range = 150;
+    // === 1. LIQUID TILT (Анимация наклона) ===
+    // Вынесена в функцию, чтобы можно было перезапускать (для футера)
+    window.initLiquidTilt = function() {
+        const cards = document.querySelectorAll('.liquid-tilt');
 
-        const updateDock = (mouseX) => {
-            items.forEach(item => {
-                const rect = item.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const distance = Math.abs(mouseX - centerX);
-                let scale = 1;
-                if (distance < range) {
-                    const x = distance / range;
-                    const val = 1 - Math.pow(x, 2);
-                    scale = 1 + (maxScale - 1) * val;
-                }
-                item.style.setProperty('--scale', scale);
-            });
-        };
-        const resetDock = () => { items.forEach(item => item.style.setProperty('--scale', 1)); };
-
-        dock.addEventListener('mousemove', (e) => { if (window.innerWidth > 768) requestAnimationFrame(() => updateDock(e.clientX)); });
-        dock.addEventListener('mouseleave', resetDock);
-
-        window.addEventListener('mousemove', (e) => {
-            if (window.innerWidth > 768) {
-                if (e.clientY > window.innerHeight - 15) dock.classList.remove('dock-hidden');
-            }
-        });
-
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 768) {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop < 0) return;
-                if (scrollTop > lastScrollTop && scrollTop > 50) dock.classList.add('dock-hidden');
-                else dock.classList.remove('dock-hidden');
-                lastScrollTop = scrollTop;
-            }
-        });
-    }
-
-    // === 2. LIQUID TILT ===
-    const cards = document.querySelectorAll('.liquid-tilt');
-    if (cards.length > 0) {
-        document.addEventListener('mousemove', (e) => {
+        // Функция обработки движения мыши
+        function handleTilt(e) {
             if (window.innerWidth < 900) return;
+
             requestAnimationFrame(() => {
                 cards.forEach(card => {
                     const rect = card.getBoundingClientRect();
-                    const cardX = rect.left + rect.width / 2;
-                    const cardY = rect.top + rect.height / 2;
-                    const offsetX = (e.clientX - cardX) / 55;
-                    const offsetY = (e.clientY - cardY) / 55;
-                    card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
+
+                    // Оптимизация: анимируем только то, что видно на экране
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const cardX = rect.left + rect.width / 2;
+                        const cardY = rect.top + rect.height / 2;
+                        const offsetX = (e.clientX - cardX) / 55;
+                        const offsetY = (e.clientY - cardY) / 55;
+                        card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
+                    }
                 });
+            });
+        }
+
+        if (cards.length > 0) {
+            // Удаляем старый слушатель перед добавлением нового (во избежание дублей)
+            document.removeEventListener('mousemove', handleTilt);
+            document.addEventListener('mousemove', handleTilt);
+        }
+    };
+
+    // Запускаем сразу при загрузке
+    window.initLiquidTilt();
+
+
+    // === 2. COPY LOGIC (Логика копирования) ===
+    // Используем прямой навес событий, чтобы остановить всплытие (stopPropagation)
+    // до того, как сработает onclick родительской карточки.
+
+    function attachCopyLogic() {
+        const copyBtns = document.querySelectorAll('.copy-trigger');
+
+        copyBtns.forEach(btn => {
+            // Удаляем старые, чтобы не вешать дважды
+            btn.removeEventListener('click', handleCopy);
+            btn.addEventListener('click', handleCopy);
+        });
+    }
+
+    function handleCopy(e) {
+        e.preventDefault();
+        e.stopPropagation(); // ВАЖНО: Останавливаем клик здесь, не даем ему уйти к родителю
+
+        // Получаем элемент (this работает, т.к. это обычная функция)
+        const btn = this;
+        const phone = btn.getAttribute('data-phone');
+
+        // Ищем, где менять текст (внутри кнопки или рядом)
+        const textTarget = btn.querySelector('.sp-number');
+        // Если внутри кнопки нет текста, ищем иконку
+        let iconTarget = btn.querySelector('.arrow-icon') ||
+            btn.querySelector('.copy-icon') ||
+            btn.querySelector('.icon-emoji') ||
+            btn; // Если ничего нет, меняем саму кнопку
+
+        if (!textTarget && !iconTarget) iconTarget = btn;
+
+        navigator.clipboard.writeText(phone).then(() => {
+            if (textTarget) {
+                // Если это блок с номером (как в донате)
+                const originalText = textTarget.innerText;
+                textTarget.innerText = "Скопировано!";
+                textTarget.style.color = "#4eff7b";
+                setTimeout(() => {
+                    textTarget.innerText = originalText;
+                    textTarget.style.color = "";
+                }, 2000);
+            } else {
+                // Если это кнопка с иконкой
+                const originalContent = iconTarget.innerHTML;
+                iconTarget.innerHTML = "✅"; // Галочка
+                setTimeout(() => {
+                    iconTarget.innerHTML = originalContent;
+                }, 2000);
+            }
+        }).catch(err => {
+            console.error('Ошибка копирования:', err);
+        });
+    }
+
+    // === 3. NO-CLICK LOGIC (Блокировка всплытия для ссылок внутри карточек) ===
+    function attachNoClick() {
+        const noClickElems = document.querySelectorAll('.no-click');
+        noClickElems.forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation(); // Просто не даем клику уйти на родителя
             });
         });
     }
 
-    // === 3. COPY LOGIC ===
-    document.querySelectorAll('.copy-trigger').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault(); e.stopPropagation();
-            const phone = this.getAttribute('data-phone');
-            const textTarget = this.querySelector('.sp-number');
-            let iconTarget = this.querySelector('.arrow-icon') || this.querySelector('.copy-icon') || this.querySelector('.icon-emoji');
+    // Инициализируем логику
+    attachCopyLogic();
+    attachNoClick();
 
-            if (!textTarget && !iconTarget) iconTarget = this;
-
-            navigator.clipboard.writeText(phone).then(() => {
-                if (textTarget) {
-                    const originalText = textTarget.innerText;
-                    textTarget.innerText = "Скопировано!";
-                    textTarget.style.color = "#4eff7b";
-                    setTimeout(() => { textTarget.innerText = originalText; textTarget.style.color = ""; }, 2000);
-                } else if (iconTarget) {
-                    const originalContent = iconTarget.innerHTML;
-                    iconTarget.innerHTML = "✅";
-                    setTimeout(() => { iconTarget.innerHTML = originalContent; }, 2000);
-                }
-            });
-        });
-    });
-
-    // === 4. NO CLICK ===
-    document.querySelectorAll('.no-click').forEach(element => {
-        element.addEventListener('click', (e) => { e.stopPropagation(); });
-    });
+    // Экспортируем функции, если вдруг понадобятся в loader.js (опционально)
+    window.reinitInteractions = function() {
+        attachCopyLogic();
+        attachNoClick();
+    };
 });

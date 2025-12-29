@@ -27,16 +27,7 @@
 <div class="cyber-grid"></div>
 <div class="noise"></div>
 
-<nav class="dock-menu">
-  <a href="index.html" class="dock-item" title="Главная">🏠</a>
-  <a href="project.html" class="dock-item" title="Проекты">🚀</a>
-  <a href="articles.html" class="dock-item" title="Статьи">📃</a>
-  <a href="podcasts.html" class="dock-item" title="Подкасты">🎙️</a>
-  <a href="contacts.html" class="dock-item" title="Связь">📞</a>
-  <a href="https://t.me/BlogReD" target="_blank" class="dock-item" title="Блог Красного">
-    <img src="site/img/red.webp" alt="icon" class="icon-red" />
-  </a>
-</nav>
+<div id="dock-container"></div>
 
 <div class="wrapper">
   <div class="grid">
@@ -188,13 +179,12 @@
 
   </div>
 
-  <footer class="footer card liquid-tilt">
-    <p>© 2025 Дмитрий Батюшин (<img src="site/img/red.webp" alt="icon" class="icon-small"> <span class="highlight">ReD</span>)</p>
-  </footer>
+  <div id="footer-container" style="width:100%; display:flex; justify-content:center; margin-top: 40px;"></div>
 
   <div style="height: 80px;"></div>
 </div>
 
+<script src="site/loader.js"></script>
 <script src="site/script.js"></script>
 </body>
 </html>

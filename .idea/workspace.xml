@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/project.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/loader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/podcasts.html" beforeDir="false" afterPath="$PROJECT_DIR$/podcasts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +52,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JavaScript Debug.index.html.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/red/IdeaProjects/batyushin.github.io",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/red/IdeaProjects/batyushin.github.io&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -106,47 +112,9 @@
       <workItem from="1755600256959" duration="1000" />
       <workItem from="1765824388521" duration="16212000" />
       <workItem from="1765877427582" duration="51944000" />
-      <workItem from="1766163476797" duration="891000" />
-    </task>
-    <task id="LOCAL-00124" summary="-">
-      <option name="closed" value="true" />
-      <created>1765831162575</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1765831162575</updated>
-    </task>
-    <task id="LOCAL-00125" summary="-">
-      <option name="closed" value="true" />
-      <created>1765831889470</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1765831889470</updated>
-    </task>
-    <task id="LOCAL-00126" summary="-">
-      <option name="closed" value="true" />
-      <created>1765831974322</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1765831974322</updated>
-    </task>
-    <task id="LOCAL-00127" summary="-">
-      <option name="closed" value="true" />
-      <created>1765870242058</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1765870242058</updated>
-    </task>
-    <task id="LOCAL-00128" summary="-">
-      <option name="closed" value="true" />
-      <created>1765870434110</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1765870434110</updated>
+      <workItem from="1766163476797" duration="5337000" />
+      <workItem from="1766511426117" duration="63000" />
+      <workItem from="1767000142234" duration="2378000" />
     </task>
     <task id="LOCAL-00129" summary="-">
       <option name="closed" value="true" />
@@ -500,7 +468,47 @@
       <option name="project" value="LOCAL" />
       <updated>1765998345826</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="-">
+      <option name="closed" value="true" />
+      <created>1766164374661</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1766164374661</updated>
+    </task>
+    <task id="LOCAL-00174" summary="-">
+      <option name="closed" value="true" />
+      <created>1766164420814</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1766164420814</updated>
+    </task>
+    <task id="LOCAL-00175" summary="-">
+      <option name="closed" value="true" />
+      <created>1766164560103</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1766164560103</updated>
+    </task>
+    <task id="LOCAL-00176" summary="-">
+      <option name="closed" value="true" />
+      <created>1766164621168</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1766164621168</updated>
+    </task>
+    <task id="LOCAL-00177" summary="-">
+      <option name="closed" value="true" />
+      <created>1766227513576</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1766227513576</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
