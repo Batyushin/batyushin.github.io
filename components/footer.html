@@ -1,40 +1,66 @@
 <footer class="footer card liquid-tilt">
-    <p>
-        &copy; 2025
-        <span style="opacity: 0.3; margin: 0 8px;">|</span>
-        Designed by
+    <div class="footer-content">
+        <span>&copy; 2025</span>
+
+        <div class="separator-dot"></div>
+
+        <span>Designed by</span>
+        <img src="site/img/red.webp" alt="icon" class="icon-small">
         <span class="highlight">ReD</span>
-    </p>
+    </div>
 </footer>
 
 <style>
-    /* Стили футера */
+    /* 1. БАЗОВЫЕ СТИЛИ ФУТЕРА */
     .footer {
         width: 100%;
-        text-align: center;
         padding: 15px;
         margin: 0;
+        display: flex; /* Используем flex для идеального центрирования */
         justify-content: center;
         align-items: center;
 
         /* Типографика */
         font-family: 'Inter', sans-serif;
         font-size: 0.9rem;
-        color: #888; /* Чуть приглушенный цвет текста */
+        color: #888;
     }
 
+    /* Контейнер для выравнивания всего в одну строку */
+    .footer-content {
+        display: flex;
+        align-items: center;
+        gap: 6px; /* Расстояние между словами */
+    }
+
+    /* 2. ОТМЕНА КРАСНОГО ВЫДЕЛЕНИЯ */
+    /* Мы перебиваем глобальные стили .card:hover для футера */
+    .footer.card:hover {
+        border-color: var(--glass-border) !important; /* Оставляем серую рамку */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; /* Оставляем обычную тень */
+        /* transform мы НЕ трогаем, чтобы он двигался */
+    }
+
+    /* 3. КРАСИВАЯ ТОЧКА */
+    .separator-dot {
+        width: 4px;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый */
+        border-radius: 50%; /* Делаем круглым */
+        margin: 0 6px; /* Отступы слева и справа */
+    }
+
+    /* 4. ИКОНКА И НИК */
     .icon-small {
-        width: 16px;       /* Чуть крупнее, чтобы было видно лицо */
-        height: 16px;
-        vertical-align: middle;
-        margin-bottom: 2px; /* Выравнивание по базовой линии */
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
-        box-shadow: 0 0 5px rgba(255, 45, 45, 0.4); /* Легкое свечение */
+        box-shadow: 0 0 10px rgba(255, 45, 45, 0.2);
+        margin-left: 4px;
     }
 
     .highlight {
-        color: var(--highlight-red); /* Красный цвет */
+        color: var(--highlight-red);
         font-weight: 700;
-        margin-left: 2px;
     }
 </style>
