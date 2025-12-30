@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Функция загрузки компонента
+    // --- ЗАГРУЗЧИК КОМПОНЕНТОВ ---
     function loadComponent(id, file) {
         const element = document.getElementById(id);
         if (element) {
@@ -12,26 +12,51 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(data => {
                     element.innerHTML = data;
 
-                    // Если это меню - запускаем анимацию дока
+                    // 1. Если это ШАПКА -> настраиваем кнопки
+                    if (id === 'header-container') {
+                        setupHeaderButtons();
+                    }
+
+                    // 2. Если это МЕНЮ -> запускаем анимацию дока
                     if (id === 'dock-container') {
                         initDockAnimation();
                     }
 
-                    // Если это футер (или любой блок с liquid-tilt) - перезапускаем тилт
-                    if (id === 'footer-container' && window.initLiquidTilt) {
-                        window.initLiquidTilt();
-                    }
+                    // 3. Перезапускаем эффекты (наклон карточек и копирование)
+                    if (window.reinitInteractions) window.reinitInteractions();
+                    if (window.initLiquidTilt) window.initLiquidTilt();
                 })
                 .catch(err => console.error(err));
         }
     }
 
-    // Загружаем Меню и Футер
+    // --- ЛОГИКА ШАПКИ (ГЛАВНАЯ vs ВНУТРЕННЯЯ) ---
+    function setupHeaderButtons() {
+        const path = window.location.pathname;
+        // Проверяем, находимся ли мы на главной (index.html или просто /)
+        const isHome = path.endsWith('index.html') || path.endsWith('/') || path.length < 2;
+
+        const podcastBtn = document.getElementById('nav-podcast');
+        const homeBtn = document.getElementById('nav-home');
+
+        if (isHome) {
+            // Мы на главной: показываем Подкасты, скрываем Дом
+            if (podcastBtn) podcastBtn.style.display = 'flex';
+            if (homeBtn) homeBtn.remove(); // Удаляем лишнее из DOM, чтобы не мешало сетке
+        } else {
+            // Мы на внутренней: показываем Дом, скрываем Подкасты
+            if (homeBtn) homeBtn.style.display = 'flex';
+            if (podcastBtn) podcastBtn.remove();
+        }
+    }
+
+    // Загружаем компоненты
     loadComponent("dock-container", "components/menu.html");
+    loadComponent("header-container", "components/header.html");
     loadComponent("footer-container", "components/footer.html");
 });
 
-// Функция анимации Дока
+// --- АНИМАЦИЯ ДОКА (Меню) ---
 function initDockAnimation() {
     const dock = document.querySelector('.dock-menu');
     if (dock) {
@@ -57,7 +82,6 @@ function initDockAnimation() {
         dock.addEventListener('mousemove', (e) => { if (window.innerWidth > 768) requestAnimationFrame(() => updateDock(e.clientX)); });
         dock.addEventListener('mouseleave', resetDock);
 
-        // Логика скрытия
         let lastScrollTop = 0;
         window.addEventListener('scroll', () => {
             if (window.innerWidth <= 768) {

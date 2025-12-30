@@ -16,96 +16,6 @@
   <link rel="stylesheet" href="site/styles.css" />
   <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
 
-  <style>
-    /* --- СЕТКА ШАПКИ --- */
-    .header-grid {
-      display: grid; gap: 16px; margin-bottom: 40px;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: "hero hero" "tg vk" "sprut home";
-    }
-    .area-hero { grid-area: hero; } .area-tg { grid-area: tg; } .area-vk { grid-area: vk; } .area-sprut { grid-area: sprut; } .area-home { grid-area: home; }
-
-    .arrow-back { transform: rotate(180deg); display: inline-block; transition: transform 0.3s; }
-    .card:hover .arrow-back { transform: rotate(180deg) translateX(5px); color: var(--highlight-red); opacity: 1; }
-
-    @media (min-width: 900px) {
-      .header-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: 150px 150px; grid-template-areas: "hero hero tg vk" "hero hero sprut home"; }
-    }
-
-    /* --- СТИЛИ ДЛЯ ПРОЕКТОВ --- */
-
-    /* Сетка 2 колонки */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-bottom: 40px;
-    }
-
-    /* Карточка проекта */
-    .card-project {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      min-height: 100px;
-    }
-
-    .card-project:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--highlight-red);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* Текст внутри карточки */
-    .project-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .project-info h3 { margin: 0; font-size: 1.1rem; color: #fff; }
-    .project-info span { font-size: 0.85rem; color: var(--text-muted); }
-
-    /* Стрелка */
-    .project-arrow {
-      font-size: 1.2rem; opacity: 0.3; transition: 0.3s; color: #fff;
-    }
-    .card-project:hover .project-arrow {
-      color: var(--highlight-red); opacity: 1; transform: translateX(5px);
-    }
-
-    /* Заголовок секции внутри панели */
-    .section-title {
-      font-size: 1.2rem;
-      color: #fff;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-weight: 700;
-    }
-
-    /* Заглушка для будущих работ */
-    .future-block {
-      text-align: center;
-      padding: 40px;
-      border: 2px dashed rgba(255,255,255,0.1);
-      border-radius: 16px;
-      color: var(--text-muted);
-    }
-
-    /* Мобильная версия */
-    @media (max-width: 600px) {
-      .projects-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-
   <script src="site/metrics.js"></script>
   <link rel="canonical" href="https://batyushin.ru/projects.html" />
 </head>
@@ -120,34 +30,7 @@
 
 <div class="wrapper">
 
-  <div class="header-grid">
-    <a href="index.html" class="card card-hero area-hero liquid-tilt">
-      <div class="branding">
-        <h1 class="site-title">BATYUSHIN<span class="domain">.ru</span></h1>
-        <div class="subtitle-row">
-          <span class="aka">aka</span>
-          <img src="site/img/red.webp" alt="icon" class="icon-red" />
-          <span class="nickname">ReD</span>
-        </div>
-        <p class="hero-desc">Инженерный подход к хаосу.<br>Автоматизирую скучное, создаю великое.</p>
-        <div class="badges">
-          <span class="badge red">IoT Architect</span><span class="badge red">Network Expert</span><span class="badge">CCTV & Security</span>
-        </div>
-      </div>
-    </a>
-    <a href="https://t.me/BlogReD" target="_blank" class="card card-tg area-tg liquid-tilt">
-      <div class="arrow-icon">➔</div><img src="site/img/tg.svg" alt="TG" class="icon-img"><div class="link-info"><h3>Telegram</h3><span>Блог Красного</span></div>
-    </a>
-    <a href="https://vk.com/red.home" target="_blank" class="card card-vk area-vk liquid-tilt">
-      <div class="arrow-icon">➔</div><img src="site/img/VK.png" alt="VK" class="icon-img"><div class="link-info"><h3>ВКонтакте</h3><span>Паблик</span></div>
-    </a>
-    <a href="https://sprut.ai/user/ReD/contents/articles" target="_blank" class="card card-sprut area-sprut liquid-tilt">
-      <div class="arrow-icon">➔</div><img src="site/img/sprut.png" alt="Sprut" class="icon-img"><div class="link-info"><h3>Sprut.ai</h3><span>80+ авторских статей</span></div>
-    </a>
-    <a href="index.html" class="card area-home liquid-tilt" style="background: rgba(255,255,255,0.05);">
-      <div class="arrow-icon arrow-back">➔</div><span class="emoji-large">🏠</span><div class="link-info"><h3>На главную</h3><span>Вернуться назад</span></div>
-    </a>
-  </div>
+  <div id="header-container" class="header-grid"></div>
 
   <a href="index.html" class="card card-header liquid-tilt">
     <h2><span class="emoji-title">🚀</span>Мои проекты</h2>
