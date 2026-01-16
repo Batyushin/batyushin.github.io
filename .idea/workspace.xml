@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/components/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/podcasts.html" beforeDir="false" afterPath="$PROJECT_DIR$/podcasts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,15 +104,14 @@
       <workItem from="1765877427582" duration="51944000" />
       <workItem from="1766163476797" duration="5337000" />
       <workItem from="1766511426117" duration="63000" />
-      <workItem from="1767000142234" duration="6226000" />
-    </task>
-    <task id="LOCAL-00131" summary="-">
-      <option name="closed" value="true" />
-      <created>1765871872871</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1765871872871</updated>
+      <workItem from="1767000142234" duration="8096000" />
+      <workItem from="1767114651501" duration="1336000" />
+      <workItem from="1767702885155" duration="17000" />
+      <workItem from="1767704978344" duration="4000" />
+      <workItem from="1768300658923" duration="3436000" />
+      <workItem from="1768377031239" duration="10551000" />
+      <workItem from="1768551803916" duration="119000" />
+      <workItem from="1768556414583" duration="658000" />
     </task>
     <task id="LOCAL-00132" summary="-">
       <option name="closed" value="true" />
@@ -507,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767085299112</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="-">
+      <option name="closed" value="true" />
+      <created>1767086399938</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1767086399938</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
