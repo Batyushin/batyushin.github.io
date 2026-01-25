@@ -66,10 +66,10 @@
       <recent name="$PROJECT_DIR$/old" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/site/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/site" />
       <recent name="$PROJECT_DIR$/site/" />
-      <recent name="$PROJECT_DIR$/site/img" />
       <recent name="$PROJECT_DIR$/site/article" />
     </key>
   </component>
@@ -111,15 +111,8 @@
       <workItem from="1768300658923" duration="3436000" />
       <workItem from="1768377031239" duration="10551000" />
       <workItem from="1768551803916" duration="119000" />
-      <workItem from="1768556414583" duration="658000" />
-    </task>
-    <task id="LOCAL-00132" summary="-">
-      <option name="closed" value="true" />
-      <created>1765873860252</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1765873860252</updated>
+      <workItem from="1768556414583" duration="2761000" />
+      <workItem from="1769158018943" duration="1000" />
     </task>
     <task id="LOCAL-00133" summary="-">
       <option name="closed" value="true" />
@@ -505,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767086399938</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="-">
+      <option name="closed" value="true" />
+      <created>1768557196715</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1768557196715</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
