@@ -2,22 +2,26 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Batyushin.ru | Дмитрий Батюшин (ReD)</title>
-  <meta name="description" content="Дмитрия Батюшина (ReD). Профессиональное проектирование и настройка систем автоматизации на базе WirenBoard, spruthub. Сотрудничество с интеграторами и разработка уникальных устройств умного дома под нестандартные задачи." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ReD | Batyushin.ru</title>
+  <meta name="description" content="Дмитрий Батюшин (ReD). IoT Architect, автоматизация, умный дом, SprutHub, WirenBoard." />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://batyushin.ru/" />
   <meta property="og:title" content="Batyushin.ru | Заметки Красного" />
   <meta property="og:description" content="Инженерный подход к хаосу. Автоматизирую скучное, создаю великое." />
-  <meta property="og:image" content="site/img/og-preview.png" />
+  <meta property="og:image" content="https://batyushin.ru/site/img/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Batyushin.ru | Заметки Красного" />
+  <meta name="twitter:description" content="Инженерный подход к хаосу. Автоматизирую скучное, создаю великое." />
+  <meta name="twitter:image" content="https://batyushin.ru/site/img/og-preview.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="site/styles.css" />
   <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
 
-  <script src="site/metrics.js"></script>
+  <script src="site/metrics.js" defer></script>
   <link rel="canonical" href="https://batyushin.ru/" />
 </head>
 <body>
@@ -37,21 +41,21 @@
     <div class="card card-stack liquid-tilt" id="stack">
       <h3>Мой стек</h3>
       <div class="skill-tags">
-        <a href="https://spruthub.ru" target="_blank" class="tag"><b>sprut</b>hub</a>
-        <a href="https://wirenboard.com" target="_blank" class="tag">WirenBoard</a>
-        <a href="https://nodered.org" target="_blank" class="tag">Node-RED</a>
-        <a href="https://www.home-assistant.io" target="_blank" class="tag">Home Assistant</a>
+        <a href="https://spruthub.ru" target="_blank" rel="noopener noreferrer" class="tag"><b>sprut</b>hub</a>
+        <a href="https://wirenboard.com" target="_blank" rel="noopener noreferrer" class="tag">WirenBoard</a>
+        <a href="https://nodered.org" target="_blank" rel="noopener noreferrer" class="tag">Node-RED</a>
+        <a href="https://www.home-assistant.io" target="_blank" rel="noopener noreferrer" class="tag">Home Assistant</a>
       </div>
       <div class="skill-tags">
         <span class="tag">Zigbee</span>
         <span class="tag">Modbus</span>
-        <a href="https://mqtt.org/" target="_blank" class="tag">MQTT</a>
+        <a href="https://mqtt.org/" target="_blank" rel="noopener noreferrer" class="tag">MQTT</a>
         <span class="tag">Thread</span>
         <span class="tag">Matter</span>
       </div>
     </div>
 
-    <a href="site/article/26102.pdf" target="_blank" class="card card-article liquid-tilt" id="projects">
+    <a href="site/article/26102.pdf" target="_blank" rel="noopener noreferrer" class="card card-article liquid-tilt" id="projects" aria-label="Статья в журнале Control Engineering — обзор JetHub D1+">
       <div class="article-content">
         <span class="arrow-icon-small">➔</span>
         <h3>Мои мысли, одобренные типографией</h3>
@@ -82,14 +86,14 @@
 
       <div class="contact-group">
 
-        <a href="https://t.me/red_ik" target="_blank" class="contact-row no-click">
+        <a href="https://t.me/red_ik" target="_blank" rel="noopener noreferrer" class="contact-row no-click" aria-label="Написать в Telegram">
           <img src="site/img/tg.svg" class="icon-mini" alt="tg">
           <span>@ReD_ik</span>
         </a>
 
-        <a href="mailto:me@batyushin.ru" class="contact-row no-click">
+        <a href="mailto:red_ik@inbox.ru" class="contact-row no-click">
           <span class="icon-emoji">📧</span>
-          <span>me@batyushin.ru</span>
+          <span>red_ik@inbox.ru</span>
         </a>
 
         <div class="phone-actions">
@@ -98,7 +102,7 @@
             <span>Позвонить</span>
           </a>
 
-          <button class="btn-copy-icon copy-trigger no-click" data-phone="+79952882810" title="Скопировать">
+          <button class="btn-copy-icon copy-trigger no-click" data-phone="+79952882810" title="Скопировать" aria-label="Скопировать номер телефона">
             📋
           </button>
         </div>
@@ -113,13 +117,11 @@
         <p>Если я оказался вам полезен, поддержите проект! 🎉</p>
       </div>
       <div class="donate-controls">
-      <!--
         <div class="simple-phone copy-trigger" data-phone="+79952882810">
           <span class="sp-number">+7 (995) 288-28-10</span>
           <span class="sp-label">copy</span>
         </div>
-       /-->
-        <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" target="_blank" class="btn-donate-small">
+        <a href="https://www.tinkoff.ru/cf/3V8WvC29UpI" target="_blank" rel="noopener noreferrer" class="btn-donate-small" aria-label="Поддержать проект">
           💳 Поддержать
         </a>
       </div>

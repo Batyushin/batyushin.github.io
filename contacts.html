@@ -2,12 +2,18 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Batyushin.ru | Дмитрий Батюшин (ReD)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Контакты | Batyushin.ru</title>
 
   <meta name="description" content="Связь с Дмитрием Батюшиным (ReD). Telegram, Email, Телефон." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://batyushin.ru/contacts.html" />
   <meta property="og:title" content="Контакты | ReD" />
-  <meta property="og:image" content="site/img/og-preview.png" />
+  <meta property="og:description" content="Связь с Дмитрием Батюшиным (ReD). Telegram, Email, Телефон." />
+  <meta property="og:image" content="https://batyushin.ru/site/img/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Контакты | ReD" />
+  <meta name="twitter:image" content="https://batyushin.ru/site/img/og-preview.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +22,7 @@
   <link rel="stylesheet" href="site/styles.css" />
   <link rel="icon" type="image/x-icon" href="site/favicon.ico" />
 
-  <script src="site/metrics.js"></script>
+  <script src="site/metrics.js" defer></script>
   <link rel="canonical" href="https://batyushin.ru/contacts.html" />
 </head>
 <body>
@@ -47,7 +53,7 @@
 
     <div class="panel-links-list">
 
-      <a href="https://t.me/red_ik" target="_blank" class="panel-row">
+      <a href="https://t.me/red_ik" target="_blank" rel="noopener noreferrer" class="panel-row" aria-label="Написать в Telegram">
         <div class="panel-icon-box">
           <img src="site/img/tg.svg" alt="TG" class="panel-icon-img">
         </div>
@@ -58,11 +64,11 @@
         <div class="panel-arrow">➔</div>
       </a>
 
-      <a href="mailto:me@batyushin.ru" class="panel-row">
+      <a href="mailto:red_ik@inbox.ru" class="panel-row">
         <div class="panel-icon-box">📧</div>
         <div class="panel-data">
           <span class="panel-label">Электронная почта</span>
-          <p class="panel-value">me@batyushin.ru</p>
+          <p class="panel-value">red_ik@inbox.ru</p>
         </div>
         <div class="panel-arrow">➔</div>
       </a>
@@ -78,9 +84,9 @@
           <div class="panel-arrow">➔</div>
         </a>
 
-        <div class="panel-copy-btn copy-trigger" data-phone="+79952882810" title="Скопировать номер">
+        <button class="panel-copy-btn copy-trigger" data-phone="+79952882810" title="Скопировать номер" aria-label="Скопировать номер телефона">
           📋
-        </div>
+        </button>
 
       </div>
 

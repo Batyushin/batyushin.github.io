@@ -1,38 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // === 1. LIQUID TILT (Анимация наклона) ===
-    // Вынесена в функцию, чтобы можно было перезапускать (для футера)
+    // Стабильная ссылка на обработчик — без неё removeEventListener не работает
+    let tiltHandler = null;
+    let tiltRAF = 0;
+
     window.initLiquidTilt = function() {
         const cards = document.querySelectorAll('.liquid-tilt');
+        if (!cards.length) return;
 
-        // Функция обработки движения мыши
-        function handleTilt(e) {
+        // Удаляем предыдущий обработчик (теперь ссылка стабильная)
+        if (tiltHandler) {
+            document.removeEventListener('mousemove', tiltHandler);
+        }
+
+        tiltHandler = function(e) {
             if (window.innerWidth < 900) return;
 
-            requestAnimationFrame(() => {
+            // Throttle через rAF — не более одного пересчёта за кадр
+            cancelAnimationFrame(tiltRAF);
+            tiltRAF = requestAnimationFrame(() => {
+                const wh = window.innerHeight;
                 cards.forEach(card => {
                     const rect = card.getBoundingClientRect();
-
-                    // Оптимизация: анимируем только то, что видно на экране
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const cardX = rect.left + rect.width / 2;
-                        const cardY = rect.top + rect.height / 2;
-                        const offsetX = (e.clientX - cardX) / 55;
-                        const offsetY = (e.clientY - cardY) / 55;
+                    if (rect.top < wh && rect.bottom > 0) {
+                        const offsetX = (e.clientX - (rect.left + rect.width / 2)) / 55;
+                        const offsetY = (e.clientY - (rect.top + rect.height / 2)) / 55;
                         card.style.transform = `perspective(1000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
                     }
                 });
             });
-        }
+        };
 
-        if (cards.length > 0) {
-            // Удаляем старый слушатель перед добавлением нового (во избежание дублей)
-            document.removeEventListener('mousemove', handleTilt);
-            document.addEventListener('mousemove', handleTilt);
-        }
+        document.addEventListener('mousemove', tiltHandler, { passive: true });
     };
 
-    // Запускаем сразу при загрузке
     window.initLiquidTilt();
 
 
@@ -41,12 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // до того, как сработает onclick родительской карточки.
 
     function attachCopyLogic() {
-        const copyBtns = document.querySelectorAll('.copy-trigger');
-
-        copyBtns.forEach(btn => {
-            // Удаляем старые, чтобы не вешать дважды
-            btn.removeEventListener('click', handleCopy);
+        document.querySelectorAll('.copy-trigger').forEach(btn => {
+            if (btn._copyBound) return; // Защита от дублирования
             btn.addEventListener('click', handleCopy);
+            btn._copyBound = true;
         });
     }
 
@@ -92,12 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // === 3. NO-CLICK LOGIC (Блокировка всплытия для ссылок внутри карточек) ===
+    function stopProp(e) { e.stopPropagation(); }
+
     function attachNoClick() {
-        const noClickElems = document.querySelectorAll('.no-click');
-        noClickElems.forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.stopPropagation(); // Просто не даем клику уйти на родителя
-            });
+        document.querySelectorAll('.no-click').forEach(el => {
+            if (el._noClickBound) return;
+            el.addEventListener('click', stopProp);
+            el._noClickBound = true;
         });
     }
 

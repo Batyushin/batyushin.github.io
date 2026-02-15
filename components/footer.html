@@ -1,4 +1,4 @@
-<footer class="footer card liquid-tilt">
+<footer class="footer card liquid-tilt" role="contentinfo">
     <div class="footer-content">
         <span>&copy; 2025</span>
 
@@ -35,9 +35,8 @@
     /* 2. ОТМЕНА КРАСНОГО ВЫДЕЛЕНИЯ */
     /* Мы перебиваем глобальные стили .card:hover для футера */
     .footer.card:hover {
-        border-color: var(--glass-border) !important; /* Оставляем серую рамку */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; /* Оставляем обычную тень */
-        /* transform мы НЕ трогаем, чтобы он двигался */
+        border-color: var(--glass-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     /* 3. КРАСИВАЯ ТОЧКА */
