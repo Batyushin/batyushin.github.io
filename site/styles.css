@@ -31,7 +31,7 @@ body {
 
 /* --- BACKGROUND FX --- */
 .background-orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -2; opacity: 0.55; animation: float 14s infinite ease-in-out; }
-.orb-1 { width: 70vw; height: 70vw; background: radial-gradient(circle, var(--highlight-red), transparent 70%); top: -15%; left: -15%; }
+.orb-1 { width: 60vw; height: 60vw; background: radial-gradient(circle, var(--highlight-red), transparent 70%); top: -15%; left: -15%; opacity: 0.35; }
 .orb-2 { width: 60vw; height: 60vw; background: radial-gradient(circle, var(--deep-red), transparent 60%); bottom: -10%; right: -10%; animation-delay: -7s; }
 
 .cyber-grid {
@@ -267,6 +267,14 @@ a { text-decoration: none; color: inherit; }
 
 /* --- DONATE --- */
 .card-donate { grid-area: donate; background: linear-gradient(135deg, rgba(80, 0, 0, 0.4), rgba(20,20,20,0.4)); border-color: rgba(255, 45, 45, 0.25); flex-direction: row; align-items: center; gap: 20px; padding: 20px 30px; }
+.card-donate:hover {
+    background: linear-gradient(135deg, rgba(80, 0, 0, 0.4), rgba(20,20,20,0.4));
+    border-color: var(--highlight-red);
+    box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            0 0 20px rgba(255, 45, 45, 0.1),
+            0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
 .donate-text h3 { margin: 0; font-size: 1.1rem; }
 .donate-text p { margin: 4px 0 0; font-size: 0.85rem; opacity: 0.7; }
 .donate-controls { display: flex; align-items: center; gap: 15px; margin-left: auto; }
@@ -275,7 +283,7 @@ a { text-decoration: none; color: inherit; }
 .sp-label { opacity: 0.5; font-family: 'Inter', sans-serif; font-size: 0.8rem; }
 .sp-number { font-weight: 700; letter-spacing: 0.5px; }
 .btn-donate-small { padding: 8px 16px; border-radius: 20px; background: rgba(255, 45, 45, 0.2); color: var(--highlight-red); border: 1px solid rgba(255,45,45,0.3); font-size: 0.85rem; font-weight: 600; transition: 0.2s; }
-.btn-donate-small:hover { background: var(--highlight-red); color: #fff; box-shadow: 0 0 15px rgba(255,45,45,0.4); }
+.btn-donate-small:hover { border-color: var(--highlight-red); box-shadow: 0 0 15px rgba(255,45,45,0.3); }
 
 /* --- INTERNAL PAGES & LISTS --- */
 .card-header { display: flex; flex-direction: row; align-items: center; justify-content: space-between; min-height: auto; padding: 20px 25px; margin-bottom: 20px; text-decoration: none; color: inherit; }
@@ -458,20 +466,6 @@ audio:focus { outline: none; }
     .projects-grid { grid-template-columns: 1fr; }
 }
 
-/* --- SCROLL REVEAL --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* После завершения reveal убираем transition, чтобы не мешать tilt */
-.reveal.revealed {
-    transition: none;
-}
 
 /* --- CARD SPOTLIGHT --- */
 .card-spotlight {
@@ -492,11 +486,3 @@ audio:focus { outline: none; }
     opacity: 1;
 }
 
-/* --- PAGE TRANSITION --- */
-.page-transition {
-    animation: pageIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-@keyframes pageIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
