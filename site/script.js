@@ -115,8 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
-                spot.style.left = (e.clientX - rect.left) + 'px';
-                spot.style.top = (e.clientY - rect.top) + 'px';
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                spot.style.left = x + 'px';
+                spot.style.top = y + 'px';
+                // Координаты для border-glow через ::after
+                card.style.setProperty('--mx', x + 'px');
+                card.style.setProperty('--my', y + 'px');
             }, { passive: true });
         });
     }
