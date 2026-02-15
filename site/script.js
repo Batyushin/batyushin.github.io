@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tiltHandler = function(e) {
             if (window.innerWidth < 900) return;
 
-            // Throttle через rAF — не более одного пересчёта за кадр
             cancelAnimationFrame(tiltRAF);
             tiltRAF = requestAnimationFrame(() => {
                 const wh = window.innerHeight;
@@ -102,6 +101,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // === 4. SCROLL REVEAL ===
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+                // После завершения анимации убираем transition, чтобы не мешать tilt
+                entry.target.addEventListener('transitionend', function handler() {
+                    entry.target.classList.add('revealed');
+                    entry.target.classList.remove('reveal');
+                    entry.target.style.transitionDelay = '';
+                    entry.target.removeEventListener('transitionend', handler);
+                }, { once: true });
+            }
+        });
+    }, { threshold: 0.1 });
+
+    function initReveal() {
+        document.querySelectorAll('.card, .article-item, .card-project, .future-block').forEach((el, i) => {
+            if (el.classList.contains('reveal') || el.classList.contains('revealed')) return;
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${i * 0.06}s`;
+            revealObserver.observe(el);
+        });
+    }
+
+    initReveal();
+
+    // === 5. CARD SPOTLIGHT ===
+    function initSpotlight() {
+        if (window.innerWidth < 900) return;
+
+        document.querySelectorAll('.card, .card-project, .article-item').forEach(card => {
+            if (card._spotlightBound) return;
+            card._spotlightBound = true;
+
+            const spot = document.createElement('div');
+            spot.className = 'card-spotlight';
+            card.appendChild(spot);
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                spot.style.left = (e.clientX - rect.left) + 'px';
+                spot.style.top = (e.clientY - rect.top) + 'px';
+            }, { passive: true });
+        });
+    }
+
+    initSpotlight();
+
+    // === 6. PAGE TRANSITION ===
+    const wrapper = document.querySelector('.wrapper');
+    if (wrapper) wrapper.classList.add('page-transition');
+
     // Инициализируем логику
     attachCopyLogic();
     attachNoClick();
@@ -110,5 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.reinitInteractions = function() {
         attachCopyLogic();
         attachNoClick();
+        initReveal();
+        initSpotlight();
     };
 });

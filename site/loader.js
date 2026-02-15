@@ -17,9 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         setupHeaderButtons();
                     }
 
-                    // 2. Если это МЕНЮ -> запускаем анимацию дока
+                    // 2. Если это МЕНЮ -> запускаем анимацию дока + активная точка
                     if (id === 'dock-container') {
                         initDockAnimation();
+                        markActiveDockItem();
                     }
 
                     // 3. Перезапускаем эффекты (наклон карточек и копирование)
@@ -55,6 +56,24 @@ document.addEventListener("DOMContentLoaded", function() {
     loadComponent("header-container", "components/header.html");
     loadComponent("footer-container", "components/footer.html");
 });
+
+// --- АКТИВНАЯ ТОЧКА В ДОКЕ (как в macOS) ---
+function markActiveDockItem() {
+    const path = window.location.pathname;
+    const page = path.split('/').pop() || 'index.html';
+
+    document.querySelectorAll('.dock-item').forEach(item => {
+        const href = item.getAttribute('href');
+        if (!href || href.startsWith('http')) return;
+
+        const isHome = (page === '' || page === 'index.html') && href === 'index.html';
+        const isMatch = href === page;
+
+        if (isHome || isMatch) {
+            item.classList.add('active');
+        }
+    });
+}
 
 // --- АНИМАЦИЯ ДОКА (Меню) ---
 function initDockAnimation() {
