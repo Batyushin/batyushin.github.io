@@ -21,12 +21,12 @@
     &quot;assignee&quot;: &quot;Batyushin&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Batyushin/batyushin.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;7fee59b5-68b9-4a7b-9bdd-e6a7fd9f720a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Batyushin/batyushin.github.io.git",
+    "accountId": "b64b0049-dcab-4877-a728-32104124e525"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -37,29 +37,29 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="30mQnABB7o3uov0MiIXwKZSYpEQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/red/IdeaProjects/batyushin.github.io&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.index.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/red/IdeaProjects/batyushin.github.io",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -120,14 +120,17 @@
       <workItem from="1771143756581" duration="640000" />
       <workItem from="1771144408430" duration="9911000" />
       <workItem from="1771155103576" duration="429000" />
-    </task>
-    <task id="LOCAL-00144" summary="-">
-      <option name="closed" value="true" />
-      <created>1765892509622</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1765892509622</updated>
+      <workItem from="1771155543999" duration="1170000" />
+      <workItem from="1771163743614" duration="2844000" />
+      <workItem from="1771495820840" duration="1187000" />
+      <workItem from="1771578255295" duration="42000" />
+      <workItem from="1771661531266" duration="2000" />
+      <workItem from="1771865178233" duration="13000" />
+      <workItem from="1772174662116" duration="27000" />
+      <workItem from="1772175287874" duration="4000" />
+      <workItem from="1772175298102" duration="4000" />
+      <workItem from="1772175333693" duration="6000" />
+      <workItem from="1772175480181" duration="5000" />
     </task>
     <task id="LOCAL-00145" summary="-">
       <option name="closed" value="true" />
@@ -513,7 +516,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771153709853</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="-">
+      <option name="closed" value="true" />
+      <created>1771155842991</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1771155842991</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
