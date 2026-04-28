@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-" />
+    <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
+      <change beforePath="$PROJECT_DIR$/soft/amneziawg.msi" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,12 +21,12 @@
     &quot;assignee&quot;: &quot;Batyushin&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Batyushin/batyushin.github.io.git",
-    "accountId": "237849de-da31-458e-bfe3-55de21e2b763"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Batyushin/batyushin.github.io.git&quot;,
+    &quot;accountId&quot;: &quot;237849de-da31-458e-bfe3-55de21e2b763&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -65,11 +67,11 @@
       <recent name="$PROJECT_DIR$/old" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/soft" />
       <recent name="$PROJECT_DIR$/site/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/site" />
       <recent name="$PROJECT_DIR$/site/" />
-      <recent name="$PROJECT_DIR$/site/article" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -129,22 +131,6 @@
       <workItem from="1772175298102" duration="4000" />
       <workItem from="1772175333693" duration="6000" />
       <workItem from="1772175480181" duration="5000" />
-    </task>
-    <task id="LOCAL-00147" summary="-">
-      <option name="closed" value="true" />
-      <created>1765895602206</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1765895602206</updated>
-    </task>
-    <task id="LOCAL-00148" summary="-">
-      <option name="closed" value="true" />
-      <created>1765895791974</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1765895791974</updated>
     </task>
     <task id="LOCAL-00149" summary="-">
       <option name="closed" value="true" />
@@ -522,7 +508,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773225848052</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="-">
+      <option name="closed" value="true" />
+      <created>1777399318764</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1777399318764</updated>
+    </task>
+    <task id="LOCAL-00197" summary="-">
+      <option name="closed" value="true" />
+      <created>1777399505126</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1777399505126</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
