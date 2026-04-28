@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-" />
+    <list default="true" id="3685c140-2d70-4f75-938c-3840aca0ba98" name="Changes" comment="-">
+      <change beforePath="$PROJECT_DIR$/soft/amneziawg-amd64-windows7-1.0.2.msi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/soft/amneziawg-x86-2.0.0.msi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/soft/amneziawg-x86-windows7-1.0.2.msi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/soft/sanja_pc.conf" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,14 +134,6 @@
       <workItem from="1772175298102" duration="4000" />
       <workItem from="1772175333693" duration="6000" />
       <workItem from="1772175480181" duration="5000" />
-    </task>
-    <task id="LOCAL-00151" summary="-">
-      <option name="closed" value="true" />
-      <created>1765897441295</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1765897441295</updated>
     </task>
     <task id="LOCAL-00152" summary="-">
       <option name="closed" value="true" />
@@ -522,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777400095247</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="-">
+      <option name="closed" value="true" />
+      <created>1777400599514</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1777400599514</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
